@@ -1,0 +1,1596 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ABB.Robotics.RobotStudio.Documents</name>
+    </assembly>
+    <members>
+        <member name="T:RobotStudio.API.Internal.RobotAppsDocumentProvider">
+            <summary>
+            An implementation of the <see cref="T:RobotStudio.API.Internal.OnlineDocumentProvider"/> class for ABB RobotApps documents.
+            </summary>
+        </member>
+        <member name="M:RobotStudio.API.Internal.RobotAppsDocumentProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:RobotStudio.API.Internal.RobotAppsDocumentProvider"/> class.
+            </summary>
+        </member>
+        <member name="M:RobotStudio.API.Internal.RobotAppsDocumentProvider.CreateLocalDirectory">
+            <summary>
+            Creates the local directory.
+            </summary>
+        </member>
+        <member name="M:RobotStudio.API.Internal.RobotAppsDocumentProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RobotStudio.API.Internal.RobotAppsDocumentProvider"/> class.
+            </summary>
+            <param name="id">The id.</param>
+        </member>
+        <member name="M:RobotStudio.API.Internal.RobotAppsDocumentProvider.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RobotStudio.API.Internal.RobotAppsDocumentProvider"/> class.
+            </summary>
+            <param name="id">The id.</param>
+            <param name="url">The url.</param>
+            <param name="displayName">The display name.</param>
+            <param name="filter">The filter.</param>
+        </member>
+        <member name="M:RobotStudio.API.Internal.RobotAppsDocumentProvider.GetOnlineDocuments">
+            <summary>
+            Gets the online documents.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.RobotAppsDocumentProvider.Deserialize(System.String)">
+            <summary>
+            Deserializes the specified service response.
+            </summary>
+            <param name="serviceResponse">The service response.</param>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.RobotAppsDocumentProvider.ParseAsync(System.Xml.Linq.XDocument)">
+            <summary>
+            Parses the specified documents.
+            </summary>
+            <param name="documents">The documents.</param>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.RobotAppsDocumentProvider.ParseAsync(System.Xml.Linq.XElement)">
+            <summary>
+            Parses the document asynchronous.
+            </summary>
+            <param name="document">The document.</param>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.RobotAppsDocumentProvider.GetPropertyValue(System.Xml.Linq.XElement,System.String)">
+            <summary>
+            Gets the property value.
+            </summary>
+            <param name="document">The document.</param>
+            <param name="name">The name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.RobotAppsDocumentProvider.GetCachedPreviewAsync(System.String)">
+            <summary>
+            Gets the path to a cached preview.
+            </summary>
+            <param name="previewUrl">The preview URL.</param>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.RobotAppsDocumentProvider.LoadCachedImage(System.String)">
+            <summary>
+            Loads the image.
+            </summary>
+            <param name="path">The path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.RobotAppsDocumentProvider.GetLocalCopy(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="documentUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.RobotAppsDocumentProvider.GetLocalCopyAsync(ABB.Robotics.RobotStudio.Documents.DocumentInfo)">
+            <summary>
+            Gets the local copy async.
+            </summary>
+            <param name="documentInfo">The document info.</param>
+            <returns></returns>
+        </member>
+        <member name="T:RobotStudio.API.Internal.OnlineDocumentProvider">
+            <summary>
+            Base class for online doucment providers.
+            </summary>
+            <exclude/>
+            
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.InitResources(System.String,System.Drawing.Image,System.Drawing.Image,System.Drawing.Image)">
+            <summary>
+            ABB Internal use
+            </summary>
+            <param name="typeDisplayName"></param>
+            <param name="folder"></param>
+            <param name="remote"></param>
+            <param name="unavailable"></param>
+        </member>
+        <member name="P:RobotStudio.API.Internal.OnlineDocumentProvider.TypeDisplayName">
+            <summary>
+            Overloaded.
+            </summary>
+        </member>
+        <member name="P:RobotStudio.API.Internal.OnlineDocumentProvider.Icon">
+            <summary>
+            Overloaded.
+            </summary>
+        </member>
+        <member name="P:RobotStudio.API.Internal.OnlineDocumentProvider.FolderSeparator">
+            <summary>
+            Overloaded.
+            </summary>
+        </member>
+        <member name="P:RobotStudio.API.Internal.OnlineDocumentProvider.Available">
+            <summary>
+            Overloaded.
+            </summary>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.GetOnlineDocuments">
+            <summary>
+            Gets the online documents.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.GetFolderUrls(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="folderUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.GetDocumentUrls(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="folderUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.Search(ABB.Robotics.RobotStudio.Documents.SearchSpec)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="spec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.GetOnlineDocumentsMetaData">
+            <summary>
+            Gets the online documents meta data.
+            </summary>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.IsNewUpdateRequired">
+            <summary>
+            Determines whether [is new update required].
+            </summary>
+            <returns>
+              <c>true</c> if [is new update required]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.AddToCache(System.Collections.Generic.IEnumerable{ABB.Robotics.RobotStudio.Documents.DocumentInfo})">
+            <summary>
+            Adds to cache.
+            </summary>
+            <param name="result">The result.</param>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.GetDocumentInfo(System.String)">
+            <summary>
+            Returns information about a document.
+            </summary>
+            <param name="documentUrl"></param>
+            <returns>
+            Null if the document was not found.
+            </returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.GetFolderInfo(System.String)">
+            <summary>
+            Returns information about a folder.
+            </summary>
+            <param name="folderUrl"></param>
+            <returns>
+            Null if the folder was not found.
+            </returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.GetLocalCopy(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="documentUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.GetLocalCopyInfo(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="relativePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.GetLocalCopyStatus(ABB.Robotics.RobotStudio.Documents.DocumentInfo)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="docInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.IsFolderAvailable(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="folderUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.IsDocumentAvailable(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="documentUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.GetParentUrl(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.SaveConfiguration(System.Xml.XmlElement)">
+            <summary>
+            Saves the configuration of this provider to an XML element.
+            </summary>
+            <param name="configElement"></param>
+        </member>
+        <member name="M:RobotStudio.API.Internal.OnlineDocumentProvider.LoadConfiguration(System.Xml.XmlElement)">
+            <summary>
+            Loads the configuration of this provider from an XML element.
+            </summary>
+            <param name="configElement"></param>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.DocumentInfo">
+            <summary>
+            Contains information about a document.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentInfo.#ctor(ABB.Robotics.RobotStudio.Documents.DocumentProvider,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Drawing.Image,System.Int64,System.DateTime)">
+            <summary>
+            Constructor 
+            </summary>
+            <param name="provider"></param>
+            <param name="url"></param>
+            <param name="fileName"></param>
+            <param name="title"></param>
+            <param name="type"></param>
+            <param name="author"></param>
+            <param name="revision"></param>
+            <param name="comments"></param>
+            <param name="preview"></param>
+            <param name="fileSize"></param>
+            <param name="lastWrite"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentInfo.#ctor(ABB.Robotics.RobotStudio.Documents.DocumentProvider,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Drawing.Image,System.Int64,System.DateTime,System.Boolean,System.Boolean,System.String,System.Uri)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ABB.Robotics.RobotStudio.Documents.DocumentInfo"/> class.
+            </summary>
+            <param name="provider">The provider.</param>
+            <param name="url">The URL.</param>
+            <param name="fileName">Name of the file.</param>
+            <param name="title">The title.</param>
+            <param name="type">The type.</param>
+            <param name="author">The author.</param>
+            <param name="revision">The revision.</param>
+            <param name="comments">The comments.</param>
+            <param name="preview">The preview.</param>
+            <param name="fileSize">Size of the file.</param>
+            <param name="lastWrite">The last write.</param>
+            <param name="online">if set to <c>true</c> [online].</param>
+            <param name="downloaded">if set to <c>true</c> [downloaded].</param>
+            <param name="rating">The rating.</param>
+            <param name="previewUrl">The preview location.</param>
+            <exclude/>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfo.Provider">
+            <summary>
+            Returns the <see cref="T:ABB.Robotics.RobotStudio.Documents.DocumentProvider"/> that contains the document.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfo.Available">
+            <summary>
+            Returns true if the document can be read.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfo.Url">
+            <summary>
+            Returns the URL of the document (relative to the provider URL).
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfo.FileName">
+            <summary>
+            Returns the filename of the document.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfo.Title">
+            <summary>
+            Returns the title of the document.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfo.DocumentType">
+            <summary>
+            Returns the type of document.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfo.Author">
+            <summary>
+            Returns the author of the document.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfo.Revision">
+            <summary>
+            Returns the revision of the document.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfo.Comments">
+            <summary>
+            Returns comments for the document.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfo.FileSize">
+            <summary>
+            Returns the size of the document, in bytes.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfo.Preview">
+            <summary>
+            Returns an image representing the document.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfo.LastWrite">
+            <summary>
+            Returns the last time the document was modified, in UTC.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfo.Online">
+            <summary>
+            Returns true if the document is from an online library.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfo.Downloaded">
+            <summary>
+            Returns true if the document has been downloaded from an online library.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfo.Rating">
+            <summary>
+            Returns the online rating the document recieved in the online library
+            </summary>
+            <exclude/>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfo.PreviewUrl">
+            <summary>
+            Gets the preview location.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.FolderInfo">
+            <summary>
+            Contains information about a logical folder.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FolderInfo.#ctor(ABB.Robotics.RobotStudio.Documents.DocumentProvider,System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="provider"></param>
+            <param name="url"></param>
+            <param name="folderName"></param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.FolderInfo.Provider">
+            <summary>
+            Returns the <see cref="T:ABB.Robotics.RobotStudio.Documents.DocumentProvider"/> that contains the document.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.FolderInfo.Available">
+            <summary>
+            Returns true if the folder can be read.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.FolderInfo.Url">
+            <summary>
+            Returns the URL of the folder (relative to the provider URL).
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.FolderInfo.FolderName">
+            <summary>
+            Returns the name of the folder;
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.ResultEventArgs">
+            <summary>
+            Provides data for the <see cref="E:ABB.Robotics.RobotStudio.Documents.DocumentManager.SearchComplete"/> and
+            <see cref="E:ABB.Robotics.RobotStudio.Documents.DocumentManager.BrowseComplete"/> events.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.ResultEventArgs.#ctor(System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="tag"></param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.ResultEventArgs.Tag">
+            <summary>
+            Returns the tag from the <see cref="T:ABB.Robotics.RobotStudio.Documents.SearchSpec"/> or <see cref="T:ABB.Robotics.RobotStudio.Documents.BrowseSpec"/>.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.DocumentEventArgs">
+            <summary>
+            Provides data for the <see cref="E:ABB.Robotics.RobotStudio.Documents.DocumentManager.DocumentResult"/> event.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentEventArgs.#ctor(ABB.Robotics.RobotStudio.Documents.DocumentInfo,System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="doc">The found document.</param>
+            <param name="tag">The tag from the <see cref="T:ABB.Robotics.RobotStudio.Documents.SearchSpec"/> or <see cref="T:ABB.Robotics.RobotStudio.Documents.BrowseSpec"/>.</param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentEventArgs.Document">
+            <summary>
+            Returns the found document.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.DocumentActivatedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:ABB.Robotics.RobotStudio.Documents.DocumentManager.DocumentActivated"/> event.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentActivatedEventArgs.#ctor(ABB.Robotics.RobotStudio.Documents.DocumentInfo)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="doc">The activated document.</param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentActivatedEventArgs.Document">
+            <summary>
+            Returns the activated document.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentActivatedEventArgs.CancelActivation">
+            <summary>
+            Gets or sets a value indicating if the GUI should cancel the default action
+            (e.g. launch document) for the activated document.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.FolderEventArgs">
+            <summary>
+            Provides data for the <see cref="E:ABB.Robotics.RobotStudio.Documents.DocumentManager.FolderResult"/> event.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FolderEventArgs.#ctor(ABB.Robotics.RobotStudio.Documents.FolderInfo,System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="folder"></param>
+            <param name="tag">The tag from the <see cref="T:ABB.Robotics.RobotStudio.Documents.SearchSpec"/> or <see cref="T:ABB.Robotics.RobotStudio.Documents.BrowseSpec"/></param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.FolderEventArgs.Folder">
+            <summary>
+            Returns the folder.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.DocumentInfoCache">
+            <summary>
+            Contains cached information about documents.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfoCache.Modified">
+            <summary>
+            Returns true if the cache has been modified after it was loaded from disk.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentInfoCache.Add(System.String,ABB.Robotics.RobotStudio.Documents.DocumentInfo)">
+            <summary>
+            Adds the specified document to the cache.
+            </summary>
+            <param name="key">Document URL</param>
+            <param name="value">Document info</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentInfoCache.ContainsKey(System.String)">
+            <summary>
+            Determines whether the cache contains the specified document.
+            </summary>
+            <param name="key">Document URL</param>
+            <returns></returns>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfoCache.Keys">
+            <summary>
+            Gets a collection containing the Document URLs in the cache.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentInfoCache.Remove(System.String)">
+            <summary>
+            Removes the document with the specified URL from the cache
+            </summary>
+            <param name="key">Document URL</param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentInfoCache.TryGetValue(System.String,ABB.Robotics.RobotStudio.Documents.DocumentInfo@)">
+            <summary>
+            Gets the document associated with the specified URL
+            </summary>
+            <param name="key">Document URL</param>
+            <param name="value">Document info</param>
+            <returns></returns>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfoCache.Values">
+            <summary>
+            Gets a collection containing the documents in the cache
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentInfoCache.Item(System.String)">
+            <summary>
+            Gets the document associated with the specified URL
+            </summary>
+            <param name="key">Document URL</param>
+            <returns></returns>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.DocumentManager">
+            <summary>
+            Provides access to documents in local and remote locations.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.Initialize">
+            <summary>
+            Initializes this instance.
+            </summary>
+            <remarks>Note that provider configurations may be dependant on externally configured UrlSubstitutions, which must be set before Initialize is called.</remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.Shutdown">
+            <summary>
+            ABB internal use
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentManager.ProviderTypes">
+            <summary>
+            Returns a list of all registered <see cref="T:ABB.Robotics.RobotStudio.Documents.DocumentProvider"/> types.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentManager.UrlSubstitutions">
+            <summary>
+            Returns a list of all registered <see cref="T:ABB.Robotics.RobotStudio.Documents.UrlSubstitution">UrlSubstitutions</see>.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentManager.Providers">
+            <summary>
+            Returns a <see cref="T:ABB.Robotics.RobotStudio.Documents.DocumentProviderCollection"/> containing all registered
+            <see cref="T:ABB.Robotics.RobotStudio.Documents.DocumentProvider">DocumentProviders</see>.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.LoadProviders(System.String)">
+            <summary>
+            Loads providers from an XML file, but does not add them to the Providers collection.
+            </summary>
+            <param name="fileName">Path to XML file.</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.ImportProviders(System.String)">
+            <summary>
+            Imports providers from an XML file.
+            </summary>
+            <param name="fileName">Path to XML file.</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.ExportProviders(System.String)">
+            <summary>
+            Exports all persistent providers to an XML file.
+            </summary>
+            <param name="fileName">Path to XML file.</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.ExportProviders(System.String,System.Collections.Generic.IEnumerable{ABB.Robotics.RobotStudio.Documents.DocumentProvider})">
+            <summary>
+            Exports providers to an XML file.
+            </summary>
+            <param name="fileName">Path to XML file.</param>
+            <param name="providers">Providers to export.</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.BeginSearch(ABB.Robotics.RobotStudio.Documents.SearchSpec)">
+            <summary>
+            Starts an asynchronous search.
+            </summary>
+            <param name="spec"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.BeginBrowse(ABB.Robotics.RobotStudio.Documents.BrowseSpec)">
+            <summary>
+            Starts an asynchronous browse.
+            </summary>
+            <param name="spec"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.BrowseSync(ABB.Robotics.RobotStudio.Documents.BrowseSpec)">
+            <summary>
+            Starts a synchronous browse.
+            </summary>
+            <param name="spec"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.FindDocument(System.String)">
+            <summary>
+            Finds a document given it's full URL (provider URL + folder separator + document URL),
+            or path to local copy.
+            </summary>
+            <param name="documentUrl"></param>
+            <returns>DocumentInfo, or null if not found.</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.GetLocalCopy(ABB.Robotics.RobotStudio.Documents.DocumentInfo)">
+            <summary>
+            Downloads (if needed) a document.
+            </summary>
+            <param name="documentInfo">The document info of the file to download.</param>
+            <returns>Path to the local copy of the file.</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.GetLocalCopyAsync(ABB.Robotics.RobotStudio.Documents.DocumentInfo)">
+            <summary>
+            Asynchronously downloads (if needed) a document.
+            </summary>
+            <param name="documentInfo">The document info of the file to download.</param>
+            <returns>Path to the local copy of the file.</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.GetLocalCopyInfo(System.String)">
+            <summary>
+            Returns a DocumentInfo corresponding to a local copy.
+            </summary>
+            <param name="localPath"> Path to the local copy of the document. </param>
+            <returns>Null if no document corresponding to the local copy was found. </returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.GetLocalCopyStatus(ABB.Robotics.RobotStudio.Documents.DocumentInfo)">
+            <summary>
+            Returns the status of the local copy of a document.
+            </summary>
+            <param name="docInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.GetLocalCopyStatus(System.String)">
+            <summary>
+            Returns the status of the local copy of a document.
+            </summary>
+            <param name="localPath"> Path to the local copy of the document. </param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.FindSubstitution(System.String)">
+            <summary>
+            Replaces the start of an URL with an Id from <see cref="P:ABB.Robotics.RobotStudio.Documents.DocumentManager.UrlSubstitutions"/>
+            </summary>
+            <param name="originalUrl"></param>
+            <returns>Empty string is no substitution was found.</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.FindReverseSubstitution(System.String)">
+            <summary>
+            Replaces an Id from <see cref="P:ABB.Robotics.RobotStudio.Documents.DocumentManager.UrlSubstitutions"/> at the start of an URL.
+            </summary>
+            <param name="urlWithSubstitution"></param>
+            <returns>Empty string is no substitution was found.</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.RaiseDocumentActivated(ABB.Robotics.RobotStudio.Documents.DocumentActivatedEventArgs)">
+            <summary>
+            Raises the <see cref="E:ABB.Robotics.RobotStudio.Documents.DocumentManager.DocumentActivated"/> event.
+            </summary>
+            <param name="eventArgs"></param>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Documents.DocumentManager.DocumentActivated">
+            <summary>
+            Raised when a document is activated (e.g. double-clicked) in a GUI.
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Documents.DocumentManager.DocumentResult">
+            <summary>
+            Raised when a mathcing document is found during a search or browse operation.
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Documents.DocumentManager.FolderResult">
+            <summary>
+            Raised when a folder is found during a browse operation.
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Documents.DocumentManager.Error">
+            <summary>
+            Raised when a <see cref="T:ABB.Robotics.RobotStudio.Documents.DocumentProvider"/> causes an exception.
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Documents.DocumentManager.Progress">
+            <summary>
+            Raised during a search operation to indicate the folder being searched.
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Documents.DocumentManager.SearchComplete">
+            <summary>
+            Raised when a search operation is complete.
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Documents.DocumentManager.BrowseComplete">
+            <summary>
+            Raised when a browse operation is complete.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.DocumentProvider">
+            <summary>
+            Abstract base for classes that provide access to documents
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.TypeDisplayName">
+            <summary>
+            Returns a string describing the type of provider 
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.Icon">
+            <summary>
+            Returns an icon representing this provider
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.FolderSeparator">
+            <summary>
+            Returns a string that is used to separate folders
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.Id">
+            <summary>
+            Returns a unique id for this provider
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.Available">
+            <summary>
+            Returns a value that indicates if the provider is online
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.DisplayName">
+            <summary>
+            Gets or sets a string representing the provider
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.Url">
+            <summary>
+            Gets or sets the root URL for the provider
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.Filter">
+            <summary>
+            Gets or sets a string that is used to filter the contents
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.Locked">
+            <summary>
+            Gets or sets a value that indicates if the provider is allowed
+            to be modified or deleted.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.Persistent">
+            <summary>
+            Gets or sets a value that indicates if the provider is automatically
+            saved.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.GalleryMenu">
+            <summary>
+            Gets or sets the id of a CommandBarPopup that should contain
+            a gallery with items from this provider.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.GalleryStyle">
+            <summary>
+            Gets or sets the style of the gallery.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.IncludeInSearch">
+            <summary>
+            Gets or sets a value that indicates if this provider should
+            be included by default in a search operation.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.LocalDirectory">
+            <summary>
+            Gets or sets the directory that should be used to download
+            files from a remote location.
+            </summary>
+            <remarks> The directory must reside on a local disk. </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.InfoCache">
+            <summary>
+            Returns a <see cref="T:ABB.Robotics.RobotStudio.Documents.DocumentInfoCache"/> that contains 
+            cached information about the documents contained by this provider.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.OnShowConfigurationDialog(System.Windows.Forms.IWin32Window)">
+            <summary>
+            Shows a dialog that allows the user to configure this provider.
+            </summary>
+            <param name="owner"></param>
+            <returns></returns>
+            <remarks> By default, this method raises the <see cref="E:ABB.Robotics.RobotStudio.Documents.DocumentProvider.ShowConfigurationDialog"/> event. </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.SaveConfiguration(System.Xml.XmlElement)">
+            <summary>
+            Saves the configuration of this provider to an XML element.
+            </summary>
+            <param name="configElement"></param>
+            <remarks> When overriding this method, always call the base class method. </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.LoadConfiguration(System.Xml.XmlElement)">
+            <summary>
+            Loads the configuration of this provider from an XML element.
+            </summary>
+            <param name="configElement"></param>
+            <remarks> When overriding this method, always call the base class method. </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.Initialize">
+            <summary>
+            Initializes this provider.
+            </summary>
+            <remarks> When overriding this method, always call the base class method. </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.Shutdown">
+            <summary>
+            Shuts down this provider.
+            </summary>
+            <remarks>When overriding this method, always call the base class method.</remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.GetFolderUrls(System.String)">
+            <summary>
+            Returns a list of folders contained in a parent folder.
+            </summary>
+            <param name="folderUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.GetDocumentUrls(System.String)">
+            <summary>
+            Returns a list of documents contained in a parent folder.
+            </summary>
+            <param name="folderUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.GetDocumentInfo(System.String)">
+            <summary>
+            Returns information about a document.
+            </summary>
+            <param name="documentUrl"></param>
+            <returns> Null if the document was not found. </returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.GetDocumentInfos(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Returns information about documents.
+            </summary>
+            <param name="documentUrls"></param>
+            <returns></returns>
+            <remarks> Override this to provide an implementation optimized for the provider type. </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.GetFolderInfo(System.String)">
+            <summary>
+            Returns information about a folder.
+            </summary>
+            <param name="folderUrl"></param>
+            <returns> Null if the folder was not found. </returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.GetFolderInfos(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Returns information about folders;
+            </summary>
+            <param name="folderUrls"></param>
+            <returns></returns>
+            <remarks> Override this to provide an implementation optimized for the provider type. </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.GetParentUrl(System.String)">
+            <summary>
+            Returns the parent folder of a document or folder.
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.Search(ABB.Robotics.RobotStudio.Documents.SearchSpec)">
+            <summary>
+            Performs a search.
+            </summary>
+            <param name="spec"></param>
+            <remarks> Override this to provide an implementation optimized for the provider type.
+            This method may be called from a worker thread. To support cancelling a search,
+            poll the BrowseSpec.Abort flag periodically. </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.Browse(ABB.Robotics.RobotStudio.Documents.BrowseSpec)">
+            <summary>
+            Performs a browse, e.g. returns all folders and files in a parent folder.
+            </summary>
+            <remarks> Override this to provide an implementation optimized for the
+            provider type.
+            This method may be called from a worker thread. To support cancelling the operation,
+            poll the BrowseSpec.Abort flag periodically. </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.GetLocalCopy(System.String)">
+            <summary>
+            Downloads a file from a network location to a copy in <see cref="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.LocalDirectory"/>.
+            </summary>
+            <param name="documentUrl"></param>
+            <returns>The path to the file on disk.</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.GetLocalCopyAsync(ABB.Robotics.RobotStudio.Documents.DocumentInfo)">
+            <summary>
+            Asynchronously downloads a file from a network location to a copy in <see cref="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.LocalDirectory"/>.
+            </summary>
+            <remarks>Override as needed. Default implementation will call the synchronous version.</remarks>
+            <param name="documentInfo">The document info of the file to be downloaded.</param>
+            <returns>The path to the file on disk.</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.GetLocalCopyInfo(System.String)">
+            <summary>
+            Returns information about a document given its local copy.
+            </summary>
+            <param name="relativePath">Path of the local copy relative to <see cref="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.LocalDirectory"/>.</param>
+            <returns> Null if the document was not found. </returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.GetLocalCopyStatus(ABB.Robotics.RobotStudio.Documents.DocumentInfo)">
+            <summary>
+            Returns information about the local copy of a document.
+            </summary>
+            <param name="docInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.IsFolderAvailable(System.String)">
+            <summary>
+            Returns true if the contents of a folder can be read.
+            </summary>
+            <param name="folderUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.IsDocumentAvailable(System.String)">
+            <summary>
+            Returns true if the contents of a document can be read.
+            </summary>
+            <param name="documentUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Documents.DocumentProvider.ShowConfigurationDialog">
+            <summary>
+            Raised when a <see cref="T:ABB.Robotics.RobotStudio.Documents.DocumentProvider"/> should display its configuration interface.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.RaiseDocumentResult(ABB.Robotics.RobotStudio.Documents.DocumentInfo,System.Object)">
+            <summary>
+            Raises the <see cref="E:ABB.Robotics.RobotStudio.Documents.DocumentProvider.DocumentResult"/> event.
+            </summary>
+            <param name="docInfo"></param>
+            <param name="tag"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.RaiseFolderResult(ABB.Robotics.RobotStudio.Documents.FolderInfo,System.Object)">
+            <summary>
+            Raises the <see cref="E:ABB.Robotics.RobotStudio.Documents.DocumentProvider.FolderResult"/> event.
+            </summary>
+            <param name="folderInfo"></param>
+            <param name="tag"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.RaiseError(System.Exception)">
+            <summary>
+            Raises the <see cref="E:ABB.Robotics.RobotStudio.Documents.DocumentProvider.Error"/> event.
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.RaiseProgress(System.String,System.Object)">
+            <summary>
+            Raises the <see cref="E:ABB.Robotics.RobotStudio.Documents.DocumentProvider.Progress"/> event.
+            </summary>
+            <param name="url"></param>
+            <param name="tag"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.AppendElement(System.Xml.XmlElement,System.String,System.String)">
+            <summary>
+            Appends an element to the xml configuration document.
+            </summary>
+            <param name="configElement"></param>
+            <param name="name"></param>
+            <param name="text"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProvider.GetElement(System.Xml.XmlElement,System.String)">
+            <summary>
+            Finds a value in the xml configuration document.
+            </summary>
+            <param name="configElement"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.DocumentProviderCollection">
+            <summary>
+            Contains a collection of <see cref="T:ABB.Robotics.RobotStudio.Documents.DocumentProvider"/>s.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProviderCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProviderCollection.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProviderCollection.Add(ABB.Robotics.RobotStudio.Documents.DocumentProvider)">
+            <summary>
+            Adds a provider to the collection.
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProviderCollection.Remove(ABB.Robotics.RobotStudio.Documents.DocumentProvider)">
+            <summary>
+            Removes a provider from the collection.
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProviderCollection.Remove(System.String)">
+            <summary>
+            Removes the provider with the specified Id from the collection.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProviderCollection.Item(System.String)">
+            <summary>
+            Returns the provider with the specified Id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProviderCollection.Clear">
+            <summary>
+            Removes all providers from the collection.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProviderCollection.Clear(System.Boolean)">
+            <summary>
+            Removes all providers from the collection.
+            </summary>
+            <param name="saveCache">True if the providers should save their document cache. </param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProviderCollection.Contains(ABB.Robotics.RobotStudio.Documents.DocumentProvider)">
+            <summary>
+            Determines whether the collection contains the specified provider.
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProviderCollection.Contains(System.String)">
+            <summary>
+            Determines whether the collection contains a provider with the specified Id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.DocumentProviderCollection.CopyTo(ABB.Robotics.RobotStudio.Documents.DocumentProvider[],System.Int32)">
+            <summary>
+            Overloaded
+            </summary>
+            <param name="array"></param>
+            <param name="arrayIndex"></param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProviderCollection.Count">
+            <summary>
+            Gets the number of providers contained in the collection.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.DocumentProviderCollection.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the collection is read-only. 
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider">
+            <summary>
+            Provides documents on local and remote file systems.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="directory"></param>
+            <param name="displayName"></param>
+            <param name="filter"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="id"></param>
+            <param name="directory"></param>
+            <param name="displayName"></param>
+            <param name="filter"></param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.IsPackageInstallSource">
+            <summary>
+            True if the location should be considered a package source for the 'RobotApps' package installation window on the add-ins tab
+            The contents should consist of .rspak files.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.InitResources(System.String,System.Drawing.Image,System.Drawing.Image,System.Drawing.Image)">
+            <summary>
+            ABB Internal use
+            </summary>
+            <param name="typeDisplayName"></param>
+            <param name="folder"></param>
+            <param name="remote"></param>
+            <param name="unavailable"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.IsNetworkPath(System.String)">
+            <summary>
+            Returns true if the specified path is a network location.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.Url">
+            <summary>
+            Overloaded.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.TypeDisplayName">
+            <summary>
+            Overloaded.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.Icon">
+            <summary>
+            Overloaded.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.FolderSeparator">
+            <summary>
+            Overloaded.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.Available">
+            <summary>
+            Overloaded.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.GetFolderUrls(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="folderUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.GetDocumentUrls(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="folderUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.GetDocumentInfo(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="documentUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.GetFolderInfo(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="folderUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.GetLocalCopy(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="documentUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.GetLocalCopyInfo(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="relativePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.GetLocalCopyStatus(ABB.Robotics.RobotStudio.Documents.DocumentInfo)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="docInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.IsFolderAvailable(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="folderUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.IsDocumentAvailable(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="documentUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.GetParentUrl(System.String)">
+            <summary>
+            Overloaded.
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.SaveConfiguration(System.Xml.XmlElement)">
+            <summary>
+            Saves the configuration of this provider to an XML element.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.FileSystemDocumentProvider.LoadConfiguration(System.Xml.XmlElement)">
+            <summary>
+            Loads the configuration of this provider from an XML element.
+            </summary>
+            <param name="configElement"></param>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.GalleryStyle">
+            <summary>
+            Indicates how a <see cref="T:ABB.Robotics.RobotStudio.Documents.DocumentProvider"/> should be represented by a popup gallery.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Documents.GalleryStyle.None">
+            <summary>
+            Don't display the gallery.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Documents.GalleryStyle.Menu">
+            <summary>
+            Each subfolder is displayed in a separate popup gallery.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Documents.GalleryStyle.Flat">
+            <summary>
+            Display a single gallery with a header for each subfolder.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.LocalCopyStatus">
+            <summary>
+            Indicates the status of a local copy of a remote document.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Documents.LocalCopyStatus.LocalCopyNotFound">
+            <summary>
+            No local copy was found.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Documents.LocalCopyStatus.RemoteDocumentNotFound">
+            <summary>
+            No document corresponding to the local copy was found.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Documents.LocalCopyStatus.LocalCopyValid">
+            <summary>
+            The local copy is equal to the remote document.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Documents.LocalCopyStatus.LocalCopyOlder">
+            <summary>
+            The local copy is older than the remote document.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Documents.LocalCopyStatus.LocalCopyNewer">
+            <summary>
+            The local copy is newer than the remote document.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.UrlSubstitution">
+            <summary>
+            Represents a named alias for an URL or part of an URL.
+            </summary>
+            <remarks> Used to make certain URLs portable when configuring a
+            <see cref="T:ABB.Robotics.RobotStudio.Documents.DocumentProvider"/> on different machines.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.UrlSubstitution.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">A unique string that represents the URL</param>
+            <param name="url">The URL that is represented by the Id</param>
+            <param name="displayName">A localized name that represents the URL</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.UrlSubstitution.#ctor(System.String,System.Func{System.String},System.String)">
+            <summary>
+            Creates a dynamic alias
+            </summary>
+            <param name="id">A unique string that represents the URL</param>
+            <param name="urlFunc">A function that returns the URL that is represented by the Id</param>
+            <param name="displayName">A localized name that represents the URL</param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.UrlSubstitution.Id">
+            <summary>
+            Returns a unique string that represents the URL.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.UrlSubstitution.Url">
+            <summary>
+            Returns the URL that is represented by the Id
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.UrlSubstitution.DisplayName">
+            <summary>
+            Returns a localized name that represents the URL.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.ConfigurationDialogEventArgs">
+            <summary>
+            Provides data for the <see cref="E:ABB.Robotics.RobotStudio.Documents.DocumentProvider.ShowConfigurationDialog"/> event.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.ConfigurationDialogEventArgs.Owner">
+            <summary>
+            Returns the owner window.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.ConfigurationDialogEventArgs.Result">
+            <summary>
+            Gets or sets the result of the configuration dialog.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.PredicateNode">
+            <summary>
+            Provides a predicate that is the result of grouping other predicates.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.PredicateNode.Type">
+            <summary>
+            Specifies the node type.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Documents.PredicateNode.Type.And">
+            <summary>
+            Match() returns true if all nodes in Children return true.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Documents.PredicateNode.Type.Or">
+            <summary>
+            Match() returns true if any node in Children returns true.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Documents.PredicateNode.Type.Leaf">
+            <summary>
+            Match() return the result of the Predicate member.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.PredicateNode.#ctor(ABB.Robotics.RobotStudio.Documents.PredicateNode.Type)">
+            <summary>
+            Constructs a grouping predicate node.
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.PredicateNode.#ctor(System.Predicate{ABB.Robotics.RobotStudio.Documents.DocumentInfo})">
+            <summary>
+            Constructs a leaf predicate node.
+            </summary>
+            <param name="predicate"></param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.PredicateNode.NodeType">
+            <summary>
+            Specifies the node type.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.PredicateNode.Invert">
+            <summary>
+            Gets or sets if the result of the evaluation should be inverted.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.PredicateNode.Children">
+            <summary>
+            Gets the collection of children in a grouping node.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.PredicateNode.Predicate">
+            <summary>
+            Gets the predicate for a leaf node.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.PredicateNode.Match(ABB.Robotics.RobotStudio.Documents.DocumentInfo)">
+            <summary>
+            Returns true if the specified document matches this predicate.
+            </summary>
+            <param name="docInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.AnyField">
+            <summary>
+            Provides a predicate that matches any field in a document.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.AnyField.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="query"> String to look for. </param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.AnyField.Match(ABB.Robotics.RobotStudio.Documents.DocumentInfo)">
+            <summary>
+            Returns true if the specified document matches this predicate.
+            </summary>
+            <param name="docInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.MatchType">
+            <summary>
+            Specifies how to match a field.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Documents.MatchType.Equals">
+            <summary>
+            The field value must be equal to the query value
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Documents.MatchType.Contains">
+            <summary>
+            The field value must contain the query value
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Documents.MatchType.Less">
+            <summary>
+            The field value must be less than the query value
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Documents.MatchType.Greater">
+            <summary>
+            The field value must be greater than the query value
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.NamedField">
+            <summary>
+            Provides a predicate that matches a named field in a document.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.NamedField.#ctor(System.String,System.String,ABB.Robotics.RobotStudio.Documents.MatchType)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="field">Field to match. Valid values are filename, title,
+            type, author, comments, revision, date, size (in KB). </param>
+            <param name="query"> String to look for in the field. </param>
+            <param name="type"> Type of match to perform. </param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.NamedField.Match(ABB.Robotics.RobotStudio.Documents.DocumentInfo)">
+            <summary>
+            Returns true if the specified document matches this predicate.
+            </summary>
+            <param name="docInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.SearchSpec">
+            <summary>
+            Provides data for the <see cref="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.BeginSearch(ABB.Robotics.RobotStudio.Documents.SearchSpec)"/> method.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.SearchSpec.#ctor(ABB.Robotics.RobotStudio.Documents.DocumentProvider,System.String,System.Predicate{ABB.Robotics.RobotStudio.Documents.DocumentInfo},System.Boolean,System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="provider"></param>
+            <param name="folderUrl"></param>
+            <param name="predicate"></param>
+            <param name="recursive"></param>
+            <param name="tag"></param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.SearchSpec.Provider">
+            <summary>
+            Provider to search, or null to search all providers with
+            <see cref="P:ABB.Robotics.RobotStudio.Documents.DocumentProvider.IncludeInSearch"/> set to true.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.SearchSpec.FolderUrl">
+            <summary>
+            URL of the folder to search, relative to the provider URL.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.SearchSpec.Recursive">
+            <summary>
+            True to search all folders beneath <see cref="P:ABB.Robotics.RobotStudio.Documents.SearchSpec.FolderUrl"/>.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.SearchSpec.Tag">
+            <summary>
+            An object that is returned in the <see cref="T:ABB.Robotics.RobotStudio.Documents.DocumentEventArgs"/>.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.SearchSpec.Predicate">
+            <summary>
+            Predicate that is used to determine if a document should be 
+            included in the search result.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.SearchSpec.Abort">
+            <summary>
+            Set to true to cancel the search operation.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.SearchSpec.Match(ABB.Robotics.RobotStudio.Documents.DocumentInfo)">
+            <summary>
+            Returns true if the specified document should be included in the search result.
+            </summary>
+            <param name="docInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.BrowseSpec">
+            <summary>
+            Provides data for the <see cref="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.BeginBrowse(ABB.Robotics.RobotStudio.Documents.BrowseSpec)"/> and
+            <see cref="M:ABB.Robotics.RobotStudio.Documents.DocumentManager.BrowseSync(ABB.Robotics.RobotStudio.Documents.BrowseSpec)"/> methods.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.BrowseSpec.#ctor(ABB.Robotics.RobotStudio.Documents.DocumentProvider,System.String,System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="provider"></param>
+            <param name="folderUrl"></param>
+            <param name="tag"></param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.BrowseSpec.Provider">
+            <summary>
+            Provider to search browse.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.BrowseSpec.FolderUrl">
+            <summary>
+            URL of the folder to browse, relative to the provider URL.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.BrowseSpec.Tag">
+            <summary>
+            An object that is returned in the <see cref="T:ABB.Robotics.RobotStudio.Documents.ResultEventArgs"/>.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Documents.BrowseSpec.Abort">
+            <summary>
+            Set to true to cancel the browse operation.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.BrowseSpec.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Documents.SolutionDocumentProvider">
+            <summary>
+            Provides access to files in the active solution folder
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.SolutionDocumentProvider.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Documents.SolutionDocumentProvider.Shutdown">
+            <summary>
+            Overloaded.
+            </summary>
+        </member>
+    </members>
+</doc>

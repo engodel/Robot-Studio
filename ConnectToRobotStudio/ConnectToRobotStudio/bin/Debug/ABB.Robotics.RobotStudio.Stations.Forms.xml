@@ -1,0 +1,969 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ABB.Robotics.RobotStudio.Stations.Forms</name>
+    </assembly>
+    <members>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.DirectionControl">
+            <summary>
+            PositionControl with extra button for defining a direction (or offset) by two points
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.DirectionControl.RefCoordSys">
+            <summary>
+            Gets or sets the associated <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.ReferenceComboBox">reference coordinate system combo box</see> control.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Stations.Forms.DirectionControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.DirectionControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.DirectionControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.DirectionEditorUi.RefCoordSys">
+            <summary>
+            Gets or sets the associated <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.ReferenceComboBox">reference coordinate system combo box</see> control.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Stations.Forms.DirectionEditorUi.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.DirectionEditorUi.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.DirectionEditorUi.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.HoverObjectControl">
+            <summary>
+            The HoverObjectControl contains only a TextBox and a label used for
+            describing the content that will be used as input to the control.
+            The control is used to show a preview of what object will be selected
+            in by the GraphicPicker of active project (when the mouse pointer
+            hovers hovered over a ProjectObject).
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.HoverObjectControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.HoverObjectControl.LabelText">
+            <summary>
+            The label for the text box.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.HoverObjectControl.ObjectHovered">
+            <summary>
+            Keeps the object last hovered in the graphic view.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.HoverObjectControl.PositionOnObject">
+            <summary>
+            Keeps the position on the object where hit.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.HoverObjectControl.AddValidType(System.Type)">
+            <summary>
+            Adds a ProjectObject type that is valid as input to the control.
+            </summary>
+            <param name="type">Any ProjectObject type</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.HoverObjectControl.ClearControl">
+            <summary>
+            Clears the members and empties the text box.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.HoverObjectControl.RemoveValidType(System.Type)">
+            <summary>
+            Removes a ProjectObject type from being valid input to the
+            control.
+            </summary>
+            <param name="type">Any ProjectObject type</param>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Stations.Forms.HoverObjectControl.HoverObjectChanged">
+            <summary>
+            Event fired when hovered object is changed.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.InertiaControl.Value">
+            <summary>
+            Gets or sets the inertia displayed in the text boxes
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.JointValuesControl">
+            <summary>
+            Summary description for JointValuesControl.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.JointValuesControl.Value">
+            <summary>
+            Gets or sets the values displayed in the text boxes
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.Metrics">
+            <summary>
+            Hardcoded sizes and layout values used in this assembly
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox">
+            <summary>
+            Numeric TextBox consisting of a edit control, spin buttons and a label. 
+            Supports mathematical expressions, Measuring unit conversions and min/max limits.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox"/> class.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.Value">
+            <summary>
+            The numeric value in the SI unit of the specified Quantity.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.MinValue">
+            <summary>
+            Gets or sets the minimum allowed value in SI units.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.MaxValue">
+            <summary>
+            Gets or sets the maximum allowed value in SI units.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.NumDecimals">
+            <summary>
+            This property is obsolete.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.ExpressionErrorString">
+            <summary>
+            Gets or sets a text to show in the <see cref="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.ErrorProviderControl"/> when the typed text cannot be evaluated as a numeric value.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.MaxValueErrorString">
+            <summary>
+            Gets or sets a text to show in the <see cref="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.ErrorProviderControl"/> when the value exceeds the maximum value.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.MinValueErrorString">
+            <summary>
+            Gets or sets a text to show in the <see cref="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.ErrorProviderControl"/> when the value is below the minimum value.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.TruncatedValueIndication">
+            <summary>
+            Gets the string that indicates that all decimals are not shown.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.Quantity">
+            <summary>
+            Gets or sets the quantity of the value.
+            </summary>
+            <remarks>
+            The value in the text box is displayed in the current unit of the specified quantity,
+            but the <see cref="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.Value"/> property is always in SI units.
+            The name of the active unit is appended to the <see cref="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.LabelText"/>.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.LabelText">
+            <summary>
+            Gets or sets the text of the label displayed beside the text box.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.ErrorProviderControl">
+            <summary>
+            Gets or sets an <see cref="T:System.Windows.Forms.ErrorProvider"/> for displaying errors from this control
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.ShowLabel">
+            <summary>
+            Gets or sets a value that indicates if a text label is displayed besides the text box.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.UserEdited">
+            <summary>
+            Gets or sets a value that indicates if the user has edited the value.
+            </summary>
+            <remarks>
+            User-edited values are displayed in a different color (default: blue)
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.StepSize">
+            <summary>
+            Gets or sets the amount to change the value when the user clicks the up and down buttons.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.IsValid">
+            <summary>
+            Gets if the text box contains a valid numeric expression inside the limits.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.IsEditing">
+            <summary>
+            Gets if the user is currently editing the value.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.ReadOnly">
+            <summary>
+            Gets or sets if the numeric field is locked from editing by the user.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.InnerTextBox">
+            <summary>
+            Returns the inner TextBox contained by this control
+            </summary>
+            <remarks>
+            Be careful about manipulating the inner TextBox directly. Prefer using the API of the containing NumericTextBox.
+            </remarks>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.ValueChanged">
+            <summary>
+            Raised when the <see cref="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.Value"/> property has changed.
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.UserEditedChanged">
+            <summary>
+            Raised when the <see cref="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.UserEdited"/> property has changed
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.IsValidChanged">
+            <summary>
+            Raised when the <see cref="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox.IsValid"/> property has changed.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBoxArray">
+            <summary>
+            An "array" of numeric text boxes with that will distribute its width equally 
+            among all child edit boxes
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBoxArray.LabelText">
+            <summary>
+            Returns the label text shown above the edit box array
+            </summary>
+            <remarks>
+            The label is only visible if ShowLabel = true
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBoxArray.ShowLabel">
+            <summary>
+            Gets or sets if a label should be displayed above the edit box array
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBoxArray.NumericalTextBoxes">
+            <summary>
+            Access to the collection of numerical textboxes
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBoxArray.ErrorProviderControl">
+            <summary>
+            Gets/Sets the error provider of the control
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBoxArray.IsValid">
+            <summary>
+            Is this control valid
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBoxArray.ExpressionErrorString">
+            <summary>
+            Value to show in error provider when bad expression
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBoxArray.MaxValueErrorString">
+            <summary>
+            Value to show in error provider when value exceeds maximum value
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBoxArray.MinValueErrorString">
+            <summary>
+            Value to show in error provider when value exceeds maximum value
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBoxArray.NumTextBoxes">
+            <summary>
+            Gets or sets the number of numeric edit boxes displayed by this control
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBoxArray.VerticalLayout">
+            <summary>
+            Display the text boxes on top of each other
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBoxArray.DoLayout">
+            <summary>
+            Layouts the child controls so that they fill
+            the entire width of the control
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControlChangingEventArgs">
+            <summary>
+            Provides data for the <see cref="E:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.SelectedObjectChanging"/> event.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControlChangingEventArgs.#ctor(System.Object)">
+            <summary>
+            ABB internal use
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControlChangingEventArgs.ChangingObject">
+            <summary>
+            Gets the object that is being selected in the control.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControlChangingEventArgs.Cancel">
+            <summary>
+            Gets or sets a value that indicates if the selection should be canceled.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControlChangingEventHandler">
+            <summary>
+            Represents a handler for the <see cref="E:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.SelectedObjectChanging"/> event.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl">
+            <summary>
+            Represents a control for selecting a <see cref="T:ABB.Robotics.RobotStudio.ProjectObject"/>, either by clicking in the graphics or by selecting from a dropdown list.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.#ctor">
+            <summary>
+            Creates a new <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl"/>.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.AutoSelectNextControl">
+            <summary>
+            Gets or sets whether the control should call SelectNextControl
+            when selection is updated.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.SelectedObject">
+            <summary>
+            Gets or sets the selected <see cref="T:ABB.Robotics.RobotStudio.ProjectObject"/>.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.LabelText">
+            <summary>
+            Gets or sets the text to display above the selection control.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.InitialText">
+            <summary>
+            Gets or sets the initial text in the selection control.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.ReadOnly">
+            <summary>
+            Gets or sets if the selection control is read-only.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.Filter">
+            <summary>
+            Gets or sets a <see cref="T:System.Predicate`1"/> that can be used for filtering selection.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.AddValidType(System.Type)">
+            <summary>
+            Adds a <see cref="T:System.Type"/> that is valid for selection.
+            </summary>
+            <param name="type"></param>
+            <remarks>The type should be a subclass of <see cref="T:ABB.Robotics.RobotStudio.ProjectObject"/>.</remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.AddDropDownValue(ABB.Robotics.RobotStudio.ProjectObject)">
+            <summary>
+            Adds a single object to the dropdown list.
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.AddDropDownScope(ABB.Robotics.RobotStudio.ProjectObject)">
+            <summary>
+            Specifies that all descendants of an object should be added to the dropdown list.
+            </summary>
+            <param name="scope"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.AddDropDownExclusion(ABB.Robotics.RobotStudio.ProjectObject)">
+            <summary>
+            Adds an object that should be excluded from the dropdown list.
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.SelectedObjectChanging">
+            <summary>
+            Occurs before <see cref="P:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.SelectedObject"/> changes.
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.SelectedObjectChanged">
+            <summary>
+            Occurs when <see cref="P:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.SelectedObject"/> has changed.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ObjectSelectionControl.m_activeObjectSelectionControlTimer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Called when 250ms has expired after a position control has lost focus.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.OrientationControl">
+            <summary>
+            Represents a control that displays an orientation as either Euler angles or quaternions.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.OrientationControl.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.OrientationControl"/> class.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.OrientationControl.EnableModeChange">
+            <summary>
+            Shows or hides the menu that allows the user to switch between Euler and quaternion representation.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.OrientationControl.QuaternionMode">
+            <summary>
+            Gets or sets if the orientation should be represented as quaternions or Euler angles.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.OrientationControl.Value">
+            <summary>
+            Gets or sets the orientation as Euler angles.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.PositionControl">
+            <summary>
+            Represents a Windows control to display a position, with separate numeric text boxes for X, Y and Z. 
+            The control inherits a <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBoxArray"/> with three <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox">numeric text boxes</see>.
+            Set and get the position value using the <see  cref="P:ABB.Robotics.RobotStudio.Stations.Forms.PositionControl.Value"/> property.
+            It is possible to acceess individual numeric text boxes for X, Y and Z through the <see cref="P:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBoxArray.NumericalTextBoxes"/>.
+            </summary>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Stations.Forms.NumericTextBox"/>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Stations.Forms.ReferenceComboBox"/>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.PositionControl.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.PositionControl"/> class.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.PositionControl.Value">
+            <summary>
+            Gets or sets the position displayed in the numeric text boxes. 
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.PositionControl.RefCoordSys">
+            <summary>
+            Gets or sets the associated <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.ReferenceComboBox">reference coordinate system combo box</see> control.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.PositionControl.ReferenceMatrix">
+            <summary>
+            Reference matrix in global coordinates.
+            The position in the PositionControl is expressed relative this coordinate system.
+            </summary>
+            <remarks>
+            This property is relevant only when picking a position from the graphics window.
+            If you for example would like to input a position that is relative to a <b>Part</b>, you should assign the global matrix of the Part to the <see cref="P:ABB.Robotics.RobotStudio.Stations.Forms.PositionControl.ReferenceMatrix"/> property.
+            The pick position will be transformed to the coordinate system specified by <see cref="P:ABB.Robotics.RobotStudio.Stations.Forms.PositionControl.ReferenceMatrix"/> before it is displayed.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.PositionControl.SetFocus">
+            <summary>
+            Sets focus to the 'X' edit control
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Stations.Forms.PositionControl.Pick">
+            <summary>
+            Raised when the value has been changed as the result of the user picking in a 3D view.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.PositionControl.NumEditBox_Enter(System.Object,System.EventArgs)">
+            <summary>
+            Called when one of our edit boxes gets focus
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.PositionControl.NumEditBox_Leave(System.Object,System.EventArgs)">
+            <summary>
+            Called when one of our edit boxes has lost focus. 
+            Starts a 250ms timer before m_activePositionControl is reset 
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.PositionControl.m_activePositionControlTimer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Called when 250ms has expired after a position control has lost focus.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.QuaternionControl">
+            <summary>
+            Represents a control that displays an orientation as quaternions.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.QuaternionControl.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.QuaternionControl"/> class.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.QuaternionControl.Value">
+            <summary>
+            Gets or sets the orientation as EulerZYX
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.ReferenceComboBox">
+            <summary>
+            ComboBox for selecting a reference coordinate system
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ReferenceComboBox.RefCoordSys">
+            <summary>
+            Reference coordinate system
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ReferenceComboBox.ShowGraphicalFrame">
+            <summary>
+            Show a graphical frame in the origin of the reference
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ReferenceComboBox.GraphicalFrameSize">
+            <summary>
+            Size of each axis of the graphical frame in meters
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ReferenceComboBox.GraphicalFrameWidth">
+            <summary>
+            Width of each axis of the graphical frame in pixels
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ReferenceComboBox.DrawFrame(ABB.Robotics.Math.Matrix4)">
+            <summary>
+            Draw the graphical frame
+            </summary>
+            <param name="frameMatrix">matrix representing the graphical frame</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ReferenceComboBox.RemoveGraphicalFrame">
+            <summary>
+            Removes the graphical frame if there is any
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ReferenceComboBox.m_combo_Disposed(System.Object,System.EventArgs)">
+            <summary>
+            Control is disposing, remove temp graphical frame
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSys">
+            <summary>
+            Represents the reference coordinate system functionality and connects the <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.ReferenceComboBox"/> with the <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.PositionControl"/>.
+            It keeps a collection of <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSysItem"/> which represents the different reference coordinate systems to choose from.
+            </summary>
+            <remarks>
+            It is possible to edit the number of reference coordinate systems and their values, in design time. 
+            To do that you first have to add a <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSys"/> to your <see cref="T:System.Windows.Forms.Form"/>.
+            <br></br><b>Built in reference coordinate systems</b><br></br>
+            The most common reference cordinate systems have their own classes deriving from <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSysItem"/>. Please see the <b>See Also Section</b> below.
+            </remarks>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Stations.Forms.WorldRefCoordSys"/>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Stations.Forms.LocalRefCoordSys"/>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Stations.Forms.ParentRefCoordSys"/>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Stations.Forms.UcsRefCoordSys"/>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Stations.Forms.UserDefAxisRefCoordSys"/>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSysItem"/>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Stations.Forms.ReferenceComboBox"/>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Stations.Forms.PositionControl"/>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSys.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSys"/> class.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSys.Items">
+            <summary>
+            Gets the collection of contained <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSysItem"/>s.
+            </summary>
+            <remarks>
+            When a <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.ReferenceComboBox"/> is associated <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSys"/>, the items in the combobox will correspond to the each <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSys"/> in this collection.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSys.Current">
+            <summary>
+            Gets or sets the current 
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSysItem.GetGlobalMatrixFromReference(ABB.Robotics.Math.Matrix4)">
+            <summary>
+            Returns a matrix in global coordinates, given a matrix in reference coordinates
+            </summary>
+            <param name="mat">A matrix in reference coordinates</param>
+            <returns>Returns a matrix in global coordinates</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSysItem.GetMatrixFromReference(ABB.Robotics.RobotStudio.Stations.Transform,ABB.Robotics.Math.Matrix4)">
+            <summary>
+            Returns a matrix in a specified coordinate system (relTo), given a matrix (mat)
+            in reference coordinates
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSysItem.GetMatrixInReference(ABB.Robotics.RobotStudio.Stations.Transform,ABB.Robotics.Math.Matrix4)">
+            <summary>
+            Returns a matrix in reference coordinates, given a matrix (mat) and the coordinate system (relTo) that 
+            the matrix is defined in.
+            </summary>
+            <remarks>relTo=null means mat should be defined in global coordinates</remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSysItem.GetMatrixInReference(ABB.Robotics.RobotStudio.Stations.Transform)">
+            <summary>
+            Returns a matrix in reference coordinates, given the Transform for the object
+            </summary>
+            <remarks>objectTrf=null will return origo for the current reference coordinate system.</remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSysItemCollection.CopyTo(ABB.Robotics.RobotStudio.Stations.Forms.RefCoordSysItem[],System.Int32)">
+            <summary>
+            Copies the elements of the collection to an RefCoordSysItem array, starting at a particular Array index
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase">
+            <summary>
+            Base class for all hosted tool controls
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.Caption">
+            <summary>
+            Gets or sets the caption of the tool control (shown vertically to the left of the control)
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.ShowApplyButton">
+            <summary>
+            Gets or sets whether the control should have an apply button or not
+            </summary>
+            <remarks>
+            Mutually exclusive with ShowCreateButton property
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.ShowCreateButton">
+            <summary>
+            Gets or sets whether the control should have an create button or not
+            </summary>
+            <remarks>
+            Mutually exclusive with ShowApplyButton property
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.ShowCloseButton">
+            <summary>
+            Gets or sets whether the control should have a close button or not
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.ShowClearButton">
+            <summary>
+            Gets or sets whether the control should have a clear button or not
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.ShowHelpButton">
+            <summary>
+            Gets or sets whether the control should have a help button or not
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.NeedsSelection">
+            <summary>
+            True if the control operates on the current selection, false otherwise.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.SupportsSelectionChange">
+            <summary>
+            Gets or sets if the control supports updating itself with a new selection
+            </summary>
+            <remarks>
+            If set to false, the host will recreate the control any time the selection changes;
+            this may have a negative performance impact.
+            Only valid if StickySelection is set to false.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.StickySelection">
+            <summary>
+            True if the control always operates on the original selection
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.AdjustableHeight">
+            <summary>
+            Gets or sets if the control height is adjustable.
+            </summary>
+            <remarks>
+            If true, the control height will be changed with the host window.
+            If false, the height of the host window is determined by the control height.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.UseDefaultUndoStep">
+            <summary>
+            Determines whether to put default undo steps around Apply and Create functions
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.SupportsUndoRedo">
+            <summary>
+            Indicates if the control behaves correctly on undo/redo.
+            If false, the control will be closed on undo/redo.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.Selection">
+            <summary>
+            Gets the selection that this tool control should work on
+            </summary>
+            <remarks>
+            This property returns valid information first when the control has been loaded
+            in the tool host (i.e. not in the constructor of the derived class).
+            It will then return the same data through the lifetime of the object.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.SelectionName">
+            <summary>Get the name supplied by the overridden class.</summary>
+            <remarks>
+            This property is only useful if an overridden calls implements it.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.CloseTool">
+            <summary>
+            Closes the Tool
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.ValidateToolControl">
+            <summary>
+            Called by the framework whenever it detects that validation may be required.
+            Implementation should return true if input is valid.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.CheckChangedState">
+            <summary>
+            Called by the framework to check whether or not values in the control have been changed.
+            WARNING: Should not be needed but implemented as double check as some ctl_Validate fires unecessarily
+            </summary>
+            
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.RaiseApply">
+            <summary>
+            Called by the host when the user presses the Apply or Create button
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.RaiseClear">
+            <summary>
+            Called by the host when the user presses the Clear button
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.SetFocusInternal">
+            <summary>
+            Sets focus to first "clickable" control, if one exists.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.InitValidation">
+            <summary>
+            Inits the validation
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.InitValidationRecursive(System.Windows.Forms.Control.ControlCollection,System.Windows.Forms.ErrorProvider)">
+            <summary>
+            Recursive function that adds events of controls in a control
+            collection to a validator
+            </summary>
+            <param name="ctrlCollection"></param>
+            <param name="errProv"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.OnUndoRedo">
+            <summary>
+            Default tool behaviour is to close on undo (CQ 6585)
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlManager">
+            <summary>
+            Manages Tool Controls hosted together with browser Tool Windows.<br></br>
+            A Tool Control is a user interface <see cref="T:System.Windows.Forms.Control">control</see> that is hosted inside a Tool Window. 
+            A hosted Tool Control can be displayed inside the browser Tool Window, and can be teared off. <br></br>A Tool Control shall not be displayed directly by the client.
+            Tool Controls must inherit <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase"/>.
+            By registering Tool Controls with the manager they can easily be shown in the approperiate host. 
+            It will also be possible to tear off the Tool Control.
+            Initailly a Tool Control is shown as a child to its host and is often associated to some selected object in the Station.
+            For example a Tool Control for setting the position of Targets, is associated with the currently selected Target. If another Target is selected the Tool Control will update itself, and from now on apply changes to the newly selected Target.
+            When the Tool Control is teared off from the host, a new instance will be created, that is still associated with the same Target, but will no longer react on selection changed.
+            </summary>
+            <remarks>
+            For internal ABB use only.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlManager.CreateToolHost(System.String)">
+            <summary>
+            Creates a host for a <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase">Tool Control</see>. Typically Tool Controls are hosted by the browser Tool Windows. 
+            The Tool Window does not host the Tool Control directly, but uses another control as a place holder.
+            This place holder is called the Tool Host Control, and is created by this method.
+            When <see cref="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlManager.ShowTool(System.Type,System.String)"/>  is called, the Tool Control will automatically be added to the Tool host Control.
+            Each host has an identity which makes it possible to find it using <see cref="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlManager.FindToolHost(System.String)"/>
+            Add the returned control to the <see cref="P:System.Windows.Forms.Control.Controls"/> collection of the browser Tool Window.<br/> 
+            The Tool Control itself will be added to the <see cref="P:System.Windows.Forms.Control.Controls"/> collection of the Tool Host Control, by the manager when <see cref="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlManager.ShowTool(System.Type,System.String)"/>  is called.
+            </summary>
+            <returns>The created host <see cref="T:System.Windows.Forms.Control"/> that is used to host Tool Controls.</returns>
+            <param name="hostId">A unique string identifier of the tool host. For example "ObjectBrowser" or "ProgramBrowser".</param>
+            <seealso cref="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlManager.FindToolHost(System.String)"/>
+            <seealso cref="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlManager.ShowTool(System.Type,System.String)"/>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlManager.FindToolHost(System.String)">
+            <summary>
+            Returns the Tool Control host with the specified identifier.
+            </summary>
+            <remarks>Predefined hosts in RobotStudio are "ObjectBrowser",
+            "ElementBrowser" and "ProgramBrowser".</remarks>
+            <param name="hostId">The identity of the host to find.</param>
+            <seealso cref="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlManager.CreateToolHost(System.String)"/>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlManager.RegisterToolCommand(System.String,System.Windows.Forms.Control)">
+            <summary>
+            Registers a Command corresponding to a Tool Control, to make it posible to display it in the specified host.
+            When calling <see cref="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlManager.ShowTool(System.Type,System.String)"/>, only registered hosts will be considered. 
+            If the Tool Control should be able to be displayed in several hosts, it has to registered with each host.
+            </summary>
+            <param name="commandId">The identity of the command. (<b>CommandBarControl.Id</b>), to register."</param>
+            <param name="host">The Tool Host Control for which the command should be registered.</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlManager.ShowTool(System.Type,System.String)">
+            <summary>
+            Creates an instance of the Tool Control specified by its <see cref="T:System.Type"/> and associated with the specified Command Id.
+            If there is a host visible, that has been registered to host the specified <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase">Tool Control</see>, the control will be instantiated and shown.
+            The current Tool Control of the host (if any) will be closed.
+            </summary>
+            <param name="controlType">The <see cref="T:System.Type"/> of the Tool Control to create and show.</param>
+            <param name="commandID">The Command Id associated with the Tool Control.</param>
+            <returns></returns>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.UnitLabel">
+            <summary>
+            Represents a <see cref="T:System.Windows.Forms.Label"/> control with the name of a unit appended to the label text.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Stations.Forms.UnitLabel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ABB.Robotics.RobotStudio.Stations.Forms.UnitLabel"/> class.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.UnitLabel.Quantity">
+            <summary>
+            Gets or sets the quantity to display in the label.
+            </summary>
+            <remarks>
+            The name of the active unit of the quantity is appended to the label text.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Stations.Forms.UnitLabel.Text">
+            <summary>
+            Gets or sets the text to display in the label.
+            </summary>
+            <remarks>
+            The name of the active unit of the quantity is appended to the label text.
+            </remarks>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.UxTheme">
+            <summary>
+            ABB Internal use.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Stations.Forms.Win32">
+            <summary>
+            P/Invoke method signatures
+            </summary>
+        </member>
+        <member name="T:ABBInternal.GUISupport.DropDownForm">
+            <summary>
+            A simple dropdown form which contains a single control
+            and "Accept" and "Cancel" buttons. For use in property browsers.
+            </summary>
+        </member>
+        <member name="F:ABBInternal.GUISupport.DropDownForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ABBInternal.GUISupport.DropDownForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:ABBInternal.GUISupport.DropDownForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:ABBInternal.GUISupport.DropDownForm.Show(System.Drawing.Point)">
+            <summary>
+            Shows the form at the specified position and doesn't return
+            until it is dismissed
+            </summary>
+        </member>
+        <member name="E:RobotStudio.API.Internal.FormsAPI.EnteredObjectOrPositionControl">
+            <summary>
+            Occurs when entering a control that uses graphic picking. Use to disable freehand modes etc.
+            </summary>
+        </member>
+        <member name="T:RobotStudio.API.Internal.Forms.TearOffForm">
+            <summary>
+            Tear-off window containing a <see cref="T:RobotStudio.API.Internal.Forms.ToolHostControl"/>.
+            </summary>
+        </member>
+        <member name="T:RobotStudio.API.Internal.Forms.IToolControlHost">
+            <summary>
+            Interface implemented by classes hosting tool controls (typically ToolHostControl and TearoffForm)
+            </summary>
+        </member>
+        <member name="T:RobotStudio.API.Internal.Forms.ToolHostControl">
+            <summary>
+            Host for tool controls
+            </summary>
+        </member>
+        <member name="M:RobotStudio.API.Internal.Forms.ToolHostControl.ActivateControl(System.Type,ABB.Robotics.RobotStudio.Environment.CommandBarButton,System.Boolean,System.Object[])">
+            <summary>
+            Creates and displays a tool control 
+            </summary>
+        </member>
+        <member name="T:RobotStudio.API.Internal.Forms.ToolWindowHelper">
+            <summary>
+            Tool Window Helper
+            </summary>
+        </member>
+        <member name="M:RobotStudio.API.Internal.Forms.ToolWindowHelper.CreateCaption(ABB.Robotics.RobotStudio.Stations.Forms.ToolControlBase,System.String)">
+            <summary>
+            Creates the right caption for a tool control depending on selection
+            </summary>
+            <param name="toolControl">tool control</param>
+            <param name="caption">original caption</param>
+            <returns>modified caption</returns>
+        </member>
+    </members>
+</doc>

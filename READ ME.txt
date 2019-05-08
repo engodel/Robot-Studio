@@ -1,0 +1,34 @@
+1. Clientapp
+
+This is a simple TCP/IP client in c# and will connect to any sever.
+If no server address is provided than the form will default to the localhost 127.0.0.1
+
+
+2. Server
+This is a TCP/IP server and is no longer needed
+
+3.RobotStudio_App(new)
+This was an alpha test and should not be used. It was used initaly to test the connection betwwen SDK and Controller, and
+also used to text a server and client in c#
+No variable are passed to RS,
+Pressing button1 will initiate a flag in RS
+
+4.ConnectToRobotStudio
+(PLEASE NOTE THAT RAPID CODE IS LOCATED INSIDE FORM1.cs THIS WILL NEED TO BE COPIED TO ROBOT STUDIO)
+   When the form loads, any virtual controller from ABB will load into the combo box.
+  *   Before connecting to the controller, please start the simulation
+  *   you will notice that the rapid code is caught in a while loop waiting to start
+  *   CONNECT CONTROLLER
+  *   PRESS START
+  *   once you press start, this passes the variable 1 to RAPID which is an indication that
+  *   the program should start
+
+5.ClientToConnectToRobotstudio
+(PLEASE NOTE THAT RAPID CODE IS LOCATED INSIDE FORM1.cs THIS WILL NEED TO BE COPIED TO ROBOT STUDIO)
+When the form loads, any virtual controller from ABB will load into the combo box.
+ *   CONNECT CONTROLLER shold start the imulation in Robot studio, if it doesnt please start manually in robot studio
+ *   The below code has a server side TCP/IP code, The server address will display on the top of the form
+ *   
+ *   A client app will need to be used to send data,
+ *   If you send a number if will send it to robot studio and the manipulator will rotate at the correct angle to pick up the lens
+  

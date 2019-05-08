@@ -1,0 +1,3144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ABB.Robotics.RobotStudio.Environment</name>
+    </assembly>
+    <members>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.ApplicationMenu">
+            <summary>
+            Represents the Application Menu that is displayed when the
+            Application Button in the upper-left corner is pressed
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ApplicationMenu.Controls">
+            <summary>
+            Returns a collection of menu items
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ApplicationMenu.ActiveBackstageControl">
+            <summary>
+            Gets or sets the active tab of the Backstage (file) menu
+            </summary>
+            <remarks>
+            Currently only the CommandBarCustomControl entries can be set as active.
+            </remarks>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.ApplicationMenu.ActiveBackstageControlChanged">
+            <summary>
+            Raised when the ActiveBackstageControl property changes
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ApplicationMenu.RecentFiles">
+            <summary>
+            This property is obsolete and may be removed in a future version.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ApplicationMenu.OptionsPages">
+            <summary>
+            Returns the collection of pages to display in the Options dialog
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.ApplicationMenu.LaunchOptionsPage(System.String)">
+            <summary>
+            Launches the Options dialog with the specified page open
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.ApplicationMenu.LaunchingOptionsPage">
+            <summary>
+            Raised by LaunchOptionsPage() before the requested options page is displayed.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.LaunchingOptionsPageEventArgs">
+            <summary>
+            Event arguments for the LaunchingOptionsPage event
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.LaunchingOptionsPageEventArgs.PageId">
+            <summary>
+            Gets or sets the ID of the options page to show
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.OptionsPageCollection">
+            <summary>
+            Represents a collection of IOptionsPage items
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.OptionsPageCollection.Add(ABB.Robotics.RobotStudio.Environment.IOptionsPage)">
+            <summary>
+            Adds a page to the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.OptionsPageCollection.Add(System.Type)">
+            <summary>
+            Adds a page type to the collection. The page object is created when the collection is enumerated.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.OptionsPageCollection.Remove(ABB.Robotics.RobotStudio.Environment.IOptionsPage)">
+            <summary>
+            Removes a page from the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.OptionsPageCollection.GetEnumerator">
+            <summary>
+            See IEnumerable.GetEnumerator()
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.IOptionsPage">
+            <summary>
+            This interface must be implemented to add a page to the Options dialog. 
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.IOptionsPage.Id">
+            <summary>
+            Returns a unique ID for the page
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.IOptionsPage.GroupCaption">
+            <summary>
+            Returns the name of the group the page should be sorted under
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.IOptionsPage.Caption">
+            <summary>
+            Returns the caption of the page as displayed in the page list
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.IOptionsPage.Description">
+            <summary>
+            Returns a description for the page that will be displayed above it.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.IOptionsPage.PageControl">
+            <summary>
+            Returns the Windows Forms Control that contains the page contents
+            </summary>
+            <remarks>
+            It is OK to let the control itself implement IOptionsPage, in that case
+            just "return this" from this property. 
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.IOptionsPage.Modified">
+            <summary>
+            Returns true if the page contents have changed
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.IOptionsPage.Apply">
+            <summary>
+            Applies changes made in the page UI
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.IOptionsPage.Reset">
+            <summary>
+            Resets the page UI
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.IOptionsPage.SetDefault">
+            <summary>
+            Resets all values to their (installation) defaults
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.IOptionsPage.HasErrors">
+            <summary>
+            Returns true if there are errors in any of the input fields on the page
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandBar">
+            <summary>
+            Represents the contents of a ToolBarControl
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBar.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the CommandBar class. 
+            </summary>
+            <param name="barId">The identity of the bar. If the caption is not set, the ID will be used. Must be unique.</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBar.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the CommandBar class. 
+            </summary>
+            <param name="barId">The identity of the bar. Must be unique.</param>
+            <param name="caption">The caption text of the command bar. The caption text should be unique.</param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBar.Controls">
+            <summary>
+            Gets a CommandBarControlCollection object that represents all the 
+            controls on this CommandBar object. 
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBar.Id">
+            <summary>
+            Returns a string identifying this CommandBar. Two CommandBars can not have the same Id.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBar.Enabled">
+            <summary>
+            Gets or sets a value indicating whether the controls on the CommandBar can be enabled or not
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandBarCollection">
+            <summary>
+            Represents a collection of command bars
+            </summary>
+            <exclude/>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarCollection.Item(System.String)">
+            <summary>
+            Gets the CommandBarControl with the given ID
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarCollection.Item(System.Int32)">
+            <summary>
+            Gets the CommandBar with the given index in the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarCollection.Add(ABB.Robotics.RobotStudio.Environment.CommandBar)">
+            <summary>
+            Adds a CommandBar to the collection
+            </summary>
+            <param name="commandBar">CommandBar to add</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarCollection.Remove(ABB.Robotics.RobotStudio.Environment.CommandBar)">
+            <summary>
+            Removes a CommandBar from the collection
+            </summary>
+            <param name="commandBar">CommandBar to remove</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarCollection.Contains(ABB.Robotics.RobotStudio.Environment.CommandBar)">
+            <summary>
+            Returns True if the collection contains the specified CommandBar, false otherwise
+            </summary>
+            <param name="commandBar">The CommandBar to search for</param>
+            <returns>True if the collection contains the specified CommandBar, false otherwise</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarCollection.GetEnumerator">
+            <summary>
+            See IEnumerable.GetEnumerator()
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarCollection.IsSynchronized">
+            <summary>
+            See ICollection.IsSynchronized. Always returns false.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarCollection.SyncRoot">
+            <summary>
+            See ICollection.SyncRoot
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarCollection.Count">
+            <summary>
+            Returns the number of items in the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarCollection.CopyTo(ABB.Robotics.RobotStudio.Environment.CommandBar[],System.Int32)">
+            <summary>
+            Copies the elements of the collection to an CommandBar array, starting at a particular Array index
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandBarButton">
+            <summary>
+            Represents a button control in a menu, toolbar or in the ribbon
+            </summary>
+            <remarks>
+            For a toolbar or in the ribbon, this is a button.
+            For a menu or context menu, this is a selectable menu item.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarButton.#ctor(System.String)">
+            <summary>
+            Creates a CommandBarButton with a specific ID.
+            </summary>
+            <remarks>
+            The Id can be null, which creates a button that can not will not be added
+            to the UIEnvironment.CommandBarControls collection.
+            If you specify an Id, prefix it with the name of your Add-In, to avoid conflicts. 
+            </remarks>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Environment.CommandBarControl"/>
+            <param name="id">Control Id</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarButton.#ctor(System.String,System.String)">
+            <summary>
+            Creates a CommandBarButton with a specific ID and caption.
+            </summary>
+            <param name="id">Control Id</param>
+            <param name="caption">Control caption</param>
+            <remarks>
+            The ID can be null, which creates a button that will not be added
+            to the UIEnvironment.CommandBarControls collection.
+            <br/>If you specify an ID, prefix it with the name of your Add-In, to avoid conflicts. 
+            </remarks>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Environment.CommandBarControl"/>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarButton.FromKeyboardShortcut(System.Windows.Forms.Keys)">
+            <summary>
+            Returns the CommandBarButton that is bound to the given shortcut key,
+            or null if the key is not used.
+            </summary>
+            <param name="key">The key to find the button for</param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarButton.FromID(System.String)">
+            <summary>
+            Returns the CommandBarButton that has the specified ID, or null
+            if none exists.
+            </summary>
+            <param name="id">ID to find button for</param>
+            <returns>The CommandBarButton with the specified ID</returns>
+            <remarks>
+            This is the same as <c>UIEnvironment.CommandBarControls[id] as CommandBarButton</c>
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarButton.Execute">
+            <summary>
+            Raises the ExecuteCommand event
+            </summary>
+            <remarks>
+            Can be used as a programmatic way of simulating e.g. a menu choice
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarButton.ExecuteAsync(ABB.Robotics.RobotStudio.Environment.ExecuteCommandReason)">
+            <summary>
+            Raises the ExecuteCommand event
+            </summary>
+            <remarks>
+            Can be used as a programmatic way of simulating e.g. a menu choice
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarButton.KeyboardShortcuts">
+            <summary>
+            Gets or sets an array of keyboard shortcuts to the command
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarButton.IsEnabled">
+            <summary>
+            Returns true if the button is currently enabled, taking both the DefaultEnabled property and the 
+            UpdateCommandUI event into account. If any event handler for UpdateCommandUI sets its Enabled property,
+            then that value is returned, otherwise DefaultEnabled is returned.
+            </summary>
+            <remarks>
+            This property reflects the behavior of the RobotStudio UI; if a button is enabled in a menu or the ribbon, 
+            then this property will return true.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarButton.IsChecked">
+            <summary>
+            Returns true if the button is currently checked, taking both the DefaultChecked property and the 
+            UpdateCommandUI event into account. If any event handler for UpdateCommandUI sets its Checked property,
+            then that value is returned, otherwise DefaultEnabled is returned.
+            </summary>
+            <remarks>
+            This property reflects the behavior of the RobotStudio UI; if a button is checked in a menu or the ribbon, 
+            then this property will return true.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarButton.Enabled">
+            <summary>
+            This property is obsolete. Use <see cref="P:ABB.Robotics.RobotStudio.Environment.CommandBarButton.DefaultEnabled"/> instead,
+            or <see cref="P:ABB.Robotics.RobotStudio.Environment.CommandBarButton.IsEnabled"/> to get the current state.
+            This property may be removed in future versions.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarButton.Checked">
+            <summary>
+            This property is obsolete. Use <see cref="P:ABB.Robotics.RobotStudio.Environment.CommandBarButton.DefaultChecked"/> instead,
+            or <see cref="P:ABB.Robotics.RobotStudio.Environment.CommandBarButton.IsChecked"/> to get the current state.
+            This property may be removed in future versions.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarButton.DefaultEnabled">
+            <summary>
+            Gets or sets whether the button should be enabled or disabled (grayed)
+            </summary>
+            <remarks>
+            Instead of setting this property, it is also possible to use the UpdateCommandUI event
+            (this will override the value of this property)
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarButton.DefaultChecked">
+            <summary>
+            Gets or sets whether the button should be checked (pressed for toolbar items)
+            </summary>
+            <remarks>
+            Instead of setting this property, it is also possible to use the UpdateCommandUI event
+            (this will override the value of this property)
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarButton.DisplayAsCheckBox">
+            <summary>
+            Gets or sets whether the button should be displayed as a check box or not
+            </summary>
+            <remarks>
+            This property will be ignored unless the button is placed directly on the Ribbon
+            as a small button.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarButton.ResolveSubscriber">
+            <summary>
+            Gets or sets whether the UpdateCommandUI and ExecuteCommand are sent to 
+            all subscribers (false) or if it should first try to send it to a subscriber from the active window (true)
+            </summary>
+            <remarks> The default is true. </remarks>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.CommandBarButton.ExecuteCommand">
+            <summary>
+            This event is raised when the user selects the CommandBarButton
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.CommandBarButton.UpdateCommandUI">
+            <summary>
+            This event is raised before the button is drawn, to allow its appearance 
+            to be modified
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarButton.LicenseFeature">
+            <summary>
+            Gets or sets a license feature required to execute this command.
+            </summary>
+            <remarks>
+            If the feature is not available, the button is disabled and the screen tip explains why.
+            This should not be used as the only method to enforce the license,
+            a proper license check should always be performed when the command is executed.
+            </remarks>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandBarButtonGroup">
+            <summary>
+            Represents a dynamic set of menu buttons
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarButtonGroup.#ctor(System.String)">
+            <summary>
+            Creates a CommandBarButtonGroup with a specific ID.
+            </summary>
+            <remarks>
+            The ID can be null, which creates a group that will not be added
+            to the UIEnvironment.CommandBarControls collection.
+            <br></br>If you specify an ID, prefix it with the name of your Add-In, to avoid conflicts. 
+            </remarks>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Environment.CommandBarControl"/>
+            <param name="id">Control ID</param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarButtonGroup.HandleButtons">
+            <summary>
+            Specifies how CommandBarButton objects in the group are handled.
+            If false, the button's UpdateCommandUI event is raised when the group is displayed, and the <i>button's</i> ExecuteCommand event is raised when the button is clicked.
+            If true, the button's state is decided when it is added, and the <i>groups</i> ExecuteCommand event is raised when the button is clicked.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarButtonGroup.FromID(System.String)">
+            <summary>
+            Returns the CommandBarButtonGroup that has the specified Id, or null
+            if none exists.
+            </summary>
+            <param name="id">Id to find an object for</param>
+            <returns>The CommandBarButtonGroup with the specified ID</returns>
+            <remarks>
+            This is the same as <c>UIEnvironment.CommandBarControls[id] as CommandBarButtonGroup</c>
+            </remarks>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.CommandBarButtonGroup.DisplayCommandGroup">
+            <summary>
+            Raised before the command group is shown, giving clients the chance
+            to populate it with buttons
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.CommandBarButtonGroup.ExecuteCommand">
+            <summary>
+            This event is raised when the user selects one of the items in this CommandBarButtonGroup
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItem">
+            <summary>
+            Represent a single item in a CommandBarComboBox
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItem.#ctor(System.String,System.Object)">
+            <summary>
+            CommandBarComboBoxItem constructor
+            </summary>
+            <param name="text">Item text</param>
+            <param name="tag">Item tag</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItem.#ctor(System.String)">
+            <summary>
+            CommandBarComboBoxItem constructor
+            </summary>
+            <param name="text">Item text</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItem.#ctor(ABB.Robotics.RobotStudio.Environment.CommandBarButton)">
+            <summary>
+            CommandBarComboBoxItem constructor
+            </summary>
+            <param name="clickButton">The button whose command will be executed when the item is selected.</param>
+            <remarks>The Tag and Text properties will be retrieved from clickButton</remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItem.Text">
+            <summary>
+            Gets or sets the item text
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItem.Tag">
+            <summary>
+            Gets or sets an object that contains client-specific data related to the combo box
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItem.ClickButton">
+            <summary>
+             The button whose command will be executed when the item is selected.
+            </summary>
+            <remarks>If ClickButton!=null, and the command is disabled, this item
+            will not be included when the dropdown list is shown</remarks>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandBarComboBox">
+            <summary>
+            Represents a combobox in a toolbar
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarComboBox.#ctor(System.String)">
+            <summary>
+            Creates a CommandBarComboBox with a specific ID.
+            </summary>
+            <remarks>
+            The ID can be null, which creates a combo box that will not be added
+            to the UIEnvironment.CommandBarControls collection.
+            <br></br>If you secify an ID, prefix it with the name of your Add-In, to avoid conflicts. 
+            </remarks>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Environment.CommandBarControl"/>
+            <param name="id">Control ID</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarComboBox.FromID(System.String)">
+            <summary>
+            Returns the CommandBarComboBox that has the specified ID, or null
+            if none exists.
+            </summary>
+            <param name="id">ID to find button for</param>
+            <returns>The CommandBarComboBox with the specified ID</returns>
+            <remarks>
+            This is the same as <c>UIEnvironment.CommandBarControls[id] as CommandBarComboBox</c>
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarComboBox.Items">
+            <summary>
+            Gets a collection of all items in the combo box
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarComboBox.Width">
+            <summary>
+            Gets or sets the width (in pixels) of the combo box
+            </summary>
+            <remarks>
+            On high DPI settings, RobotStudio will scale this width appropriately before displaying
+            the combo box.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarComboBox.SelectedIndex">
+            <summary>
+            Gets or sets the selected item's index
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarComboBox.SelectedItem">
+            <summary>
+            Gets the selected item
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarComboBox.Enabled">
+            <summary>
+            Gets or sets if the combobox is enabled.
+            </summary>
+            <remarks>
+            If the <see cref="P:ABB.Robotics.RobotStudio.Environment.CommandBarComboBox.Items"/> collection is empty, the combobox will always be disabled.
+            </remarks>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.CommandBarComboBox.SelectionChanged">
+            <summary>
+            Raised when the selected item changes
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.CommandBarComboBox.DropDown">
+            <summary>
+            Raised before the drop-down listbox is shown
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItemCollection">
+            <summary>
+            Represents a collection of items in a CommandBarComboBox
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItemCollection.Item(System.Int32)">
+            <summary>
+            Gets the item with the specified index in the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItemCollection.Add(ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItem)">
+            <summary>
+            Adds a CommandBarComboBoxItem to the collection
+            </summary>
+            <param name="item">Item to add</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItemCollection.Remove(ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItem)">
+            <summary>
+            Removes a CommandBarComboBoxItem from the collection
+            </summary>
+            <param name="item">Item to remove</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItemCollection.Clear">
+            <summary>
+            Removes all items from the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItemCollection.Contains(ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItem)">
+            <summary>
+            Checks if an item is part of the collection
+            </summary>
+            <param name="item">Item to search for</param>
+            <returns>True if the specified item is in the collection, false otherwise</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItemCollection.IndexOf(ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItem)">
+            <summary>
+            Returns the index of the specified index
+            </summary>
+            <param name="item">Item to search for</param>
+            <returns>Index of the specified item, or -1 if not found</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItemCollection.GetEnumerator">
+            <summary>
+            See IEnumerable.GetEnumerator()
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItemCollection.IsSynchronized">
+            <summary>
+            See ICollection.IsSynchronized. Always returns false.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItemCollection.SyncRoot">
+            <summary>
+            See ICollection.SyncRoot
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItemCollection.Count">
+            <summary>
+            Returns the number of items in the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItemCollection.CopyTo(ABB.Robotics.RobotStudio.Environment.CommandBarComboBoxItem[],System.Int32)">
+            <summary>
+            Copies the elements of the collection to an CommandBarComboBoxItem array, starting at a particular Array index
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.ICommandBarControlContainer">
+            <summary>
+            Common interface for all classes containing a collection of child
+            CommandBarControls
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ICommandBarControlContainer.Controls">
+            <summary>
+            Gets a collection of all child CommandBarControls in this container
+            </summary>		
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandBarControl">
+            <summary>
+            Base class for all items appearing in tool bars, menus and context menus.
+            </summary>
+            <remarks>
+            Most classes inheriting from CommandBarControl takes an ID argument in their constructors. Each instance of a CommandBarControl which is added to the UIEnvironment must have a unique ID.
+            The Id is used to identify the control in for example the <see cref="E:ABB.Robotics.RobotStudio.Environment.CommandBarButton.ExecuteCommand"/> event handler.
+            CommandBarControls with a unique ID and has been added to a control collection, can be found using <see cref="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.CommandBarControls"/>. 
+            In order to avoid collisions between Id strings used by Add-Ins, its is recomended that the name of the Add-In is used as a prefix. For example "MyCompany.MyAddin.LaunchSetupDialog", instead of using only "LaunchSetupDialog" as the Id.
+            
+            The same CommandBarControl can be added to multiple collections, in order
+            to display the same menu/toolbar choice in multiple places.
+            </remarks>
+            <seealso cref="M:ABB.Robotics.RobotStudio.Environment.CommandBarButton.FromID(System.String)"/>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarControl.#ctor(System.String,System.String)">
+            <summary>
+            Internal use only
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarControl.Id">
+            <summary>
+            Gets the unique Id of the control. 
+            </summary>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Environment.CommandBarControl"/>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarControl.Caption">
+            <summary>
+            Gets or sets the user-visible caption of the control
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarControl.Image">
+            <summary>
+            Gets or sets the control's small (16x16 pixel) image
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarControl.LargeImage">
+            <summary>
+            Gets or sets the control's large (32x32 pixel) image
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarControl.Tag">
+            <summary>
+            Gets or sets a user-defined object for the control
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarControl.HelpText">
+            <summary>
+            Gets or sets the help text that will be displayed in ScreenTips, as well as in
+            CommandBarGalleryPopups with the GalleryTextPosition property set to 'Right'
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarControl.ScreenTipImage">
+            <summary>
+            Gets or sets the image that will be displayed in the control's ScreenTip
+            </summary>
+            <remarks>
+            The image should not be wider than 100 pixels, otherwise it will be scaled down.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarControl.HelpId">
+            <summary>
+            Gets or sets the help ID of the control, used for context sensitive help.
+            </summary>
+            <remarks>
+            By default, this will be the same as the control ID
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarControl.Visible">
+            <summary>
+            Gets or sets if the CommandBarControl should be visible in the UI or not.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarControl.IsUndoable">
+            <summary>
+            Gets or sets if this CommandBarControl represents an undoable command.
+            </summary>
+            <remarks>
+            This property is used to avoid unintended nesting of undoable operations.
+            If it is True, the command will be disabled while any other undoable operation is in progress.
+            </remarks>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.CommandBarControl.TrackCommandBarControl">
+            <summary>
+            This event is raised when the CommandBarControl is tracked, i.e. the user 
+            moves the mouse over the control.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarControl.ToString">
+            <summary>
+            Returns a string representation of this
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarControl.ResolveTarget(System.Collections.Generic.IList{System.Delegate})">
+            <summary>
+            Given a list of command handlers, resolves which one shall handle the command.
+            This method is called from the CommandBarButton and CommandBarCommandGroup.
+            </summary>
+            <param name="delegates">A list with potential handlers.</param>
+            <returns>The resolved handler.</returns>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection">
+            <summary>
+            Represents a collection of CommandBarControls
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.Parent">
+            <summary>
+            Owner of the collection (often a CommandBarPopup)
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.Add(ABB.Robotics.RobotStudio.Environment.CommandBarControl)">
+            <summary>
+            Adds a CommandBarControl to the collection
+            </summary>
+            <param name="control">The control to add</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.Add(System.String)">
+            <summary>
+            Adds an existing CommandBarControl with a specific ID to the collection
+            </summary>
+            <param name="controlId">The ID of the control to add</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.AddRange(System.Collections.Generic.IEnumerable{ABB.Robotics.RobotStudio.Environment.CommandBarControl})">
+            <summary>
+            Adds a range of CommandBarControls to the collection
+            </summary>
+            <param name="controls">The controls to add</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.Insert(System.Int32,ABB.Robotics.RobotStudio.Environment.CommandBarControl)">
+            <summary>
+            Inserts a CommandBarControl at a specific location in the collection
+            </summary>
+            <param name="index">The index at which to add the control</param>
+            <param name="control">The control to add</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.Remove(ABB.Robotics.RobotStudio.Environment.CommandBarControl)">
+            <summary>
+            Removes a CommandBarControl from the collection
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.Remove(System.String)">
+            <summary>
+            Removes a CommandBarControl from the collection
+            </summary>
+            <param name="controlId">The ID of the control to remove</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.Clear">
+            <summary>
+            Removes all CommandBarControls from the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.Contains(ABB.Robotics.RobotStudio.Environment.CommandBarControl)">
+            <summary>
+            Returns True if the collection contains the specified control, false otherwise
+            </summary>
+            <param name="control">The control to search for</param>
+            <returns>True if the collection contains the specified control, false otherwise</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.Contains(System.String)">
+            <summary>
+            Returns True if the collection contains the specified control, false otherwise
+            </summary>
+            <param name="controlId">The ID to search for</param>
+            <returns>True if the collection contains the specified ID, false otherwise</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.IndexOf(ABB.Robotics.RobotStudio.Environment.CommandBarControl)">
+            <summary>
+            Returns the index of the specified control in the collection
+            </summary>
+            <param name="control">Control to search for</param>
+            <returns>Control index</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.IndexOf(System.String)">
+            <summary>
+            Returns the index of the specified control in the collection
+            </summary>
+            <param name="controlId">ID of the control to search for</param>
+            <returns>Control index</returns>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.Item(System.String)">
+            <summary>
+            Gets the CommandBarControl with the given ID
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.Item(System.Int32)">
+            <summary>
+            Gets the CommandBarControl with the given index in the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.GetEnumerator">
+            <summary>
+            See IEnumerable.GetEnumerator()
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.IsSynchronized">
+            <summary>
+            See ICollection.IsSynchronized. Always returns false.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.SyncRoot">
+            <summary>
+            See ICollection.SyncRoot
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.Count">
+            <summary>
+            Returns the number of CommandBarControls in the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarControlCollection.CopyTo(ABB.Robotics.RobotStudio.Environment.CommandBarControl[],System.Int32)">
+            <summary>
+            Copies the elements of the collection to an CommandBarControl array, starting at a particular Array index
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandBarCustomControl">
+            <summary>
+            Represents a toolbar or menu item that contains a custom Windows Forms control
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarCustomControl.#ctor(System.String)">
+            <summary>
+            Creates a CommandBarCustomControl with a specific ID.
+            </summary>
+            <remarks>
+            Prefix the ID with the name of your Add-In, to avoid conflicts. 
+            </remarks>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Environment.CommandBarControl"/>
+            <param name="id">Control ID</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarCustomControl.#ctor(System.String,System.Windows.Forms.Control)">
+            <summary>
+            Creates a CommandBarCustomControl with a specific ID, caption and contained Control.
+            </summary>
+            <param name="id">Control ID</param>
+            <param name="control">Hosted Control</param>
+            <remarks>
+            The ID can be null, which creates a popup that will not be added
+            to the UIEnvironment.CommandBarControls collection.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarCustomControl.#ctor(System.String,System.String,System.Windows.Forms.Control)">
+            <summary>
+            Creates a CommandBarCustomControl with a specific ID, caption and contained Control.
+            </summary>
+            <param name="id">Control ID</param>
+            <param name="caption">Caption</param>
+            <param name="control">Hosted Control</param>
+            <remarks>
+            The ID can be null, which creates a popup that will not be added
+            to the UIEnvironment.CommandBarControls collection.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarCustomControl.FromID(System.String)">
+            <summary>
+            Returns the CommandBarCustomControl that has the specified ID, or null
+            if none exists.
+            </summary>
+            <param name="id">ID to find control for</param>
+            <returns>The CommandBarCustomControl with the specified ID</returns>
+            <remarks>
+            This is the same as <c>UIEnvironment.CommandBarControls[id] as CommandBarCustomControl</c>
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarCustomControl.Control">
+            <summary>
+            Gets or sets the contained Control
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarCustomControl.Enabled">
+            <summary>
+            True if this control is enabled, false otherwise
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.GalleryTextPosition">
+            <summary>
+            Specifies how text should be displayed in a CommandBarGalleryPopup
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.GalleryTextPosition.NoText">
+            <summary>Text will not be displayed, only the image</summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.GalleryTextPosition.Below">
+            <summary>Text will be displayed below the image</summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.GalleryTextPosition.Right">
+            <summary>Text will be displayed to the right of the image. If the item has a HelpText it will be also be displayed.</summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandBarGalleryPopup">
+            <summary>
+            A Popup menu containing a gallery, and optionally some menu items
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarGalleryPopup.#ctor(System.String)">
+            <summary>
+            Creates a new CommandBarGalleryPopup
+            </summary>
+            <param name="id">Unique ID of the control</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarGalleryPopup.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new CommandBarGalleryPopup
+            </summary>
+            <param name="id">Unique Id of the control</param>
+            <param name="caption">Control caption</param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarGalleryPopup.NumberOfColumns">
+            <summary>
+            Gets or sets the number of columns to display. The default is one.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarGalleryPopup.GalleryItemSize">
+            <summary>
+            Gets or sets the size of each item in the gallery
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarGalleryPopup.GalleryTextPosition">
+            <summary>
+            Gets or sets the position of text in relation to each gallery item image
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarGalleryPopup.NumberOfTextLines">
+            <summary>
+            Gets or sets the number lines for text displayed below the item image
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarGalleryPopup.GalleryControls">
+            <summary>
+            Returns a collection of gallery items
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarGalleryPopup.HasEnabledItems">
+            <summary>
+            Returns true if the gallery has any enabled items
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarGalleryPopup.FromID(System.String)">
+            <summary>
+            Returns the CommandBarGalleryPopup that has the specified ID, or null
+            if none exists.
+            </summary>
+            <param name="id">ID to find popup for</param>
+            <returns>The CommandBarGalleryPopup with the specified ID</returns>
+            <remarks>
+            This is the same as <c>UIEnvironment.CommandBarControls[id] as CommandBarGalleryPopup</c>
+            </remarks>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandBarHeader">
+            <summary>
+            Represents a header in a menu or gallery
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarHeader.#ctor(System.String)">
+            <summary>
+            Creates a new CommandBarHeader object
+            </summary>
+            <param name="caption">Header text</param>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandBarPopupEnableMode">
+            <summary>
+            Available modes for the CommandBarPopup.Enabled property
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.CommandBarPopupEnableMode.Dynamic">
+            <summary>
+            Popup is enabled if it contains enabled children. This is the default.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.CommandBarPopupEnableMode.Enabled">
+            <summary>
+            Popup is enabled (unless it is empty)
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.CommandBarPopupEnableMode.Disabled">
+            <summary>
+            Popup is disabled
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandBarPopup">
+            <summary>
+            Corresponds to a menu popup (or a toolstrip inside a menu)
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarPopup.#ctor(System.String)">
+            <summary>
+            Creates a CommandBarPopup with a specific ID.
+            </summary>
+            <remarks>
+            The ID will be set as the popup's caption as well.
+            <br/>Prefix the ID with the name of your Add-In, to avoid conflicts. 
+            </remarks>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Environment.CommandBarControl"/>
+            <param name="id">Control ID</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarPopup.#ctor(System.String,System.String)">
+            <summary>
+            Creates a CommandBarPopup with a specific ID and caption.
+            </summary>
+            <param name="id">Control ID</param>
+            <param name="caption">Control caption</param>
+            <remarks>
+            The ID can be null, which creates a popup that will not be added
+            to the UIEnvironment.CommandBarControls collection.
+            <br/>If you specify an ID, prefix it with the name of your Add-In, to avoid conflicts. 
+            </remarks>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Environment.CommandBarControl"/>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarPopup.#ctor(System.String,System.String,ABB.Robotics.RobotStudio.Environment.CommandBarControl[])">
+            <summary>
+            Creates a CommandBarPopup with a specific ID, caption and child controls
+            </summary>
+            <param name="id">Control ID</param>
+            <param name="caption">Control caption</param>
+            <param name="controls">Child controls</param>
+            <remarks>
+            The ID can be null, which creates a popup that will not be added
+            to the UIEnvironment.CommandBarControls collection.
+            <br/>If you specify an ID, prefix it with the name of your Add-In, to avoid conflicts. 
+            </remarks>
+            <seealso cref="T:ABB.Robotics.RobotStudio.Environment.CommandBarControl"/>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarPopup.Controls">
+            <summary>
+            Gets a collection of all child CommandBarControls contained by this popup
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarPopup.ShowDisabledItems">
+            <summary>
+            If True, disabled items are shown grayed out, otherwise they are not shown at all.
+            Default is True.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarPopup.Enabled">
+            <summary>
+            Gets or sets if the popup should be enabled or not, or if that
+            status should be controlled by its children.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarPopup.IsEnabled">
+            <summary>
+            Gets if the popup should be enabled according to to <see cref="P:ABB.Robotics.RobotStudio.Environment.CommandBarPopup.Enabled"/> and <see cref="P:ABB.Robotics.RobotStudio.Environment.CommandBarPopup.HasEnabledItems"/> properties.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarPopup.HasEnabledItems">
+            <summary>
+            Returns True if the popup has at least one enabled item.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarPopup.ClickButton">
+            <summary>
+             The button whose command will be executed when the button part of 
+             the popup is clicked.
+            </summary>
+            <remarks>
+            Currently not supported for CommandBarButtons that are part of menus.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarPopup.FromID(System.String)">
+            <summary>
+            Returns the CommandBarPopup that has the specified ID, or null
+            if none exists.
+            </summary>
+            <param name="id">ID to find popup for</param>
+            <returns>The CommandBarPopup with the specified ID</returns>
+            <remarks>
+            This is the same as <c>UIEnvironment.CommandBarControls[id] as CommandBarPopup</c>
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarPopup.Show(System.Int32,System.Int32)">
+            <summary>
+            Displays the popup at the given position in screen coordinates
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.CommandBarPopup.UpdateContent">
+            <summary>
+            Occurs before the popup's list of menu items is displayed or when the framework
+            needs to determine if the popup should be grayed out or not
+            </summary>
+            <remarks>
+            Allows you to modify the menu popup's content before it is displayed,
+            as a more powerful alternative to using a CommandBarButtonGroup.
+            </remarks>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandBarContextPopup">
+            <summary>
+            Corresponds to a context menu popup
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarContextPopup.#ctor">
+            <summary>
+            Internal constructor.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandBarContextPopup.DefaultButton">
+            <summary>
+            Gets or sets the default button, which is displayed in a bold font.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandBarSeparator">
+            <summary>
+            Summary description for CommandBarSeparator.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.CommandBarSeparator.#ctor">
+            <summary>
+            Creates a CommandBarSeparator that can be used to separate CommandBarControls
+            into logical groups. Usually visualized as a thin line (vertical for toolbars, 
+            horizontal for menus)
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.DocumentWindow">
+            <summary>
+            Corresponds to a window hosted in the tabbed document window area
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.DocumentWindow.#ctor">
+            <summary>
+            Creates a new Window
+            </summary>
+            <remarks>
+            The Window's ID will be set to null.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.DocumentWindow.#ctor(System.Object)">
+            <summary>
+            Creates a new Window
+            </summary>
+            <param name="id">The ID of the window (can be null)</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.DocumentWindow.#ctor(System.Object,System.Windows.Forms.Control)">
+            <summary>
+            Creates a new Window containing the specified Control
+            </summary>
+            <param name="id">The ID of the window (can be null)</param>
+            <param name="control">The contained Control</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.DocumentWindow.#ctor(System.Object,System.Windows.Forms.Control,System.String)">
+            <summary>
+            Creates a new Window
+            </summary>
+            <param name="id">The ID of the window (can be null)</param>
+            <param name="control">The contained Control</param>
+            <param name="caption">The initial caption of the window</param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.DocumentWindow.StatusBarPanes">
+            <summary>
+            Returns a collection of StatusBar panes only visible when this
+            window is the active document window
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.DocumentWindow.FullScreen">
+            <summary>
+            Display the window in fullscren mode on a second display, if one is available
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.DocumentWindow.WindowMode">
+            <summary>
+            Specifies where the window is displayed.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.DocumentWindow.Locked">
+            <summary>
+            Gets or sets whether the user is allowed to close the window (and/or make it floating), or if it is locked in place.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.DocumentWindow.Category">
+            <summary>
+            Sets the category that the window belongs to. Windows from the same category will be grouped together.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.DocumentWindow.ActiveDocumentWindow">
+            <summary>
+            Gets or sets the active document window
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.DocumentWindow.ActiveDocumentWindowChanged">
+            <summary>
+            Raised when the active document window is changed
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.DocumentWindowMode">
+            <summary>
+            Specifies where a <see cref="T:ABB.Robotics.RobotStudio.Environment.DocumentWindow"/> is displayed.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.DocumentWindowMode.Docked">
+            <summary>
+            The window is docked in the main application window.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.DocumentWindowMode.Floating">
+            <summary>
+            The window is displayed in a separate floating window.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.UpdateCommandUIEventArgs">
+            <summary>
+            Provides data for the UpdateCommandUI event
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UpdateCommandUIEventArgs.Id">
+            <summary>
+            ID of the corresponding CommandBarButton
+            </summary>
+            <remarks>
+            This is provided for convenience; it is also reachable by casting the 
+            sender argument of the event handler to CommandBarButton
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UpdateCommandUIEventArgs.Enabled">
+            <summary>
+            Gets or sets whether the command should be enabled or disabled (grayed)
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UpdateCommandUIEventArgs.Checked">
+            <summary>
+            Gets or sets whether the command should be checked (pressed for toolbar items)
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UpdateCommandUIEventArgs.Visible">
+            <summary>
+            Gets or sets the visibility of the command. The default is true.
+            </summary>
+            <remarks>
+            Only supported for menu items (will have no effect otherwise). 
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UpdateCommandUIEventArgs.Caption">
+            <summary>
+            Gets or sets the caption to be displayed
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.ExecuteCommandEventArgs">
+            <summary>
+            Provides data for the ExecuteCommand event
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ExecuteCommandEventArgs.Id">
+            <summary>
+            ID of the corresponding CommandBarButton
+            </summary>
+            <remarks>
+            This is provided for convenience; it is also reachable by casting the 
+            sender argument of the event handler to CommandBarButton
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ExecuteCommandEventArgs.Reason">
+            <summary>
+            Gets the reason for the command execution.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ExecuteCommandEventArgs.CancellationToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ExecuteCommandEventArgs.CompletionTask">
+            <summary>
+            Set this property to notify RobotStudio that this handler executes asynchronously
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.UpdateCommandUIEventHandler">
+            <summary>
+            Event handler for the UpdateCommandUI event
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.ExecuteCommandEventHandler">
+            <summary>
+            Event handler for the ExecuteCommand event
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.DisplayCommandGroupEventArgs">
+            <summary>
+            Provides data for the DisplayCommandGroup event
+            </summary>	
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.DisplayCommandGroupEventArgs.QueryEnabled">
+            <summary>
+            If true, this event is raised to query if the group has any enabled items. It is enough to add a single item to indicate the state of the group.
+            This is used to increase the performance when displaying the popup menu that contains the group.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.DisplayCommandGroupEventArgs.Id">
+            <summary>
+            ID of the corresponding CommandBarButtonGroup
+            </summary>
+            <remarks>
+            This is provided for convenience; it is also reachable by casting the 
+            sender argument of the event handler to CommandBarButtonGroup
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.DisplayCommandGroupEventArgs.AddItem(System.String,System.Object)">
+            <summary>
+            Adds a menu item to the command group
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.DisplayCommandGroupEventArgs.AddItem(System.String,System.Object,System.Drawing.Image)">
+            <summary>
+            Adds a menu item to the command group
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.DisplayCommandGroupEventArgs.AddItem(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Adds a menu item to the command group
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.DisplayCommandGroupEventArgs.AddItem(System.String,System.Object,System.Drawing.Image,System.Boolean)">
+            <summary>
+            Adds a menu item to the command group
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.DisplayCommandGroupEventArgs.AddItem(System.String,System.Object,System.Boolean)">
+            <summary>
+            Adds a menu item to the command group
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.DisplayCommandGroupEventArgs.AddItem(System.String,System.Object,System.Drawing.Image,System.Boolean,System.Boolean)">
+            <summary>
+            Adds a menu item to the command group
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.DisplayCommandGroupEventArgs.AddItem(System.String,System.Object,System.Drawing.Image,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Adds a menu item to the command group
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.DisplayCommandGroupEventArgs.AddItem(ABB.Robotics.RobotStudio.Environment.CommandBarButton)">
+            <summary>
+            Adds an existing button to the command group.
+            </summary>
+            <remarks>
+            If <see cref="P:ABB.Robotics.RobotStudio.Environment.CommandBarButtonGroup.HandleButtons"/> is false, UpdateCommandUI and ExecuteCommand events will
+            be raised by the button object. Otherwise, the ExecuteCommand event will be raised by the group object.
+            </remarks>
+            <param name="button"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.DisplayCommandGroupEventArgs.AddItem(ABB.Robotics.RobotStudio.Environment.CommandBarPopup)">
+            <summary>
+            Adds an existing <see cref="T:ABB.Robotics.RobotStudio.Environment.CommandBarPopup"/> to the command group.
+            </summary>
+            <param name="popup"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.DisplayCommandGroupEventArgs.AddSeparator">
+            <summary>
+            Adds a separator to the command group
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.DisplayCommandGroupEventArgs.AddHeader(System.String)">
+            <summary>
+            Adds a header to the command group. Only valid for groups in a gallery control.
+            </summary>
+            <param name="caption"></param>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandGroupExecuteCommandEventArgs">
+            <summary>
+            Provides data for the CommandGroupExecuteCommand event
+            </summary>	
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandGroupExecuteCommandEventArgs.Id">
+            <summary>
+            ID of the corresponding CommandBarButtonGroup
+            </summary>
+            <remarks>
+            This is provided for convenience; it is also reachable by casting the 
+            sender argument of the event handler to CommandBarButtonGroup
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandGroupExecuteCommandEventArgs.Tag">
+            <summary>
+            Gets the object given in the DisplayCommandGroupEventArgs.AddItem() call
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.CommandGroupExecuteCommandEventArgs.CompletionTask">
+            <summary>
+            Set this property to notify RobotStudio that this handler executes asynchronously
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.DisplayCommandGroupEventHandler">
+            <summary>
+            Event handler for the DisplayCommandGroup event
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CommandGroupExecuteCommandEventHandler">
+            <summary>
+            Event handler for the CommandGroupExecuteCommand event
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.TrackCommandBarControlEventArgs">
+            <summary>
+            Provides data for the TrackCommandBarControl event
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.TrackCommandBarControlEventArgs.Container">
+            <summary>
+            Returns the container (or parent) of the control being tracked.
+            </summary>
+            <remarks>
+            Typically this is either a CommandBarPopup or a CommandBar.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.TrackCommandBarControlEventArgs.Enabled">
+            <summary>
+            Returns true if the control is currently enabled, false otherwise
+            </summary>
+            <remarks>
+            Note that this property may return a different value from CommandBarControl.Enabled,
+            since the control's enabled status also can be modified by the UpdateCommandUI event.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.TrackCommandBarControlEventArgs.ToolTip">
+            <summary>
+            This property is obsolete and may be removed in a future version.
+            </summary>
+            <remarks>
+            Use the 'HelpText' property instead to assign text to a control's ScreenTip.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.TrackCommandBarControlEventArgs.HelpText">
+            <summary>
+            Gets or sets the help text that will be displayed in ScreenTips, as well as in
+            CommandBarGalleryPopups with the GalleryTextPosition property set to 'Right'
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.TrackCommandBarControlEventArgs.DisabledReason">
+            <summary>
+            If the command is disabled, this text will be displayed in e.g. tooltips 
+            to explain the reason why it is disabled.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.TrackCommandBarControlEventArgs.Id">
+            <summary>
+            Returns the ID of the CommandBarControl being tracked. This is provided for convenience; The control
+            ID can also be found by casting the sender argument to CommandBarControl.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.TrackCommandBarControlEventArgs.Tag">
+            <summary>
+            Returns the Tag of the CommandBarControl being tracked, or of the tracked item in 
+            a CommandBarControlGroup.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.TrackCommandBarControlEventHandler">
+            <summary>
+            Event handler for the TrackCommandBarControl event
+            </summary>	
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.ExecutingCommandEventArgs">
+            <summary>
+            Provides data for the ExecutingCommand event
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ExecutingCommandEventArgs.Control">
+            <summary>
+            Gets the CommandBarControl that is responsible for the event
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ExecutingCommandEventArgs.TargetWindow">
+            <summary>
+            Gets the target window for the command (or null if none)
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ExecutingCommandEventArgs.Cancel">
+            <summary>
+            Gets or Sets the Cancel property
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ExecutingCommandEventArgs.Reason">
+            <summary>
+            Gets the reason for the event.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.ExecutedCommandEventArgs">
+            <summary>
+            Provides data for the ExecutedCommand event
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ExecutedCommandEventArgs.Control">
+            <summary>
+            Gets the CommandBarControl that is responsible for the event
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ExecutedCommandEventArgs.Exception">
+            <summary>
+            If the command execution caused an exception, this property will have a non-null value
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ExecutedCommandEventArgs.TargetWindow">
+            <summary>
+            Gets the target window for the command (or null if none)
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.ExceptionEventArgs">
+            <summary>
+            Provides data for the Exception event.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ExceptionEventArgs.Exception">
+            <summary> Gets or sets the thrown exception </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.ExitedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:ABB.Robotics.RobotStudio.Environment.UIEnvironment.Exited"/> event.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.ExitedEventArgs.AddExitTask(System.Threading.Tasks.Task)">
+            <summary>
+            Adds a <see cref="T:System.Threading.Tasks.Task"/> that is allowed to complete before the application process exits.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.ExecutingCommandEventHandler">
+            <summary>
+            Event handler for the ExecutingCommand event
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.ExecutedCommandEventHandler">
+            <summary>
+            Event handler for the ExecutedCommand event
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.ExceptionEventHandler">
+            <summary>
+            Event handler for the Exception event
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.WindowCollectionChangedEventArgs">
+            <summary>
+            Provides data for the Added and Removed events
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.WindowCollectionChangedEventArgs.Window">
+            <summary>
+            Returns the window that has been added or removed
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.MainWindow">
+            <summary>
+            Summary description for MainWindow.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.MainWindow.Left">
+            <summary>
+            Gets or sets the X-position of the top-left corner of the main window
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.MainWindow.Top">
+            <summary>
+            Gets or sets the Y-position of the top-left cornder of the main window
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.MainWindow.Width">
+            <summary>
+            Gets or sets the width of the main window
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.MainWindow.Height">
+            <summary>
+            Gets or sets the height of the main window
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.MainWindow.WindowState">
+            <summary>
+            Gets or sets the window state of the main window
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.MainWindow.Caption">
+            <summary>
+            Gets or sets the main window caption
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.MainWindow.OwnedForms">
+            <summary>
+            See Form.OwnedForms documentation in MSDN for details.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.MainWindow.IsActive">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.MainWindow.AddOwnedForm(System.Windows.Forms.Form)">
+            <summary>
+            Adds an owned form. 
+            </summary>
+            <remarks>
+            See Form.AddOwnedForm() documentation in MSDN for details.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.MainWindow.RemoveOwnedForm(System.Windows.Forms.Form)">
+            <summary>
+            Removes an owned form. 
+            </summary>
+            <remarks>
+            See Form.RemoveOwnedForm() documentation in MSDN for details.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.MainWindow.Handle">
+            <summary>
+            See IWin32Window.Handle
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroup">
+            <summary>
+            Rerepsents a group of context RibbonTabs for a specific selection type
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroup.#ctor">
+            <summary>
+            Creates a new RibbonContextTabGroup
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroup.#ctor(System.String,System.Object[])">
+            <summary>
+            Creates a new RibbonContextTabGroup
+            </summary>
+            <param name="caption">Group caption</param>
+            <param name="selectionTypes"></param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroup.RibbonTabs">
+            <summary>
+            Returns the collection of RibbonTabs in this group
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroup.SelectionTypes">
+            <summary>
+            Gets or sets the selection type(s) that will cause this 
+            context tab group to become visible
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroup.Caption">
+            <summary>
+            Gets or sets the group caption
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroup.Color">
+            <summary>
+            Gets or sets the color of this tab group
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroup.FromSelectionType(System.Object)">
+            <summary>
+            Returns the RibbonContextTabGroup that has the given selection type,
+            or null if it is not found
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroupCollection">
+            <summary>
+            A collection of RibbonContextTabGroups
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroupCollection.Item(System.Int32)">
+            <summary>
+            Gets the RibbonContextTabGroup with the given index in the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroupCollection.Add(ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroup)">
+            <summary>
+            Adds a RibbonContextTabGroup to the collection
+            </summary>
+            <param name="ribbonContextTabGroup">RibbonContextTabGroup to add</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroupCollection.Remove(ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroup)">
+            <summary>
+            Removes a RibbonContextTabGroup from the collection
+            </summary>
+            <param name="ribbonContextTabGroup">RibbonContextTabGroup to remove</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroupCollection.Contains(ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroup)">
+            <summary>
+            Returns True if the collection contains the specified RibbonContextTabGroup, false otherwise
+            </summary>
+            <param name="ribbonContextTabGroup">The RibbonContextTabGroup to search for</param>
+            <returns>True if the collection contains the specified RibbonContextTabGroup, false otherwise</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroupCollection.GetEnumerator">
+            <summary>
+            See IEnumerable.GetEnumerator()
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroupCollection.IsSynchronized">
+            <summary>
+            See ICollection.IsSynchronized. Always returns false.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroupCollection.SyncRoot">
+            <summary>
+            See ICollection.SyncRoot
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroupCollection.Count">
+            <summary>
+            Returns the number of items in the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroupCollection.CopyTo(ABB.Robotics.RobotStudio.Environment.RibbonContextTabGroup[],System.Int32)">
+            <summary>
+            Copies the elements of the collection to an RibbonContextTabGroup array, starting at a particular Array index
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.RibbonControlLayout">
+            <summary>
+            Defines the layout and display of a control in the Ribbon
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.RibbonControlLayout.Large">
+            <summary>Large button</summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.RibbonControlLayout.Small">
+            <summary>Small triplet button with text</summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.RibbonControlLayout.Icon">
+            <summary>Small triplet button without text</summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.RibbonControlLayout.SmallCentered">
+            <summary>Small triplet button with text, vertically centered</summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.RibbonControlLayout.IconCentered">
+            <summary>Small triplet button without text, vertically centered</summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.RibbonControlLayout.ButtonRow1">
+            <summary>Control is part of a group of small buttons - first row</summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.RibbonControlLayout.ButtonRow2">
+            <summary>Control is part of a group of small buttons - second row</summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.RibbonControlLayout.ButtonRow3">
+            <summary>Control is part of a group of small buttons - third row</summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.RibbonControlLayout.Inline">
+            <summary>Control is a gallery displayed inline</summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.RibbonControlLayout.Hidden">
+            <summary>Control is hidden</summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.RibbonGroup">
+            <summary>
+            Corresponds to a control group in a Ribbon tab
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonGroup.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new RibbonGroup
+            </summary>
+            <param name="id">Unique ID (within the tab) of the group</param>
+            <param name="caption">Group caption</param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonGroup.Id">
+            <summary>
+            Returns the ID of the group
+            </summary>
+            <remarks>
+            The ID is unique within the tab that contains this group
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonGroup.Image">
+            <summary>
+            Gets or sets the image that is displayed when the group is collapsed
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonGroup.LargeImage">
+            <summary>
+            Gets or sets the image that is displayed when the group is collapsed
+            on a high-DPI display
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonGroup.Caption">
+            <summary>
+            Gets or sets the group caption
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonGroup.Button">
+            <summary>
+            Corresponds to an optional button placed in the group header to the right
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonGroup.Controls">
+            <summary>
+            Returns the collection of contained CommandBarControls
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonGroup.SetControlLayout(ABB.Robotics.RobotStudio.Environment.CommandBarControl,ABB.Robotics.RobotStudio.Environment.RibbonControlLayout[])">
+            <summary>
+            Sets the layout and size of a contained control for the three group sizes
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonGroup.GetControlLayout(ABB.Robotics.RobotStudio.Environment.CommandBarControl)">
+            <summary>
+            Returns the layout and size of a contained control for the three group sizes
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonGroup.SetControlVisibility(ABB.Robotics.RobotStudio.Environment.CommandBarControl,System.Boolean[])">
+            <summary>
+            Sets the visibility of a contained control for the three group sizes
+            </summary>
+            <remarks>
+            This method is primarily intended to set the visibility of separators.
+            </remarks>
+            <param name="control">The CommandBarControl to set the visibility for</param>
+            <param name="visibility">Array of three bools defining the visibility for the three size configurations</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonGroup.GetControlVisibility(ABB.Robotics.RobotStudio.Environment.CommandBarControl)">
+            <summary>
+            Returns the visibility of a contained control for the three group sizes
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.RibbonGroupCollection">
+            <summary>
+            A collection of RibbonGroup objects
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonGroupCollection.Item(System.String)">
+            <summary>
+            Returns the RibbonGroup with the specified ID
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonGroupCollection.Item(System.Int32)">
+            <summary>
+            Gets the RibbonGroup with the given index in the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonGroupCollection.Add(ABB.Robotics.RobotStudio.Environment.RibbonGroup)">
+            <summary>
+            Adds a RibbonGroup to the collection
+            </summary>
+            <param name="ribbonGroup">RibbonGroup to add</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonGroupCollection.Remove(ABB.Robotics.RobotStudio.Environment.RibbonGroup)">
+            <summary>
+            Removes a RibbonGroup from the collection
+            </summary>
+            <param name="ribbonGroup">RibbonGroup to remove</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonGroupCollection.Contains(ABB.Robotics.RobotStudio.Environment.RibbonGroup)">
+            <summary>
+            Returns True if the collection contains the specified RibbonGroup, false otherwise
+            </summary>
+            <param name="ribbonGroup">The RibbonGroup to search for</param>
+            <returns>True if the collection contains the specified RibbonGroup, false otherwise</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonGroupCollection.GetEnumerator">
+            <summary>
+            See IEnumerable.GetEnumerator()
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonGroupCollection.IsSynchronized">
+            <summary>
+            See ICollection.IsSynchronized. Always returns false.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonGroupCollection.SyncRoot">
+            <summary>
+            See ICollection.SyncRoot
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonGroupCollection.Count">
+            <summary>
+            Returns the number of items in the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonGroupCollection.CopyTo(ABB.Robotics.RobotStudio.Environment.RibbonGroup[],System.Int32)">
+            <summary>
+            Copies the elements of the collection to an RibbonGroup array, starting at a particular Array index
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.RibbonTab">
+            <summary>
+            Represents a single tab in the Ribbon
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonTab.#ctor(System.String)">
+            <summary>
+            Creates a new RibbonTab with the given ID
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonTab.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new RibbonTab with the given ID and caption
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonTab.Id">
+            <summary>
+            Returns the unique ID of this tab
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonTab.Caption">
+            <summary>
+            Gets or sets the caption text for this tab
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonTab.Groups">
+            <summary>
+            Returns the collection of RibbonGroups building up this tab
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonTab.GroupCompactingOrder">
+            <summary>
+            Returns a collection of RibbonGroups defining the order in which groups should be compacted
+            </summary>
+            <remarks>
+            As each group can have four defined sizes (Large, Medium, Small, Compacted), each
+            group may occur up to three times in the collection.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonTab.Visible">
+            <summary>
+            Sets or gets if the tab should be visible or not
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonTab.Flash">
+            <summary>
+            Sets or gets if the tab should flash to alert the user
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonTab.SimulateClick(System.String)">
+            <summary>
+            Simulates a user clicking on a control on the ribbon.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonTab.SetKeyTip(ABB.Robotics.RobotStudio.Environment.CommandBarControl,System.String)">
+            <summary>
+            Sets the keytip to be used for a CommandBarControl on this tab
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonTab.GetKeyTip(ABB.Robotics.RobotStudio.Environment.CommandBarControl)">
+            <summary>
+            Returns the keytip used for a CommandBarControl on this tab
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.RibbonTabCollection">
+            <summary>
+            Represents a collection of RibbonTabs
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonTabCollection.Item(System.String)">
+            <summary>
+            Returns the RibbonTab with the given ID
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonTabCollection.Item(System.Int32)">
+            <summary>
+            Gets the RibbonTab with the given index in the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonTabCollection.Add(ABB.Robotics.RobotStudio.Environment.RibbonTab)">
+            <summary>
+            Adds a RibbonTab to the collection
+            </summary>
+            <param name="ribbonTab">RibbonTab to add</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonTabCollection.Insert(System.Int32,ABB.Robotics.RobotStudio.Environment.RibbonTab)">
+            <summary>
+            Adds a RibbonTab to the collection at a specific index
+            </summary>
+            <param name="index">The index at which to add the tab</param>
+            <param name="ribbonTab">The RibbonTab to add</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonTabCollection.Remove(ABB.Robotics.RobotStudio.Environment.RibbonTab)">
+            <summary>
+            Removes a RibbonTab from the collection
+            </summary>
+            <param name="ribbonTab">RibbonTab to remove</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonTabCollection.Contains(ABB.Robotics.RobotStudio.Environment.RibbonTab)">
+            <summary>
+            Returns True if the collection contains the specified RibbonTab, false otherwise
+            </summary>
+            <param name="ribbonTab">The RibbonTab to search for</param>
+            <returns>True if the collection contains the specified RibbonTab, false otherwise</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonTabCollection.GetEnumerator">
+            <summary>
+            See IEnumerable.GetEnumerator()
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonTabCollection.IsSynchronized">
+            <summary>
+            See ICollection.IsSynchronized. Always returns false.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonTabCollection.SyncRoot">
+            <summary>
+            See ICollection.SyncRoot
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.RibbonTabCollection.Count">
+            <summary>
+            Returns the number of items in the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonTabCollection.CopyTo(ABB.Robotics.RobotStudio.Environment.RibbonTab[],System.Int32)">
+            <summary>
+            Copies the elements of the collection to an RibbonTab array, starting at a particular Array index
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.RibbonTabCollection.IndexOf(ABB.Robotics.RobotStudio.Environment.RibbonTab)">
+            <summary>
+            Returns the index of the given tab in the collection, or -1 if does not exist
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.StatusBar">
+            <summary>
+            Represents the status bar area docked to the bottom of the application.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBar.Visible">
+            <summary>
+            This property is obsolete and may be removed in a future version.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBar.Text">
+            <summary>
+            Gets or sets the text that is displayed to the left in the status bar
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBar.Panes">
+            <summary>
+             Gets a collection of all panes in the status bar
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.StatusBarPane">
+            <summary>
+            Represents a single pane in the status bar
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.StatusBarPane.#ctor">
+            <summary>
+            Creates a new status bar pane
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.StatusBarPane.#ctor(System.String)">
+            <summary>
+            Creates a new status bar pane
+            </summary>
+            <param name="text">Pane text</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.StatusBarPane.#ctor(System.Windows.Forms.Control)">
+            <summary>
+            Creates a new status bar pane containing a control
+            </summary>
+            <param name="control">The control that will be used as the pane's content</param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBarPane.DefaultTabVisibility">
+            <summary>
+            Gets or sets the visibility of this pane for those ribbon tabs where
+            SetTabVisibility() has not been called.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBarPane.Text">
+            <summary>
+            Gets or sets the text shown in the StatusBarPane.
+            </summary>
+            <remarks>
+            Ignored if the Control property is set to a non-null value
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBarPane.TextAlignment">
+            <summary>
+            Gets or sets the horizontal alignment of the text.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBarPane.Control">
+            <summary>
+            Gets or sets the control contained in the StatusBarPane.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBarPane.ControlOffset">
+            <summary>
+            Gets or sets the control position relative to the upper left of the
+            StatusBarPane. Ignored if the Control property is null.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBarPane.BackColor">
+            <summary>
+            Gets or sets the pane's background color
+            </summary>
+            <remarks>
+            Ignored if the Control property is set to a non-null value
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBarPane.ForeColor">
+            <summary>
+            Gets or sets the pane's foreground (text) color
+            </summary>
+            <remarks>
+            Ignored if the Control property is set to a non-null value
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBarPane.ShowBorder">
+            <summary>
+            Gets or sets if the border around the pane should be visible or not
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBarPane.Width">
+            <summary>
+            Gets or sets the pane's width in pixels
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBarPane.AutoSize">
+            <summary>
+            Gets or sets if the pane should adapt its width to make room for its text
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBarPane.AutoSizeMode">
+            <summary>
+            Gets or sets how the pane should adapt its width to make room for its text
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBarPane.Enabled">
+            <summary>
+            This property is obsolete and may be removed in a future version.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.StatusBarPane.SetTabVisibility(ABB.Robotics.RobotStudio.Environment.RibbonTab,System.Boolean)">
+            <summary>
+            Sets the visibility of this pane when the specified tab is active
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.StatusBarPane.SetTabVisibility(System.String,System.Boolean)">
+            <summary>
+            Sets the visibility of this pane when the specified tab is active
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.StatusBarPane.GetTabVisibility(ABB.Robotics.RobotStudio.Environment.RibbonTab)">
+            <summary>
+            Returns the visibility of this pane when the specified tab is active
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.StatusBarPane.Click">
+            <summary>
+            Raised when the user clicks on the pane
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.StatusBarPane.DoubleClick">
+            <summary>
+            Raised when the user double-clicks on the pane
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.StatusBarPaneCollection">
+            <summary>
+            Represents a collection of status bar panes in a status bar
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.StatusBarPaneCollection.Add(ABB.Robotics.RobotStudio.Environment.StatusBarPane)">
+            <summary>
+            Adds a pane to the collection
+            </summary>
+            <param name="pane">The pane to add</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.StatusBarPaneCollection.Insert(System.Int32,ABB.Robotics.RobotStudio.Environment.StatusBarPane)">
+            <summary>
+            Adds a pane to the collection at a specific index
+            </summary>
+            <param name="index">The index at which to add the pane</param>
+            <param name="pane">The pane to add</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.StatusBarPaneCollection.Remove(ABB.Robotics.RobotStudio.Environment.StatusBarPane)">
+            <summary>
+            Removes a pane from the collection
+            </summary>
+            <param name="pane">The pane to remove</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.StatusBarPaneCollection.Contains(ABB.Robotics.RobotStudio.Environment.StatusBarPane)">
+            <summary>
+            Returns True if the collection contains the specified StatusBarPane, false otherwise
+            </summary>
+            <param name="pane">The StatusBarPane to search for</param>
+            <returns>True if the collection contains the specified StatusBarPane, false otherwise</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.StatusBarPaneCollection.IndexOf(ABB.Robotics.RobotStudio.Environment.StatusBarPane)">
+            <summary>
+            Gets the pane with the given index in the collection
+            </summary>
+            <param name="pane">The pane to search for</param>
+            <returns>The pane's index, or -1 if not found</returns>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBarPaneCollection.Item(System.Int32)">
+            <summary>
+            Gets the pane with the specified index
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.StatusBarPaneCollection.GetEnumerator">
+            <summary>
+            See IEnumerable.GetEnumerator()
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBarPaneCollection.IsSynchronized">
+            <summary>
+            See ICollection.IsSynchronized. Always returns false.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBarPaneCollection.SyncRoot">
+            <summary>
+            See ICollection.SyncRoot
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.StatusBarPaneCollection.Count">
+            <summary>
+            Returns the number of panes in the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.StatusBarPaneCollection.CopyTo(ABB.Robotics.RobotStudio.Environment.StatusBarPane[],System.Int32)">
+            <summary>
+            Copies the elements of the collection to an StatusBarPane array, starting at a particular Array index
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.ToolBarControl">
+            <summary>
+            Standalone toolbar that can be added to a form or a user control
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.ToolBarControl.#ctor">
+            <summary>
+            Creates a ToolStrip instance
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ToolBarControl.CommandBar">
+            <summary>
+            Gets the CommandBar that defines the content of this toolstrip
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ToolBarControl.GradientBackground">
+            <summary>
+            True if the ToolBar should have a gradient background, false if the background should be transparent.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ToolBarControl.PreferredWidth">
+            <summary>
+            Returns the preferred width of this toolbar in order to make room for all items
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ToolBarControl.Horizontal">
+            <summary>
+            ABB internal use only.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.ToolWindow">
+            <summary>
+            Represents a dockable tool window in the environment
+            </summary>
+            <example><code source="..\ABB.Robotics.RobotStudio.Stations.Tests\DocumentExamples.cs" region="Add ToolWindow Example" lang="cs" title="Add ToolWindow Example" /></example>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.ToolWindow.#ctor">
+            <summary>
+            Creates a new ToolWindow
+            </summary>
+            <remarks>
+            The Window's ID will be set to null.
+            </remarks>
+            <example><code source="..\ABB.Robotics.RobotStudio.Stations.Tests\DocumentExamples.cs" region="Add ToolWindow Example" lang="cs" title="Add ToolWindow Example" /></example>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.ToolWindow.#ctor(System.Object)">
+            <summary>
+            Creates a new ToolWindow
+            </summary>
+            <param name="id">The ID of the window (can be null)</param>
+            <example><code source="..\ABB.Robotics.RobotStudio.Stations.Tests\DocumentExamples.cs" region="Add ToolWindow Example" lang="cs" title="Add ToolWindow Example" /></example>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.ToolWindow.#ctor(System.Object,System.Windows.Forms.Control)">
+            <summary>
+            Creates a new ToolWindow containing the specified Control
+            </summary>
+            <param name="id">The ID of the window (can be null)</param>
+            <param name="control">The contained Control</param>
+            <example><code source="..\ABB.Robotics.RobotStudio.Stations.Tests\DocumentExamples.cs" region="Add ToolWindow Example" lang="cs" title="Add ToolWindow Example" /></example>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.ToolWindow.#ctor(System.Object,System.Windows.Forms.Control,System.String)">
+            <summary>
+            Creates a new ToolWindow
+            </summary>
+            <param name="id">The ID of the window (can be null)</param>
+            <param name="control">The contained Control</param>
+            <param name="caption">The initial caption of the window</param>
+            <example><code source="..\ABB.Robotics.RobotStudio.Stations.Tests\DocumentExamples.cs" region="Add ToolWindow Example" lang="cs" title="Add ToolWindow Example" /></example>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ToolWindow.AutoHide">
+            <summary>
+            Gets or sets if the docked window is hidden in one of the auto-hide 
+            areas around the edges of the application.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ToolWindow.CloseButtonBehavior">
+            <summary>
+            Gets or sets if the window is hidden or closed when the 
+            close button (x) is clicked. Default is Hide.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ToolWindow.MinimumPreferredSize">
+            <summary>
+            This property is obsolete and may be removed in a future version. Use Control.MinimumSize instead.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ToolWindow.MaximumPreferredSize">
+            <summary>
+            This property is obsolete and may be removed in a future version. Use Control.MaximumSize instead.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ToolWindow.PreferredSize">
+            <summary>
+            Gets or sets the window's preferred size
+            </summary>
+            <remarks>
+            Actual size will depend on how the window is docked.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.ToolWindow.Docked">
+            <summary>
+            Gets a value indicating if this window is docked/tabbed or floating
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.ToolWindow.Dock(System.Windows.Forms.DockStyle)">
+            <summary>
+            Docks the window to the specified edge
+            </summary>
+            <param name="dockStyle">Edge to dock to</param>
+            <example><code source="..\ABB.Robotics.RobotStudio.Stations.Tests\DocumentExamples.cs" region="Add ToolWindow Example" lang="cs" title="Add ToolWindow Example" /></example>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.ToolWindow.Dock(System.Windows.Forms.DockStyle,ABB.Robotics.RobotStudio.Environment.ToolWindow)">
+            <summary>
+            Docks the window according to the specified parameters
+            </summary>
+            <param name="dockStyle">Edge to dock to</param>
+            <param name="referenceWindow">Reference window for dockStyle</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.ToolWindow.DockTabbed(ABB.Robotics.RobotStudio.Environment.ToolWindow)">
+            <summary>
+            Creates a tabbed group of this window and the reference window
+            </summary>
+            <example><code source="..\ABB.Robotics.RobotStudio.Stations.Tests\DocumentExamples.cs" region="Add ToolWindow Example" lang="cs" title="Add ToolWindow Example" /></example>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.ToolWindow.Float">
+            <summary>
+            Undocks the window and displays it as a floating window
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.ExecuteCommandReason">
+            <summary>
+            Provides the reason for a command execution.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.ExecuteCommandReason.Activated">
+            <summary>
+            An UI element associated with the command was clicked or otherwise activated.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.ExecuteCommandReason.Shortcut">
+            <summary>
+            A keyboard shortcut associated with the command was pressed.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.ExecuteCommandReason.Programmatic">
+            <summary>
+            The command was executed programatically.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.UIEnvironment">
+            <summary>
+            Provides access to the application's UI environment
+            </summary>
+            <remarks>
+            It is not possible to create an instance of this class; all methods are static.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.QuickAccessToolBar">
+            <summary>
+            Returns a CommandBar representing the contents of the Quick Access toolbar in the upper-left corner
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.QuickAccessCandidates">
+            <summary>
+            Returns a collection of controls visible on the "Customize Quick Access" menu
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.ApplicationMenu">
+            <summary>
+            Returns the application menu displayed when the Application Button is pressed
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.Windows">
+            <summary>
+            Returns a collection of all Windows in the application
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.CommandBarControls">
+            <summary>
+            Returns a collection of all registered CommandBarControls
+            </summary>
+            <remarks>
+            Controls that does not have an ID, or have never been added to a collection
+            (this or another one) cannot be found in this collection.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.StatusBar">
+            <summary>
+            Returns the main statusbar
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.MainWindow">
+            <summary>
+            Returns an object describing the main window
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.VisualStyle">
+            <summary>
+            Returns an object containing Visual Styles-related information for the application
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.RibbonTabs">
+            <summary>
+            Returns the collection of (non-contextual) tabs in the Ribbon
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.RibbonContextualTabs">
+            <summary>
+            Returns the collection of contextual tab groups defined for the ribbon
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.VisibleRibbonContextualTabs">
+            <summary>
+            Returns the collection of currently visible contextual tab groups
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.UIEnvironment.OnActivateWindow(ABB.Robotics.RobotStudio.Environment.Window)">
+            <summary>
+            Moves a window to the front of the list that is used to determine the active
+            window when switching between ribbon tabs.
+            </summary>
+            <param name="wnd"></param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.ActiveRibbonTab">
+            <summary>
+            Gets or sets the currently active tab in the Ribbon
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.ActiveNonContextualRibbonTab">
+            <summary>
+            Gets the last active non-contextual tab. If the currently active tab is a 
+            non-contextual tab, it will be returned.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.RibbonSelectionType">
+            <summary>
+            Gets or sets the current selection type, i.e. the and object defining
+            the type of the object(s) currently being selected
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.RibbonMinimized">
+            <summary>
+            Gets or sets if the ribbon is minimized so that only the tabs are visible. Default is false. 
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.CurrentlyExecutingCommand">
+            <summary>
+            Returns the CommandBarButton or CommandBarButtonGroup that is currently being executed, or null
+            if no command is currently being executed.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.ShowScreenTips">
+            <summary>
+            Gets or sets if screen tips are shown for command elements
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.DefaultWindowZoom">
+            <summary>
+            Gets or sets the default zoom level for windows implementing IZoomableWindow
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.GroupDocumentWindows">
+            <summary>
+            Gets or sets if document windows are grouped based on their Category property.
+            </summary>
+            <remarks>
+            Existing windows will not be regrouped if this property is changed.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.UIEnvironment.BackstageVisible">
+            <summary>
+            True if the Backstage (File) tab is currently active, false otherwise.
+            </summary>
+            <remarks>
+            Note that the Backstage/File tab is not part of the RibbonTabs collection.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.UIEnvironment.ShowNotificationArea(System.Drawing.Image,System.String,ABB.Robotics.RobotStudio.Environment.CommandBarPopup,System.String)">
+            <summary>
+            Displays a notification area above the DocumentWindow tabs
+            </summary>
+            <param name="image">Small (16x16) Image to be displayed before the text (can be null)</param>
+            <param name="text">Text to be displayed in the notification area</param>
+            <param name="menuPopup">Menu that will be displayed when the area is clicked (can be null)</param>
+            <param name="helpId">Context help ID</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.UIEnvironment.ShowNotificationArea(System.Drawing.Image,System.String,ABB.Robotics.RobotStudio.Environment.CommandBarPopup,System.String,ABB.Robotics.RobotStudio.Environment.DocumentWindow)">
+            <summary>
+            Displays a notification area above the DocumentWindow tabs
+            </summary>
+            <param name="image">Small (16x16) Image to be displayed before the text (can be null)</param>
+            <param name="text">Text to be displayed in the notification area</param>
+            <param name="menuPopup">Menu that will be displayed when the area is clicked (can be null)</param>
+            <param name="helpId">Context help ID</param>
+            <param name="associatedWindow">The notification area will only be visible if the associated DocumentWindow is also visible.</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.UIEnvironment.HideNotificationArea">
+            <summary>
+            Hides the notification area above the DocumentWindow tabs
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.UIEnvironment.ShowContextMenu(System.Object[],System.Int32,System.Int32)">
+            <summary>
+            Shows a context menu for the specified selection types
+            </summary>
+            <param name="selTypes">Selection types to build context menu for</param>
+            <param name="x">Menu x-position (in screen coordinates)</param>
+            <param name="y">Menu y-position (in screen coordinates)</param>
+            <remarks>
+            Only context menu items valid for all given types will be displayed.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.UIEnvironment.BuildContextMenuRec(ABB.Robotics.RobotStudio.Environment.CommandBarPopup,System.Collections.Generic.List{ABB.Robotics.RobotStudio.Environment.CommandBarPopup})">
+            <summary>
+            Helper for ShowContextMenu()
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.UIEnvironment.FindChildPopupFromCaption(ABB.Robotics.RobotStudio.Environment.CommandBarPopup,System.String)">
+            <summary>
+            Helper for BuildContextMenuRec()
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.UIEnvironment.GetContextMenu(System.Object)">
+            <summary>
+            Gets or creates a context menu popup for the specified selection type
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.UIEnvironment.GetContextMenus">
+            <summary>
+            Gets a dictionary that contains all specified selection types and their associated context menu popup.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.UIEnvironment.LoadWindowConfiguration(System.IO.TextReader)">
+            <summary>
+            Loads a window and toolbar configuration from a stream
+            </summary>
+            <param name="reader">Stream to read from</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.UIEnvironment.SaveWindowConfiguration(System.IO.TextWriter)">
+            <summary>
+            Saves the current window and toolbar configuration to file
+            </summary>
+            <param name="writer">Stream to write to</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.UIEnvironment.UpdateUI">
+            <summary>
+            Forces an update of the GUI (command enabled status etc)
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.UIEnvironment.DisableCommands(System.Threading.Tasks.Task)">
+            <summary>
+            Disables all commands until the specified task has completed;
+            </summary>
+            <param name="task"></param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.UIEnvironment.Exit">
+            <summary>
+            Exits the application
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.UIEnvironment.Exiting">
+            <summary>
+            Raised before the application exits, giving clients a chance to abort the shutdown
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.UIEnvironment.Exited">
+            <summary>
+            Raised when the application has started to shutdown
+            </summary>
+            <remarks>
+            The <see cref="T:System.EventArgs"/> argument can be cast to a <see cref="T:ABB.Robotics.RobotStudio.Environment.ExitedEventArgs"/> for registering
+            tasks that must be completed before the application process exits.
+            </remarks>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.UIEnvironment.ExecutingCommand">
+            <summary>
+            Raised whenever a command is about to be executed
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.UIEnvironment.ExecutedCommand">
+            <summary>
+            Raised after a command has been executed
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.UIEnvironment.UpdateCommandUI">
+            <summary>
+            Raised when a command's UI state must be updated
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.UIEnvironment.ActiveRibbonTabChanged">
+            <summary>
+            Raised after the active RibbonTab has been changed
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.UIEnvironment.ActiveRibbonTabChanging">
+            <summary>
+            Raised before the active RibbonTab changes
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.UIEnvironment.RibbonSelectionTypeChanged">
+            <summary>
+            Raised when the RibbonSelectionType property has been changed
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.UIEnvironment.TrackCommandBarControl">
+            <summary>
+            Raised when a CommandBarControl is tracked
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.UIEnvironment.Idle">
+            <summary>
+            Equivalent to Application.Idle, but occurs at a lower rate (maximum four times per second)
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.UIEnvironment.Exception">
+            <summary>
+            Raised when an exception is thrown by an event handler and caught by the environment.
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.UIEnvironment.BackstageVisibleChanged">
+            <summary>
+            Raised when the BackstageVisible property has been changed
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.Theme">
+            <summary>
+            Available color themes 
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.Theme.Blue">
+            <summary>
+            Blue theme
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.Theme.Black">
+            <summary>
+            Black theme
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.Theme.Silver">
+            <summary>
+            Silver theme
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.ThemeColor">
+            <summary>
+            Available theme colors
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.ThemeColor.BackColorDark">
+            <summary>
+            Dark background color
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.ThemeColor.BackColorLight">
+            <summary>
+            Light background color
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.ThemeColor.BackColorMedium">
+            <summary>
+            Medium background color
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.ThemeColor.BackColorToolControl">
+            <summary>
+            ToolControl background color
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.VisualStyle">
+            <summary>
+            Describes the visual style of the application
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.VisualStyle.Theme">
+            <summary>
+            Gets or sets the current color theme for the application
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.VisualStyle.BackColorDark">
+            <summary>
+            This property is obsolete and may be removed in a future version. 
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.VisualStyle.BackColorLight">
+            <summary>
+            This property is obsolete and may be removed in a future version. 
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.VisualStyle.GetThemeColor(ABB.Robotics.RobotStudio.Environment.ThemeColor)">
+            <summary>
+            Returns a theme color
+            </summary>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.VisualStyle.VisualStyleChanged">
+            <summary>
+            This event is obsolete and may be removed in a future version. 
+            </summary>
+            <remarks>
+            Use ThemeChanged event instead.
+            </remarks>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.VisualStyle.ThemeChanged">
+            <summary>
+            This event triggers when the application color theme has been changed.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.Window">
+            <summary>
+            Corresponds to a window hosted in the application. 
+            </summary>
+            <remarks>
+            This class cannot be instantiated directly. Use one of the
+            derived classes instead (ToolWindow or DocumentWindow).
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.Window.#ctor">
+            <summary>
+            Creates a new Window
+            </summary>
+            <remarks>
+            The Window's ID will be set to null.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.Window.#ctor(System.Object)">
+            <summary>
+            Creates a new Window
+            </summary>
+            <param name="id">The ID of the window (can be null)</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.Window.#ctor(System.Object,System.Windows.Forms.Control)">
+            <summary>
+            Creates a new Window containing the specified Control
+            </summary>
+            <param name="id">The ID of the window (can be null)</param>
+            <param name="control">The contained Control</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.Window.#ctor(System.Object,System.Windows.Forms.Control,System.String)">
+            <summary>
+            Creates a new Window
+            </summary>
+            <param name="id">The ID of the window (can be null)</param>
+            <param name="control">The contained Control</param>
+            <param name="caption">The initial caption of the window</param>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.Window.ActiveWindow">
+            <summary>
+            Gets or sets the window that has focus
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.Window.Id">
+            <summary>
+            Gets the window's ID
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.Window.HelpId">
+            <summary>
+            Gets the help ID of the window, used for context sensitive help.
+            </summary>
+            <remarks>
+            By default, this will be the same as the window ID
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.Window.Tag">
+            <summary>
+            Gets or sets an object that contains data about the window
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.Window.Caption">
+            <summary>
+            Gets or sets the window's caption
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.Window.Control">
+            <summary>
+            Gets or sets the window's contained control
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.Window.Visible">
+            <summary>
+            Gets or sets if the window is visible or not
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.Window.VisibleLocked">
+            <summary>
+            Gets or sets if the user is allowed to modify the visibility state
+            of this Window
+            </summary>
+            <remarks>
+            This only affects the user interface; it is always possible to change visibility using the API.
+            </remarks>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.Window.DefaultTabVisibility">
+            <summary>
+            Gets or sets the visibility of this window for those ribbon tabs where
+            SetTabVisibility() has not been called.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.Window.ToolTip">
+            <summary>
+            Gets or sets the window's tooltip
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.Window.Icon">
+            <summary>
+            This property is obsolete and may be removed in a future version.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.Window.Menu">
+            <summary>
+            Returns the menu for this window
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.Window.AlternateTabColor">
+            <summary>
+            ABB Internal use only
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.Window.ActiveTab">
+            <summary>
+            Gets or sets if this is the active window in a tabbed group
+            </summary>
+            <remarks>
+            Returns false if this is not part of a tabbed group.
+            Setting this property to false is not allowed.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.Window.Close">
+            <summary>
+            Closes the window, i.e. removes it from the environment
+            and disposes it.
+            </summary>
+            <returns>True if window was actually closed, false otherwise</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.Window.SetTabVisibility(ABB.Robotics.RobotStudio.Environment.RibbonTab,System.Boolean)">
+            <summary>
+            Sets the visibility of this window when the specified tab is active
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.Window.SetTabVisibility(System.String,System.Boolean)">
+            <summary>
+            Sets the visibility of this window when the specified tab is active
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.Window.GetTabVisibility(ABB.Robotics.RobotStudio.Environment.RibbonTab)">
+            <summary>
+            Returns the visibility of this window when the specified tab is active
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.Window.ActiveWindowChanged">
+            <summary>
+            Raised when the active window has changed
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.Window.Closing">
+            <summary>
+            Raised before the window is closed
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.Window.Closed">
+            <summary>
+            Raised after the window has been closed
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.Window.VisibleChanged">
+            <summary>
+            Occurs when the Visible property value changes.
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.Window.ControlChanged">
+            <summary>
+            Occurs when the Control property value changes
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.Window.Dispose">
+            <summary>
+            Disposes any owned resources of the window. E. g. its control.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.Window.Dispose(System.Boolean)">
+            <summary>
+            Called by Dispose. Override to add disposing behavior to your subclass.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.CloseButtonBehavior">
+            <summary>
+            Specifies how a ToolWindow behaves when the close button (x) is clicked.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.CloseButtonBehavior.Hide">
+            <summary>
+            The window is hidden
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.RobotStudio.Environment.CloseButtonBehavior.Close">
+            <summary>
+            The window is closed
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.IZoomableWindow">
+            <summary>
+            Represents a window with zoomable contents
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.IZoomableWindow.ZoomLevel">
+            <summary>
+            Zoom level, where 1.0 is default.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.RobotStudio.Environment.WindowCollection">
+            <summary>
+            Represents the collection of Windows in the application
+            </summary>
+            <example><code source="..\ABB.Robotics.RobotStudio.Stations.Tests\DocumentExamples.cs" region="Add New View Example" lang="cs" title="Add New View Example" /></example>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.WindowCollection.Item(System.Type)">
+            <summary>
+            Gets the first window in the collection of the specified Type
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.WindowCollection.Item(System.Int32)">
+            <summary>
+            Gets the window with the specified index in the collection
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.WindowCollection.Item(System.Windows.Forms.Control)">
+            <summary>
+            Gets the window containing the specified control
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.WindowCollection.Item(System.Object)">
+            <summary>
+            Gets the window with the specified ID in the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.WindowCollection.Add(ABB.Robotics.RobotStudio.Environment.Window)">
+            <summary>
+            Adds a Window to the environment
+            </summary>
+            <param name="window">Window to add</param>
+            <remarks>
+            For ToolWindow, consider using AddDockedOrTabbed() instead.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.WindowCollection.AddDocked(ABB.Robotics.RobotStudio.Environment.ToolWindow,System.Windows.Forms.DockStyle)">
+            <summary>
+            Adds a ToolWindow to the environment and docks it to the specified edge
+            </summary>
+            <param name="window">Window to add</param>
+            <param name="dockStyle">Edge to dock to</param>
+            <remarks>
+            Consider using AddDockedOrTabbed() instead.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.WindowCollection.AddDocked(ABB.Robotics.RobotStudio.Environment.ToolWindow,System.Windows.Forms.DockStyle,ABB.Robotics.RobotStudio.Environment.ToolWindow)">
+            <summary>
+            Adds a ToolWindow to the environment and docks it relative another window
+            </summary>
+            <param name="window">Window to add</param>
+            <param name="dockStyle">Edge to dock to</param>
+            <param name="referenceWindow">Window to dock relative to</param>
+            <remarks>
+            Consider using AddDockedOrTabbed() instead.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.WindowCollection.AddDockedOrTabbed(ABB.Robotics.RobotStudio.Environment.ToolWindow,System.Windows.Forms.DockStyle)">
+            <summary>
+            Adds a ToolWindow to the environment and docks it to the specified edge,
+            or adds it as a tab to an existing window at the specified edge.
+            </summary>
+            <param name="window">Window to add</param>
+            <param name="dockStyle">Edge to dock to</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.WindowCollection.AddTabbed(ABB.Robotics.RobotStudio.Environment.ToolWindow,ABB.Robotics.RobotStudio.Environment.ToolWindow)">
+            <summary>
+            Adds a tabbed ToolWindow to the environment
+            </summary>
+            <param name="window">Window to add</param>
+            <param name="referenceWindow">Window to add a tab to</param>
+            <remarks>
+            Consider using AddDockedOrTabbed() instead.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.WindowCollection.Remove(ABB.Robotics.RobotStudio.Environment.Window)">
+            <summary>
+            Removes a window from the environment
+            </summary>
+            <param name="window">Window to remove</param>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.WindowCollection.RemoveAll(System.Predicate{ABB.Robotics.RobotStudio.Environment.Window})">
+            <summary>
+            Removes all windows that matches the given predicate
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.WindowCollection.IndexOf(ABB.Robotics.RobotStudio.Environment.Window)">
+            <summary>
+            Returns the index of a window in the collection
+            </summary>
+            <param name="window">Window to search for</param>
+            <returns>Index of the window in the collection</returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.WindowCollection.Contains(ABB.Robotics.RobotStudio.Environment.Window)">
+            <summary>
+            Returns True if the collection contains the specified Window
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.WindowCollection.FindWindows``1">
+            <summary>
+            Find windows of a given type.
+            </summary>
+            <typeparam name="T">The type ow Window to find. It must be derived from Window, for example DocumentWindow and ToolWindow</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.WindowCollection.FindWindows``1(System.Object)">
+            <summary>
+            Find windows of a given type and with a specified Id.
+            </summary>
+            <typeparam name="T">The type of Window to find. It must be derived from Window, for example DocumentWindow and ToolWindow</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.WindowCollection.FindWindows(System.Predicate{ABB.Robotics.RobotStudio.Environment.Window})">
+            <summary>
+            Find all windows that matches a given predicate
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.WindowCollection.Added">
+            <summary>
+            Raised after a windows has been added to the collection.
+            </summary>
+        </member>
+        <member name="E:ABB.Robotics.RobotStudio.Environment.WindowCollection.Removed">
+            <summary>
+            Raised after a window has been removed from the collection.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.WindowCollection.GetEnumerator">
+            <summary>
+            See IEnumerable.GetEnumerator()
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.WindowCollection.IsSynchronized">
+            <summary>
+            See ICollection.IsSynchronized. Always returns false.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.WindowCollection.SyncRoot">
+            <summary>
+            See ICollection.SyncRoot
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.RobotStudio.Environment.WindowCollection.Count">
+            <summary>
+            Returns the number of windows in the collection
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.RobotStudio.Environment.WindowCollection.CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies the elements of the collection to an Array, starting at a particular Array index
+            </summary>
+        </member>
+        <member name="T:ABBInternal.EnvironmentAPI.IWindowManager">
+            <summary>
+            Internal use only
+            </summary>
+        </member>
+        <member name="T:ABBInternal.EnvironmentAPI.ICommandBarManager">
+            <summary>
+            Internal use only
+            </summary>
+        </member>
+        <member name="T:ABBInternal.EnvironmentAPI.IStatusBarManager">
+            <summary>
+            Internal use only
+            </summary>
+        </member>
+        <member name="T:ABBInternal.EnvironmentAPI.CommandBarButtonGroupItem">
+            <summary>
+            Internal use only
+            </summary>
+        </member>
+        <member name="T:ABBInternal.EnvironmentAPI.IToolbarControl">
+            <summary>
+            Internal use only
+            </summary>
+        </member>
+        <member name="T:ABBInternal.EnvironmentAPI.EventDispatcher">
+            <summary>
+            Internal use only
+            </summary>
+        </member>
+        <member name="T:ABBInternal.EnvironmentAPI.Setup">
+            <summary>
+            Internal use only
+            </summary>
+        </member>
+    </members>
+</doc>

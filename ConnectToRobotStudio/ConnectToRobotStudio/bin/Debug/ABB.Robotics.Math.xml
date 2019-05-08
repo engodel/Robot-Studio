@@ -1,0 +1,2343 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ABB.Robotics.Math</name>
+    </assembly>
+    <members>
+        <member name="T:ABB.Robotics.Math.BoundingBox">
+            <summary>
+            Axis-aligned bounding box
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.BoundingBox.min">
+            <summary>
+            min/max corners of the box.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.BoundingBox.max">
+            <summary>
+            min/max corners of the box.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.BoundingBox.Empty">
+            <summary>
+            Empty bounding box
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.#ctor(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Creates a bounding box from min and max
+            </summary>
+            <param name="min"></param>
+            <param name="max"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.op_Equality(ABB.Robotics.Math.BoundingBox,ABB.Robotics.Math.BoundingBox)">
+            <summary>
+            Equality operator
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.op_Inequality(ABB.Robotics.Math.BoundingBox,ABB.Robotics.Math.BoundingBox)">
+            <summary>
+            Inequality operator
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.op_Addition(ABB.Robotics.Math.BoundingBox,ABB.Robotics.Math.BoundingBox)">
+            <summary>
+            Addition operator
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns>A bounding box that contains both operands</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.op_Addition(ABB.Robotics.Math.BoundingBox,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Addition operator
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns>A bounding box that contains both operands</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.IsValid">
+            <summary>
+            Checks if this is a valid bounding box.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.Contains(ABB.Robotics.Math.BoundingBox)">
+            <summary>
+            Checks if box is contained by this box
+            </summary>
+            <param name="box"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.Contains(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Checks if a point is inside this box
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.Diameter">
+            <summary>
+            Returns the distance between min and max corners
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.Volume">
+            <summary>
+            Returns the volume of this
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.Center">
+            <summary>
+            Returns the center point of this
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.Corners">
+            <summary>
+            Returns the eight corners of this.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.Expand(System.Double)">
+            <summary>
+            Returns a BoundingBox expanded by an amount in all directions.
+            </summary>
+            <param name="amount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.TransformAffine(ABB.Robotics.Math.Matrix4)">
+            <summary>
+            Returns a bounding box that is the result of an affine transformation
+            </summary>
+            <param name="matrix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.Intersects(ABB.Robotics.Math.BoundingBox,ABB.Robotics.Math.BoundingBox)">
+            <summary>
+            Returns true if two bounding boxes intersect
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.Intersects(ABB.Robotics.Math.BoundingBox,ABB.Robotics.Math.BoundingBox,System.Double)">
+            <summary>
+            Returns true if two bounding boxes intersect.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <param name="tolerance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.Intersects(ABB.Robotics.Math.Ray)">
+            <summary>
+            Returns true if a ray intersects the bounding box.
+            </summary>
+            <param name="ray"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.Distance(ABB.Robotics.Math.BoundingBox,ABB.Robotics.Math.BoundingBox)">
+            <summary>
+            Returns the distance between two bounding boxes.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.Distance(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Returns the distance between this BoundingBox and a point.
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+            <remarks>Returns 0 if the point is inside the box.</remarks>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.Intersect(ABB.Robotics.Math.BoundingBox)">
+            <summary>
+            Returns the interection of this and a second <see cref="T:ABB.Robotics.Math.BoundingBox"/>
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.Equals(System.Object)">
+            <summary>
+            Determines whether this instance and the specified object are equal
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.GetHashCode">
+            <summary>
+            Returns the hash code for this object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.BoundingBox.ToString">
+            <summary>
+            Returns a string representation of this instance
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.Math.LinSolver">
+            <summary>
+            ABB Internal use only.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:ABB.Robotics.Math.LinSolver.Solve(ABB.Robotics.Math.Matrix,ABB.Robotics.Math.Matrix)">
+            <summary>
+            Solve a linear equation system using Gaussian elimination. 
+            </summary>
+            <param name="matrix">Matrix containing coeffiecients for linear eq. system.</param>
+            <param name="b">Right hand side.</param>
+            <returns>Solution on success, null on failure.</returns>
+            <remarks>
+            Uses partial pivoting so should be numerically stable. Not terribly optimized, 
+            100 by 100 matrices is quick (a few ms) but 1000 by 1000 takes some time (a few s).
+            </remarks>
+        </member>
+        <member name="T:ABB.Robotics.Math.LogicExpression">
+            <summary>
+            Parses and evaluates a logic (boolean) expression
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.LogicExpression.#ctor(System.String,System.Boolean)">
+            <summary>
+            Creates an expression without variables, if 'literal' is true.
+            Any non-operators are evaluated by string comparison.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.LogicExpression.#ctor(System.String)">
+            <summary>
+            Creates an expression.
+            </summary>
+            <param name="expression"></param>
+        </member>
+        <member name="P:ABB.Robotics.Math.LogicExpression.IsValid">
+            <summary>
+            Returns True if the expression is valid and can be evaluated
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.LogicExpression.ExpressionString">
+            <summary>
+            Gets or sets the source expression string
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.LogicExpression.VariableNames">
+            <summary>
+            Returns the names of variables used in the expression
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.LogicExpression.GetAllowedOperators">
+            <summary>
+            Returns the allowed operators
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.LogicExpression.SetVariableValue(System.String,System.Boolean)">
+            <summary>
+            Sets the value of a variable, which will be used the next time the expression
+            is evaluated.
+            </summary>
+            <param name="variable">Name of the variable to set</param>
+            <param name="val">New value of the variable</param>
+        </member>
+        <member name="M:ABB.Robotics.Math.LogicExpression.TrySetVariableValue(System.String,System.Boolean)">
+            <summary>
+            Sets the value of a variable, which will be used the next time the expression
+            is evaluated.
+            </summary>
+            <param name="variable">Name of the variable to set</param>
+            <param name="val">New value of the variable</param>
+            <returns>
+            True if the variable could be set (i.e. if it exists), false otherwise
+            </returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.LogicExpression.Evaluate">
+            <summary>
+            Evaluates the expression
+            </summary>
+            <returns>The evaluated value of the expression</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.LogicExpression.BuildRPN">
+            <summary>
+            Builds an expression in Reverse Polish Notation format
+            </summary>
+            <returns>True if the RPN expression was successfully generated, False otherwise</returns>
+        </member>
+        <member name="T:ABB.Robotics.Math.Globals">
+            <summary>
+            Contains static constants and utility methods.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Globals.EPS">
+            <summary>
+            Constant used to compensate for rounding errors.
+            </summary>
+            <remarks>
+            Always take this into account when comparing a calculated value with a constant (e.g. 1 or -1).
+            </remarks>
+        </member>
+        <member name="F:ABB.Robotics.Math.Globals.MachineEPS">
+            <summary>
+            Epsilon for comparing single precision values.
+            </summary>
+            <remarks>
+            See http://en.wikipedia.org/wiki/Machine_epsilon
+            </remarks>
+        </member>
+        <member name="F:ABB.Robotics.Math.Globals.NegativeOneEps">
+            <summary>
+            Use when comparing a calculated value with -1
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Globals.PositiveOneEps">
+            <summary>
+            Use when comparing a calculated value with 1
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Globals.AlmostEquals(System.Double,System.Double)">
+            <summary>
+            Checks if the difference between two numbers is smaller than <c>EPS</c>.
+            </summary>
+            <param name="d1"></param>
+            <param name="d2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Globals.AlmostEquals(System.Double,System.Double,System.Int32)">
+            <summary>
+            Checks if the difference between two numbers is smaller than a specified precision.
+            </summary>
+            <param name="d1"></param>
+            <param name="d2"></param>
+            <param name="precision">The number of decimals to check (max 12)</param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Globals.DegToRad(System.Double)">
+            <summary>
+            Converts degrees to radians.
+            </summary>
+            <param name="degrees"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Globals.RadToDeg(System.Double)">
+            <summary>
+            Converts radians to degrees.
+            </summary>
+            <param name="radians"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Globals.Clamp(System.Double)">
+            <summary>
+            Clamps a value to -1=d=1.
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ABB.Robotics.Math.Axis">
+            <summary>
+            Axis enumeration 
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Axis.Undefined">
+            <summary>
+            Undefined axis
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Axis.X">
+            <summary>
+            X axis
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Axis.Y">
+            <summary>
+            Y axis
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Axis.Z">
+            <summary>
+            Z axis
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.Math.DirectionAxis">
+            <summary>
+            Directed axis enumeration 
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.DirectionAxis.Undefined">
+            <summary>
+            Undefined axis
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.DirectionAxis.PositiveX">
+            <summary>
+            Positive X axis
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.DirectionAxis.PositiveY">
+            <summary>
+            Positive Y axis
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.DirectionAxis.PositiveZ">
+            <summary>
+            Positive Z axis
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.DirectionAxis.NegativeX">
+            <summary>
+            Negative X axis
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.DirectionAxis.NegativeY">
+            <summary>
+            Negative Y axis
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.DirectionAxis.NegativeZ">
+            <summary>
+            Negative Z axis
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.Math.MathExpression">
+            <summary>
+            Simple math expression parser and evaluator
+            </summary>
+            <remarks>
+            Literal values should be using '.' as a decimal separator.
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.Math.MathExpression.#ctor(System.String)">
+            <summary>
+            Creates a new MathExpression class from a mathematical expression
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.MathExpression.#ctor(System.Double)">
+            <summary>
+            Creates a simple MathExpression from the given value
+            </summary>
+            <param name="val">Value to build expression for</param>
+            <remarks>
+            Calling Evaluate() will return the given value
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.Math.MathExpression.#ctor(System.Double,System.Int32)">
+            <summary>
+            Creates a simple MathExpression from the given value with the specified number of decimals
+            </summary>
+            <param name="val">Value to build expression for</param>
+            <param name="numDecimals">Maximum number of decimals to use</param>
+            <remarks>
+            Calling Evaluate() will return the given value (rounded to the given number of decimals).
+            </remarks>
+        </member>
+        <member name="M:ABB.Robotics.Math.MathExpression.#ctor(System.String,System.String[])">
+            <summary>
+            This constructor is obsolete.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="P:ABB.Robotics.Math.MathExpression.IsValid">
+            <summary>
+            Returns True if the expression is valid and can be evaluated
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.MathExpression.ErrorText">
+            <summary>
+            If the expression is invalid (IsValid returns false), this property may return 
+            more information why.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.MathExpression.IsSimple">
+            <summary>
+            Returns True if the expression consists of a single value
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.MathExpression.ExpressionString">
+            <summary>
+            Gets or sets the source expression string
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.MathExpression.VariableNames">
+            <summary>
+            Returns the names of variables used in the expression
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.MathExpression.GetAllowedOperators">
+            <summary>
+            Returns the allowed operators
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.MathExpression.SetVariableValue(System.String,System.Double)">
+            <summary>
+            Sets the value of a variable, which will be used the next time the expression
+            is evaluated.
+            </summary>
+            <param name="variable">Name of the variable to set</param>
+            <param name="val">New value of the variable</param>
+        </member>
+        <member name="M:ABB.Robotics.Math.MathExpression.TrySetVariableValue(System.String,System.Double)">
+            <summary>
+            Sets the value of a variable, which will be used the next time the expression
+            is evaluated.
+            </summary>
+            <param name="variable">Name of the variable to set</param>
+            <param name="val">New value of the variable</param>
+            <returns>
+            True if the variable could be set (i.e. if it exists), false otherwise
+            </returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.MathExpression.SetVariableValues(System.Double[])">
+            <summary>
+            This method is obsolete. Use SetVariableValue() instead.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:ABB.Robotics.Math.MathExpression.Evaluate">
+            <summary>
+            Evaluates the expression
+            </summary>
+            <returns>The evaluated value of the expression</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.MathExpression.BuildRPN">
+            <summary>
+            Builds an expression in Reverse Polish Notation format
+            </summary>
+            <returns>True if the RPN expression was successfully generated, False otherwise</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.MathExpression.GetLinearCoefficients(System.String[])">
+            <summary>
+            Returns the linear coefficients, if this expression is linear in the set of given variables. Otherwise it returns null.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.Math.MathFunctions">
+            <summary>
+            Contains miscellaneous math functions
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.MathFunctions.ThreePointCircle(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3,System.Double@,ABB.Robotics.Math.Vector3@,ABB.Robotics.Math.Vector3@)">
+            <summary>
+            Calculates a circle from three points
+            </summary>
+            <param name="p1">First point</param>
+            <param name="p2">Second point</param>
+            <param name="p3">Third point</param>
+            <param name="radius">Radius of the circle</param>
+            <param name="center">Center point of the circle</param>
+            <param name="normal">Normal of the circle</param>
+            <returns>True is the circle could be calculated, false otherwise
+            (e.g. the three points are on a straight line)</returns>
+        </member>
+        <member name="T:ABB.Robotics.Math.Matrix">
+            <summary>
+            Arbitrary-sized matrix
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates a new Matrix with the given number of rows and columns
+            </summary>
+            <param name="numRows"></param>
+            <param name="numCols"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix.#ctor(System.Int32,System.Int32,System.Double[])">
+            <summary>
+            ABB Internal use only
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix.#ctor(ABB.Robotics.Math.Matrix)">
+            <summary>
+            Creates a new Matrix that is a copy of the given Matrix
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.Matrix.NumCols">
+            <summary>
+            Returns the number of columns in the matrix
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix.AlmostEquals(ABB.Robotics.Math.Matrix)">
+            <summary>
+            Checks that a matrices only differs by an epsilon-sized amount.
+            </summary>
+            <param name="rhs">The matrix to compare to.</param>
+            <returns>true if almost equals, false otherwise.</returns>
+        </member>
+        <member name="P:ABB.Robotics.Math.Matrix.NumRows">
+            <summary>
+            Returns the number of rows in the matrix
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.Matrix.Item(System.Int32,System.Int32)">
+            <summary>
+            Element access
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix.op_Multiply(ABB.Robotics.Math.Matrix,ABB.Robotics.Math.Matrix)">
+            <summary>
+            Matrix-Matrix multiplication operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix.Multiply(ABB.Robotics.Math.Matrix)">
+            <summary>
+            Matrix-Matrix multiplication method.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix.op_Addition(ABB.Robotics.Math.Matrix,ABB.Robotics.Math.Matrix)">
+            <summary>
+            Element-wise addition operator.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix.op_Subtraction(ABB.Robotics.Math.Matrix,ABB.Robotics.Math.Matrix)">
+            <summary>
+            Element-wise subtraction operator.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix.ToString">
+            <summary>
+            Returns a string that represents this Matrix
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.Math.Matrix3">
+            <summary>
+            3x3 matrix, typically used to describe a rotation.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Matrix3.x">
+            <summary>
+            Column vector.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Matrix3.y">
+            <summary>
+            Column vector.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Matrix3.z">
+            <summary>
+            Column vector.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Matrix3.Identity">
+            <summary>
+            Identity matrix.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix3.#ctor(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Creates a matrix from three column vectors.
+            </summary>
+            <param name="x0"></param>
+            <param name="y0"></param>
+            <param name="z0"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix3.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Creates a matrix from elements row by row.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix3.#ctor(ABB.Robotics.Math.Matrix4)">
+            <summary>
+            Creates a 3x3 matrix from the upper-left part of a 4x4 matrix.<br></br>
+            Corresponds to extracting the rotation part of a transformation matrix.
+            </summary>
+            <param name="mat"></param>
+        </member>
+        <member name="P:ABB.Robotics.Math.Matrix3.Item(System.Int32)">
+            <summary>
+            Column vector access.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.Matrix3.Elements">
+            <summary>
+            Returns an array of all elements in column-first order.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix3.op_Multiply(ABB.Robotics.Math.Matrix3,ABB.Robotics.Math.Matrix3)">
+            <summary>
+            Matrix-Matrix multiplication operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix3.Multiply(ABB.Robotics.Math.Matrix3)">
+            <summary>
+            Matrix-Matrix multiplication method.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix3.op_Multiply(ABB.Robotics.Math.Matrix3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Matrix-Vector3 multiplication operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix3.Multiply(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Matrix-Vector3 multiplication method.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix3.op_Multiply(ABB.Robotics.Math.Matrix3,System.Double)">
+            <summary>
+            Multiples each element with the supplied value and returns the resulting Matrix3
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix3.op_Addition(ABB.Robotics.Math.Matrix3,ABB.Robotics.Math.Matrix3)">
+            <summary>
+            Adds each element of the two Matrix3 values and returns the resulting Matrix3
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix3.Determinant">
+            <summary>
+            Returns the determinant.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix3.Invert">
+            <summary>
+            Inverts the matrix, using Cramer's rule.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix3.Inverse">
+            <summary>
+            Returns the inverse.
+            </summary>
+            <returns>Inverted matrix</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix3.Transpose">
+            <summary>
+            Transposes the matrix.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix3.Clean">
+            <summary>
+            Zeroes any values smaller than <c>Globals.EPS</c>.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix3.AlmostEquals(ABB.Robotics.Math.Matrix3)">
+            <summary>
+            Comparison method for matrices with tolerance
+            </summary>
+            <param name="rhs">Matrix to compare with</param>
+            <returns>true if equals within tolerance</returns>
+            
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix3.ToString">
+            <summary>
+            Returns a string in the format<br></br>
+            <c>[[x.x x.y x.z] [y.x y.y y.z] [z.x z.y z.z]]</c>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ABB.Robotics.Math.Matrix4">
+            <summary>
+            4x4 matrix, typically used to describe a transformation
+            (rotation and translation).
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Matrix4.x">
+            <summary>
+            Column vector.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Matrix4.y">
+            <summary>
+            Column vector.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Matrix4.z">
+            <summary>
+            Column vector.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Matrix4.t">
+            <summary>
+            Column vector.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Matrix4.Identity">
+            <summary>
+            Identity matrix.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.#ctor(ABB.Robotics.Math.Vector4,ABB.Robotics.Math.Vector4,ABB.Robotics.Math.Vector4,ABB.Robotics.Math.Vector4)">
+            <summary>
+            Creates a matrix from four column vectors.
+            </summary>
+            <param name="x0">First column</param>
+            <param name="y0">Second column</param>
+            <param name="z0">Third column</param>
+            <param name="t0">Fourth column</param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.#ctor(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Creates an affine matrix from four vectors
+            </summary>
+            <param name="x0">X axis</param>
+            <param name="y0">Y axis</param>
+            <param name="z0">Z axis</param>
+            <param name="t0">Translation</param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.#ctor(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Creates a matrix with unit rotation and a specified translation.
+            </summary>
+            <param name="translation">Translation vector</param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.#ctor(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Creates a matrix from a translation vector and
+            Euler angles (zyx).
+            </summary>
+            <param name="translation">Translation vector</param>
+            <param name="eulerZYX">Euler angles (zyx order)</param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.#ctor(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Quaternion)">
+            <summary>
+            Creates a matrix from a translation vector and a quaternion.
+            </summary>
+            <param name="translation">Translation vector</param>
+            <param name="quat">Quaternion</param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.#ctor(ABB.Robotics.Math.Vector3,System.Double)">
+            <summary>
+            Creates a matrix from a rotation axis and angle,
+            with unit translation.
+            </summary>
+            <param name="axis">Rotation axis</param>
+            <param name="angle">Rotation angle</param>
+            <exception cref="T:System.ArgumentException">Invalid rotation axis</exception>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.#ctor(System.Double[],System.Boolean)">
+            <summary>
+            Creates a matrix from an array of 16 values.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.#ctor(ABB.Robotics.Math.Matrix3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Constructs a matrix from a 3x3 orientation matrix and a translation.
+            </summary>
+            <param name="orientation"></param>
+            <param name="translation"></param>
+        </member>
+        <member name="P:ABB.Robotics.Math.Matrix4.Item(System.Int32)">
+            <summary>
+            Column vector access.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.Matrix4.Elements">
+            <summary>
+            Returns an array of all elements in column-first order.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.Matrix4.Translation">
+            <summary>
+            Gets/sets the translation vector.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.Matrix4.Quaternion">
+            <summary>
+            Gets/sets the rotation as a quaternion.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.Matrix4.EulerXYZ">
+            <summary>
+            Gets/sets the rotation as Euler angles (xyz order).<br></br>
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.Matrix4.EulerZYX">
+            <summary>
+            Gets/sets the rotation as Euler angles (zyx order).<br></br>
+            Note: the vector contains the angles as <c>[rx,ry,rz]</c>.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.Matrix4.AxisAngle">
+            <summary>
+            Gets/sets the rotation as axis/angle
+            (represented by a 4-vector <c>[axis,angle]</c>).
+            </summary>
+            <exception cref="T:System.ArgumentException">Invalid rotation axis</exception>
+        </member>
+        <member name="P:ABB.Robotics.Math.Matrix4.UpperLeft">
+            <summary>
+            Gets/sets the rotation as a 3x3 matrix.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.Matrix4.IsNaN">
+            <summary>
+            Returns a value indicating whether any elements evaluates to a value that is not a number (NaN).
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.op_Multiply(ABB.Robotics.Math.Matrix4,ABB.Robotics.Math.Matrix4)">
+            <summary>
+            Matrix-Matrix multiplication operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.Multiply(ABB.Robotics.Math.Matrix4)">
+            <summary>
+            Matrix-Matrix multiplication method.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.op_Multiply(ABB.Robotics.Math.Matrix4,ABB.Robotics.Math.Vector4)">
+            <summary>
+            Matrix-Vector4 multiplication operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.Multiply(ABB.Robotics.Math.Vector4)">
+            <summary>
+            Matrix-Vector4 multiplication method.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.FromThreePoint(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Creates a matrix from three points.
+            </summary>
+            <param name="x1">First point on x axis</param>
+            <param name="x2">Second point on x axis</param>
+            <param name="y1">Point on y axis</param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.FromTwoPointXY(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Creates a matrix from a translation and two points
+            </summary>
+            <param name="translation">Translation</param>
+            <param name="x1">Point on x axis</param>
+            <param name="xy">Point in x-y plane</param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.FromTwoPointXZ(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Creates a matrix from a translation and two points
+            </summary>
+            <param name="translation">Translation</param>
+            <param name="x1">Point on x axis</param>
+            <param name="xz">Point in x-z plane</param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.FromTwoAxes(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3,ABB.Robotics.Math.DirectionAxis,ABB.Robotics.Math.Vector3,ABB.Robotics.Math.DirectionAxis)">
+            <summary>
+            Creates a matrix from a translation and two axis vectors
+            </summary>
+            <param name="translation">Translation</param>
+            <param name="axis1">First axis</param>
+            <param name="axis1Direction"></param>
+            <param name="axis2">Second axis</param>
+            <param name="axis2Direction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.MultiplyPoint(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Matrix-Vector3 (interpreted as a point) multiplication.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.MultiplyVector(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Matrix-Vector3 (interpreted as a direction) multiplication.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.AlmostEquals(ABB.Robotics.Math.Matrix4)">
+            <summary>
+            Comparison method for matrices with default tolerance
+            </summary>
+            <param name="rhs">Matrix to compare with</param>
+            <returns>true if equals within tolerance</returns>
+            
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.AlmostEquals(ABB.Robotics.Math.Matrix4,System.Double)">
+            <summary>
+            Comparison method for matrices with tolerance
+            </summary>
+            <param name="rhs">Matrix to compare with</param>
+            <param name="tolerance">tolerance</param>
+            <returns>true if equals within tolerance</returns>
+            
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.IsRigid">
+            <summary>
+            Returns true if this matrix is rigid (orthogonal),
+            e.g. it represents a pure rotation and translation.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.CheckRigid">
+            <summary>
+            Throws an exception if this matrix is not rigid.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.InvertRigid">
+            <summary>
+            Inverts a rigid (pure translation+rotation) matrix.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.InverseRigid">
+            <summary>
+            Returns a an inverted copy of the matrix. If the matrix is non-rigid the result is undefined.
+            </summary>
+            <returns>The inverse of the matrix.</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.IsAffine">
+            <summary>
+            Returns true if the matrix is affine.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.IsIdentity">
+            <summary>
+            Returns true if the matrix is identity.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.InvertAffine">
+            <summary>
+            Inverts an affine matrix.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.Invert">
+            <summary>
+            Inverts a general matrix, using Cramer's rule.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.Inverse">
+            <summary>
+            Returns the inverse of a general matrix.
+            </summary>
+            <returns>Inverted matrix</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.Rotate(ABB.Robotics.Math.Vector3,System.Double)">
+            <summary>
+            Rotates the matrix around an axis through the origin.
+            </summary>
+            <param name="axis"></param>
+            <param name="angle"></param>
+            <exception cref="T:System.ArgumentException">Invalid rotation axis</exception>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.Rotate(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3,System.Double)">
+            <summary>
+            Rotates the matrix around an axis through a point.
+            </summary>
+            <param name="point"></param>
+            <param name="axis"></param>
+            <param name="angle"></param>
+            <exception cref="T:System.ArgumentException">Invalid rotation axis</exception>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.Translate(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Translates the matrix by a vector.
+            </summary>
+            <param name="translation"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.Translate(System.Double,System.Double,System.Double)">
+            <summary>
+            Translates the matrix by x,y,z.
+            </summary>
+            <param name="dx"></param>
+            <param name="dy"></param>
+            <param name="dz"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.TranslateLocal(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Translates the matrix by a vector in its own coordinate system.
+            </summary>
+            <param name="translation"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.TranslateLocal(System.Double,System.Double,System.Double)">
+            <summary>
+            Translates the matrix by x,y,z in its own coordinate system.
+            </summary>
+            <param name="dx"></param>
+            <param name="dy"></param>
+            <param name="dz"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.Scale(System.Double)">
+            <summary>
+            Scale uniformly about origin.
+            </summary>
+            <param name="amount"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.Scale(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Scale by vector about origin.
+            </summary>
+            <param name="scalevec"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.Scale(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Scale by vector about a point.
+            </summary>
+            <param name="scalevec"></param>
+            <param name="point"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.Determinant">
+            <summary>
+            Returns the determinant.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.Transpose">
+            <summary>
+            Transposes the matrix.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.Clean">
+            <summary>
+            Zeroes any values smaller than <c>Globals.EPS</c>.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.CleanRigid">
+            <summary>
+            Ensures this is a valid rigid matrix
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.GetAxisVector(ABB.Robotics.Math.Axis)">
+            <summary>
+            Gets the axis vector from the specified axis
+            </summary>
+            <param name="axis">the axis whose vector to get</param>
+            <returns>the axis vector</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.RelativeMatrix(ABB.Robotics.Math.Matrix4,ABB.Robotics.Math.Matrix4)">
+            <summary>
+            Returns a matrix representing the relative transform, between the two specified matrices.
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.ToString">
+            <summary>
+            Returns a string in the format<br></br>
+            <c>[[x.x x.y x.z x.w] [y.x y.y y.z y.w] [z.x z.y z.z z.w] [t.x t.y t.z t.w]]</c>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Matrix4.TryParse(System.String,ABB.Robotics.Math.Matrix4@)">
+            <summary>
+            Converts the string representation to its Matrix4 equivalent.
+            </summary>
+            <param name="value"></param>
+            <param name="result"></param>
+            <returns>A value indicating whether the conversion succeeded</returns>
+        </member>
+        <member name="T:ABB.Robotics.Math.Plane">
+            <summary>
+            Plane, represented by the plane equation <c>n·p+d=0</c>,
+            where <c>n</c> is the normal <c>[x,y,z]</c> and <c>p</c> is any point on the plane.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Plane.x">
+            <summary>
+            Plane normal
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Plane.y">
+            <summary>
+            Plane normal
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Plane.z">
+            <summary>
+            Plane normal
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Plane.d">
+            <summary>
+            Distance from origin.<br></br>
+            Negative if the normal points away from the origin,
+            positive if the normal points toward the origin.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Creates a plane from four doubles.
+            </summary>
+            <param name="x0"></param>
+            <param name="y0"></param>
+            <param name="z0"></param>
+            <param name="d0"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.#ctor(ABB.Robotics.Math.Vector3,System.Double)">
+            <summary>
+            Creates a plane from a normal and a distance.
+            </summary>
+            <param name="normal"></param>
+            <param name="d0"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.#ctor(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Creates a plane from a normal and a point on the plane.
+            </summary>
+            <param name="normal"></param>
+            <param name="point"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.#ctor(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Creates a plane from three points.<br></br>
+            The points are in counterclockwise order seen from in front of the plane.
+            </summary>
+            <param name="point1"></param>
+            <param name="point2"></param>
+            <param name="point3"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.#ctor(ABB.Robotics.Math.Matrix4,ABB.Robotics.Math.Axis)">
+            <summary>
+            Creates a plane from a matrix
+            </summary>
+            <param name="mat">the matrix to create the plane from</param>
+            <param name="normal">Which axis will be the normal of the plane</param>
+        </member>
+        <member name="P:ABB.Robotics.Math.Plane.Normal">
+            <summary>
+            Gets/sets the normal of the plane.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.op_Equality(ABB.Robotics.Math.Plane,ABB.Robotics.Math.Plane)">
+            <summary>
+            Equality operator
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.op_Inequality(ABB.Robotics.Math.Plane,ABB.Robotics.Math.Plane)">
+            <summary>
+            Inequality operator
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.Distance(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Returns the distance between the plane and a point.
+            </summary>
+            <param name="point"></param>
+            <returns>Positive if the point is in front of the plane,
+            negative if it is behind the plane</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.ProjectPoint(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Projects a point onto the plane.
+            </summary>
+            <param name="point"></param>
+            <returns>Projected point</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.ProjectVector(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Projects a vector into the plane.
+            </summary>
+            <param name="vector">Vector to project</param>
+            <returns>Projected vector</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.MirrorPoint(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Mirrors a point in the plane.
+            </summary>
+            <param name="point"></param>
+            <returns>Mirrored point</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.MirrorVector(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Mirrors a vector (direction) in the plane.
+            </summary>
+            <param name="vec"></param>
+            <returns>Mirrored vector</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.MirrorMatrixKeep(ABB.Robotics.Math.Matrix4,ABB.Robotics.Math.Axis)">
+            <summary>
+            Mirrors a coordinate system (represented by a matrix) in the plane
+            and optionally switches two axes to keep the handedness.<br></br>
+            The matrix is assumed to be affine.
+            </summary>
+            <param name="mat"></param> 
+            <param name="keepaxis">Undefined - Mirror all axes, the handedness of the system will be changed<br></br>
+            X - Keep x, switch y and z axes to keep handedness<br></br>
+            Y - Keep y, switch x and z axes to keep handedness<br></br>
+            Z - Keep z, Switch y and z axes to keep handedness<br></br></param>
+            <returns>Mirrored matrix</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.MirrorMatrixFlip(ABB.Robotics.Math.Matrix4,ABB.Robotics.Math.Axis)">
+            <summary>
+            Mirrors a coordinate system (represented by a matrix) in the plane
+            and optionally inverts one axis to keep the handedness.<br></br>
+            The matrix is assumed to be affine.
+            </summary>
+            <param name="mat">the matrix to be mirrored</param> 
+            <param name="flipaxis">Undefined - Mirror all axes, the handedness of the system will be changed<br></br>
+            X - Invert x axis to keep handedness<br></br>
+            Y - Invert y axis to keep handedness<br></br>
+            Z - Invert z axis to keep handedness</param> 
+            <returns>Mirrored matrix</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.Intersect(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3@)">
+            <summary>
+            Calculates if and where a straight line between two
+            points intersects the plane.
+            </summary>
+            <param name="point1"></param>
+            <param name="point2"></param>
+            <param name="intersectionPoint">Intersection point</param>
+            <returns>True if the line intersects the plane between point1 and point2.</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.Intersect(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3@,System.Double@)">
+            <summary>
+            Calculates if and where a straight line between two
+            points intersects the plane.
+            </summary>
+            <param name="point1"></param>
+            <param name="point2"></param>
+            <param name="intersectionPoint">Intersection point</param>
+            <param name="intersectionParameter">Returns the parameter value of the intersection point, or NaN if the line is parallel to the plane.</param>
+            <returns>True if the line intersects the plane between point1 and point2</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.Angle(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Computes the angle between the projection of two vectors onto the plane. 
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.GetHashCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Plane.ToString">
+            <summary>
+            Returns a string in the format<br></br>
+            <c>[x y z d]</c>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ABB.Robotics.Math.Quaternion">
+            <summary>
+            Quaternion, used to describe a rotation.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Quaternion.q1">
+            <summary>
+            Scalar part.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Quaternion.q2">
+            <summary>
+            Vector part.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Quaternion.q3">
+            <summary>
+            Vector part.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Quaternion.q4">
+            <summary>
+            Vector part.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Quaternion.Identity">
+            <summary>
+            Identity quaternion <c>[1,0,0,0]</c>
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Creates a quaternion from four doubles.
+            </summary>
+            <param name="_q1"></param>
+            <param name="_q2"></param>
+            <param name="_q3"></param>
+            <param name="_q4"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.#ctor(System.Double,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Creates a quaternion from scalar and vector.
+            </summary>
+            <param name="w">Scalar part</param>
+            <param name="vec">Vector part</param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.#ctor(ABB.Robotics.Math.Vector3,System.Double)">
+            <summary>
+            Creates a quaternion from rotation axis and angle.
+            </summary>
+            <param name="axis">Normalized rotation axis</param>
+            <param name="angle">Rotation angle (radians)</param>
+            <exception cref="T:System.ArgumentException">Invalid rotation axis</exception>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Creates a quaternion from Euler angles (zyx order).
+            </summary>
+            <param name="xr">Rotation around the x axis (radians)</param>
+            <param name="yr">Rotation around the y axis (radians)</param>
+            <param name="zr">Rotation around the z axis (radians)</param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.#ctor(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Creates a quaternion from euler angles.
+            </summary>
+            <param name="eulerZYX">Orientation in Euler angles (zyx order).</param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.#ctor(ABB.Robotics.Math.Matrix4)">
+            <summary>
+            Creates a quaternion from the rotation part of a 4x4 matrix.
+            </summary>
+            <param name="m">Matrix (assumed to be pure rotation/translation)</param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.#ctor(ABB.Robotics.Math.Matrix4@)">
+            <summary>
+            Obsolete constructor
+            </summary>
+            <param name="m">Matrix (assumed to be pure rotation/translation)</param>
+            <exclude/>
+        </member>
+        <member name="P:ABB.Robotics.Math.Quaternion.Item(System.Int32)">
+            <summary>
+            Array access.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.Quaternion.Scalar">
+            <summary>
+            Gets/sets the scalar part.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.Quaternion.Vector">
+            <summary>
+            Gets/sets the vector part.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.Quaternion.EulerXYZ">
+            <summary>
+            Gets/sets the rotation as Euler angles (xyz order).<br></br>
+            Equivalent to RPY (?).
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.Quaternion.EulerZYX">
+            <summary>
+            Gets/sets the rotation as Euler angles (zyx order).<br></br>
+            Note: the vector contains the angles as <c>[rx,ry,rz]</c>
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.Quaternion.AxisAngle">
+            <summary>
+            Gets/sets the rotation as normalized rotation axis and angle<br></br>
+            (represesented by a Vector4 <c>[axis, angle]</c>).
+            </summary>
+            <exception cref="T:System.ArgumentException">Invalid rotation axis</exception>
+        </member>
+        <member name="P:ABB.Robotics.Math.Quaternion.Matrix">
+            <summary>
+            Gets/sets the rotation as a 3x3 matrix
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.op_Equality(ABB.Robotics.Math.Quaternion,ABB.Robotics.Math.Quaternion)">
+            <summary>
+            Equality operator
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.op_Inequality(ABB.Robotics.Math.Quaternion,ABB.Robotics.Math.Quaternion)">
+            <summary>
+            Inequality operator
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.GetHashCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.op_Addition(ABB.Robotics.Math.Quaternion,ABB.Robotics.Math.Quaternion)">
+            <summary>
+            Element-wise addition operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.Add(ABB.Robotics.Math.Quaternion)">
+            <summary>
+            Element-wise addition method.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.op_Subtraction(ABB.Robotics.Math.Quaternion,ABB.Robotics.Math.Quaternion)">
+            <summary>
+            Element-wise subtraction operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.Subtract(ABB.Robotics.Math.Quaternion)">
+            <summary>
+            Element-wise subtraction method.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.op_Multiply(ABB.Robotics.Math.Quaternion,ABB.Robotics.Math.Quaternion)">
+            <summary>
+            Quaternion-Quaternion multiplication operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.Multiply(ABB.Robotics.Math.Quaternion)">
+            <summary>
+            Quaternion-Quaternion multiplication method.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.op_Multiply(ABB.Robotics.Math.Quaternion,System.Double)">
+            <summary>
+            Quaternion-scalar multiplication operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.Multiply(System.Double)">
+            <summary>
+            Quaternion-scalar multiplication method.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.op_Multiply(System.Double,ABB.Robotics.Math.Quaternion)">
+            <summary>
+            Scalar-Quaternion multiplication operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.op_Division(ABB.Robotics.Math.Quaternion,System.Double)">
+            <summary>
+            Quaternion-scalar division operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.Divide(System.Double)">
+            <summary>
+            Quaternion-scalar division method.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.op_UnaryNegation(ABB.Robotics.Math.Quaternion)">
+            <summary>
+            Unary negation operator.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.Norm">
+            <summary>
+            Returns the norm of the quaternion.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.Magnitude">
+            <summary>
+            Returns the magnitude of the quaternion.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.Normalize">
+            <summary>
+            Normalizes the quaternion.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.Invert">
+            <summary>
+            Inverts the quaternion.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.Inverse">
+            <summary>
+            Returns the inverse (conjugate*1/norm) of the quaternion.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.Conjugate">
+            <summary>
+            Returns the conjugate <c>[q1,-q2,-q3,-q4]</c> of the quaternion.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.Dot(ABB.Robotics.Math.Quaternion)">
+            <summary>
+            Quaternion dot product.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.Interpolate(ABB.Robotics.Math.Quaternion,System.Double)">
+            <summary>
+            Spherical linear interpolation.
+            </summary>
+            <param name="quat">Second quaternion</param>
+            <param name="slerp">Interpolation parameter</param>
+            <returns>Interpolated quaternion</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.AlmostEquals(ABB.Robotics.Math.Quaternion)">
+            <summary>
+            Comparison method for quaternions with tolerance (<see cref="F:ABB.Robotics.Math.Globals.EPS"/>)
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Quaternion.ToString">
+            <summary>
+            Returns a string in the format<br></br>
+            <c>[q1 q2 q3 q4]</c>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ABB.Robotics.Math.Ray">
+            <summary>
+            Represents a 3D ray with an origin and a direction.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Ray.origin">
+            <summary>
+            The start point of the ray.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Ray.direction">
+            <summary>
+            The direction vector of the ray.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Ray.#ctor(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Creates a ray from an origin and a direction
+            </summary>
+            <param name="origin"></param>
+            <param name="direction"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Ray.Distance(ABB.Robotics.Math.Ray,ABB.Robotics.Math.Ray,ABB.Robotics.Math.Vector3@,ABB.Robotics.Math.Vector3@)">
+            <summary>
+            Calculates the distance between two rays and the closest points on each ray.
+            </summary>
+            <param name="ray0">First ray</param>
+            <param name="ray1">Second ray</param>
+            <param name="p0">Closest point on first ray</param>
+            <param name="p1">Closest point on second ray</param>
+            <returns>Distance between p0 and p1</returns>
+        </member>
+        <member name="T:ABB.Robotics.Math.Vector3">
+            <summary>
+            Three element vector, typically used to describe
+            a position, normal or euler rotation.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Vector3.x">
+            <summary>
+            x,y,z values.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Vector3.y">
+            <summary>
+            x,y,z values.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Vector3.z">
+            <summary>
+            x,y,z values.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Vector3.XVector">
+            <summary>
+            Unit vector in the x direction.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Vector3.YVector">
+            <summary>
+            Unit vector in the y direction.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Vector3.ZVector">
+            <summary>
+            Unit vector in the z direction.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Vector3.ZeroVector">
+            <summary>
+            Zero-length vector.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Creates a vector from three doubles.
+            </summary>
+            <param name="x0"></param>
+            <param name="y0"></param>
+            <param name="z0"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.#ctor(System.Double[])">
+            <summary>
+            Creates a vector from an array of doubles.
+            </summary>
+            <param name="vec"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.#ctor(ABB.Robotics.Math.Vector4,System.Boolean)">
+            <summary>
+            Creates a vector from a homogenous 4-vector.
+            </summary>
+            <param name="vec"></param>
+            <param name="scale">Rescale from homegenous coordinates</param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.#ctor(ABB.Robotics.Math.Vector4)">
+            <summary>
+            Creates a vector from a 4-vector, truncating the last element.
+            </summary>
+            <param name="vec"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.#ctor(ABB.Robotics.Math.Axis)">
+            <summary>
+            Creates a unit vector from an axis
+            </summary>
+            <param name="axis">axis</param>
+            <exception cref="T:System.ArgumentException">Invalid axis</exception>
+        </member>
+        <member name="P:ABB.Robotics.Math.Vector3.Item(System.Int32)">
+            <summary>
+            Array access.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.op_Explicit(System.Double[])~ABB.Robotics.Math.Vector3">
+            <summary>
+            Array to vector conversion.
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.op_Equality(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Equality operator
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.op_Inequality(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Inequality operator
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.GetHashCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.op_Addition(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Element-wise addition operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.Add(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Element-wise addition method.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.op_Subtraction(ABB.Robotics.Math.Vector3,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Element-wise subtraction operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.Subtract(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Element-wise subtraction method.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.op_UnaryNegation(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Unary negation operator.
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.op_Multiply(ABB.Robotics.Math.Vector3,System.Double)">
+            <summary>
+            Vector-scalar multiplication operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.Multiply(System.Double)">
+            <summary>
+            Vector-scalar multiplication method.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.op_Multiply(System.Double,ABB.Robotics.Math.Vector3)">
+            <summary>
+            Scalar-Vector multiplication operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.op_Division(ABB.Robotics.Math.Vector3,System.Double)">
+            <summary>
+            Vector-scalar division operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.Divide(System.Double)">
+            <summary>
+            Vector scalar division method.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.Length">
+            <summary>
+            Returns the length of this.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.SquareLength">
+            <summary>
+            Returns the squared length of this.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.Distance(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Returns the distance between this and a vector.
+            </summary>
+            <param name="vec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.SquareDistance(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Returns the squared distance between this and a vector.
+            </summary>
+            <param name="vec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.Normalize">
+            <summary>
+            Ensures that the length of this is 1.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.Normalized">
+            <summary>
+            Returns a vector with the same direction as this, but with length 1
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.Angle(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Angle between this and a vector.
+            </summary>
+            <param name="vec"></param>
+            <returns>radians</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.Dot(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Dot product.
+            </summary>
+            <param name="vec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.Cross(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Cross product.
+            </summary>
+            <param name="vec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.AlmostEquals(ABB.Robotics.Math.Vector3)">
+            <summary>
+            Comparison method for vectors with tolerance (<see cref="F:ABB.Robotics.Math.Globals.EPS"/>)
+            </summary>
+            <param name="vec">Vector to compare with</param>
+            <returns>true if equals within tolerance</returns>
+            
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.AlmostEquals(ABB.Robotics.Math.Vector3,System.Double)">
+            <summary>
+            Comparison method for vectors with tolerance
+            </summary>
+            <param name="vec">Vector to compare with</param>
+            <param name="tolerance">Tolerance to use in the comparison</param>
+            <returns>true if equals within tolerance</returns>
+            
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.LinearInterpolate(ABB.Robotics.Math.Vector3,System.Double)">
+            <summary>
+            Linear interpolation between this and a vector.
+            </summary>
+            <param name="vec">Second vector</param>
+            <param name="lerp">Interpolation parameter</param>
+            <returns>Interpolated vector</returns>
+            <remarks>Use for position vectors</remarks>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.SphericalInterpolate(ABB.Robotics.Math.Vector3,System.Double)">
+            <summary>
+            Spherical interpolation between this and a vector.
+            </summary>
+            <param name="vec">Second vector</param>
+            <param name="lerp">Interpolation parameter</param>
+            <returns>Interpolated vector</returns>
+            <remarks>Use for direction vectors</remarks>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.TransformPoint(ABB.Robotics.Math.Matrix4,ABB.Robotics.Math.Matrix4)">
+            <summary>
+            Transforms a point between coordinate systems.
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <returns>Point in the "to" system</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.TransformVector(ABB.Robotics.Math.Matrix4,ABB.Robotics.Math.Matrix4)">
+            <summary>
+            Transforms a vector between coordinate systems.
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <returns>Vector in the "to" system</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.Normal">
+            <summary>
+            Returns a unit vector normal to this
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.Rotate(ABB.Robotics.Math.Vector3,System.Double)">
+            <summary>
+            Returns a vector that is this vector rotated around an axis.
+            </summary>
+            <param name="axis">Rotation axis</param>
+            <param name="angle">Rotation angle</param>
+            <returns>Rotated vector</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.ToArray">
+            <summary>
+            Returns the elements (x,y,z) as an array
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.ToString">
+            <summary>
+            Returns a string in the format<br></br>
+            <c>[x y z]</c>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.TryParse(System.String,ABB.Robotics.Math.Vector3@)">
+            <summary>
+            Converts the string representation to its Vector3 equivalent.
+            </summary>
+            <param name="value"></param>
+            <param name="result"></param>
+            <returns>A value indicating whether the conversion succeeded</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector3.Parse(System.String)">
+            <summary>
+            Converts the string representation to its Vector3 equivalent.
+            </summary>
+        </member>
+        <member name="T:ABB.Robotics.Math.Vector2">
+            <summary>
+            Two element vector
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Vector2.u">
+            <summary>
+            u,v values.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Vector2.v">
+            <summary>
+            u,v values.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector2.#ctor(System.Double,System.Double)">
+            <summary>
+            Creates a vector from two doubles.
+            </summary>
+            <param name="u"></param>
+            <param name="v"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector2.ToString">
+            <summary>
+            Returns a string in the format<br></br>
+            <c>[u v]</c>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector2.op_Equality(ABB.Robotics.Math.Vector2,ABB.Robotics.Math.Vector2)">
+            <summary>
+            Equality operator
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector2.op_Inequality(ABB.Robotics.Math.Vector2,ABB.Robotics.Math.Vector2)">
+            <summary>
+            Inequality operator
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector2.op_Multiply(System.Double,ABB.Robotics.Math.Vector2)">
+            <summary>
+            Scalar multiplication of vector operator
+            </summary>
+            <param name="lhs">Scalar multiple</param>
+            <param name="rhs">Vector to be multiplied</param>
+            <returns>Result of multiplication</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector2.op_Subtraction(ABB.Robotics.Math.Vector2,ABB.Robotics.Math.Vector2)">
+            <summary>
+            Vector subtraction operator
+            </summary>
+            <param name="lhs">Minuend vector</param>
+            <param name="rhs">Subtrahend vector</param>
+            <returns>Difference between vectors</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector2.SquareLength">
+            <summary>
+            Square length of the vector
+            </summary>
+            <returns>Vector dotted with itself</returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector2.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector2.AlmostEquals(ABB.Robotics.Math.Vector2)">
+            <summary>
+            Comparison method for vectors with tolerance (<see cref="F:ABB.Robotics.Math.Globals.EPS"/>)
+            </summary>
+            <param name="vec">Vector to compare with</param>
+            <returns>true if equals within tolerance</returns>
+            
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector2.GetHashCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ABB.Robotics.Math.Vector4">
+            <summary>
+            Four element vector, typically used to describe
+            a homogenous translation
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Vector4.x">
+            <summary>
+            x,y,z,w values.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Vector4.y">
+            <summary>
+            x,y,z,w values.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Vector4.z">
+            <summary>
+            x,y,z,w values.
+            </summary>
+        </member>
+        <member name="F:ABB.Robotics.Math.Vector4.w">
+            <summary>
+            x,y,z,w values.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Creates a vector from four doubles.
+            </summary>
+            <param name="x0"></param>
+            <param name="y0"></param>
+            <param name="z0"></param>
+            <param name="w0"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Creates a vector from three doubles and sets w=1.
+            </summary>
+            <param name="x0"></param>
+            <param name="y0"></param>
+            <param name="z0"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.#ctor(System.Double[])">
+            <summary>
+            Creates a vector from an array.<br></br>
+            Sets w=1 if the array has less than four elements.
+            </summary>
+            <param name="arr"></param>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.#ctor(ABB.Robotics.Math.Vector3,System.Double)">
+            <summary>
+            Creates a vector from a 3-vector and a scalar.
+            </summary>
+            <param name="vec"></param>
+            <param name="w0"></param>
+        </member>
+        <member name="P:ABB.Robotics.Math.Vector4.Item(System.Int32)">
+            <summary>
+            Array access.
+            </summary>
+        </member>
+        <member name="P:ABB.Robotics.Math.Vector4.IsNaN">
+            <summary>
+            Returns a value indicating whether any elements evaluates to a value that is not a number (NaN).
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.op_Equality(ABB.Robotics.Math.Vector4,ABB.Robotics.Math.Vector4)">
+            <summary>
+            Equality operator
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.op_Inequality(ABB.Robotics.Math.Vector4,ABB.Robotics.Math.Vector4)">
+            <summary>
+            Inequality operator
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.GetHashCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.op_Explicit(System.Double[])~ABB.Robotics.Math.Vector4">
+            <summary>
+            Array to vector conversion.
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.op_Addition(ABB.Robotics.Math.Vector4,ABB.Robotics.Math.Vector4)">
+            <summary>
+            Element-wise addition operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.Add(ABB.Robotics.Math.Vector4)">
+            <summary>
+            Element-wise addition.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.op_Subtraction(ABB.Robotics.Math.Vector4,ABB.Robotics.Math.Vector4)">
+            <summary>
+            Element-wise subtraction operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.Subtract(ABB.Robotics.Math.Vector4)">
+            <summary>
+            Element-wise subtraction.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.op_UnaryNegation(ABB.Robotics.Math.Vector4)">
+            <summary>
+            Unary negation operator.
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.op_Multiply(ABB.Robotics.Math.Vector4,System.Double)">
+            <summary>
+            Vector-scalar multiplication operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.Multiply(System.Double)">
+            <summary>
+            Vector-scalar multiplication.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.op_Multiply(System.Double,ABB.Robotics.Math.Vector4)">
+            <summary>
+            Scalar-Vector multiplication operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.op_Division(ABB.Robotics.Math.Vector4,System.Double)">
+            <summary>
+            Vector-scalar division operator.
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.Divide(System.Double)">
+            <summary>
+            Vector-scalar division method.
+            </summary>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.Dot(ABB.Robotics.Math.Vector4)">
+            <summary>
+            Dot product.
+            </summary>
+            <param name="vec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.Length">
+            <summary>
+            Returns the magnitude of this.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.Normalize">
+            <summary>
+            Ensures that the magnitude of this is 1.
+            </summary>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.AlmostEquals(ABB.Robotics.Math.Vector4)">
+            <summary>
+            Comparison method for vectors with default tolerance
+            </summary>
+            <param name="vec">Vector to compare with</param>
+            <returns>true if equals within default tolerance</returns>
+            
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.AlmostEquals(ABB.Robotics.Math.Vector4,System.Double)">
+            <summary>
+            Comparison method for vectors with tolerance
+            </summary>
+            <param name="vec">Vector to compare with</param>
+            <param name="tolerance">tolerance</param>
+            <returns>true if equals within tolerance</returns>
+            
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.ToArray">
+            <summary>
+            Returns the elements (x,y,z,w) as an array
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ABB.Robotics.Math.Vector4.ToString">
+            <summary>
+            Returns a string in the format<br></br>
+            <c>[x y z w]</c>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:RobotStudio.API.Internal.MathHelper">
+            <summary>
+            Internal math helpers
+            </summary>
+        </member>
+        <member name="M:RobotStudio.API.Internal.MathHelper.GetCosSin(System.Int32)">
+            <summary>
+            Returns precalculated cosinus and sinus for a full revolution (with wrap-around)
+            </summary>
+        </member>
+    </members>
+</doc>
